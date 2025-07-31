@@ -35,24 +35,6 @@
         .animated-words {
             animation: slideWords 8s infinite;
         }
-        
-        /* Link styles */
-        .no-underline, a.no-underline {
-            text-decoration: none !important;
-        }
-        
-        nav a, header a {
-            text-decoration: none;
-        }
-        
-        nav a:hover, header a:hover {
-            text-decoration: none;
-        }
-        
-        /* Smooth scroll */
-        html {
-            scroll-behavior: smooth;
-        }
     </style>
 </head>
 <body class="bg-white">
@@ -69,38 +51,38 @@
                 
                 <!-- Navigation -->
                 <nav class="flex items-center gap-4">
-                    <a href="#home" class="flex items-center gap-1 px-3 py-2 rounded-lg hover:bg-gray-100 text-decoration-none">
-                        <span class="font-semibold text-black/90">Inicio</span>
-                    </a>
-                    <a href="#products" class="flex items-center gap-1 px-3 py-2 rounded-lg hover:bg-gray-100 text-decoration-none">
-                        <span class="font-semibold text-black/90 text-sm">Productos</span>
-                    </a>
-                    <a href="#steps" class="flex items-center gap-1 px-3 py-2 rounded-lg hover:bg-gray-100 text-decoration-none">
-                        <span class="font-semibold text-black/90 text-sm">Como funciona</span>
-                    </a>
-                    <a href="#faq" class="flex items-center gap-1 px-3 py-2 rounded-lg hover:bg-gray-100 text-decoration-none">
-                        <span class="font-semibold text-black/90 text-sm">FAQ</span>
-                    </a>
+                    <button class="flex items-center gap-1 px-3 py-2 rounded-lg hover:bg-gray-100">
+                        <span class="font-semibold text-black/90">Para ti</span>
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <button class="flex items-center gap-1 px-3 py-2 rounded-lg hover:bg-gray-100">
+                        <span class="font-semibold text-black/90 text-sm">Para tu negocio</span>
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
                 </nav>
             </div>
             
             <!-- Right Menu -->
             <div class="flex items-center gap-4">
-                <a href="#contact" class="px-3 py-2 text-sm font-semibold text-black/90 hover:bg-gray-100 rounded-lg no-underline">
+                <button class="px-3 py-2 text-sm font-semibold text-black/90 hover:bg-gray-100 rounded-lg">
                     Ayuda
-                </a>
-                <a href="https://www.mercadopago.com.co/" target="_blank" class="px-3 py-2 text-sm font-semibold text-[#3483fa] bg-[rgba(52,131,250,0.15)] rounded-lg hover:bg-[rgba(52,131,250,0.2)] no-underline">
+                </button>
+                <button class="px-3 py-2 text-sm font-semibold text-[#3483fa] bg-[rgba(52,131,250,0.15)] rounded-lg hover:bg-[rgba(52,131,250,0.2)]">
                     Iniciar sesión
-                </a>
-                <a href="https://www.mercadopago.com.co/registration" target="_blank" class="px-3 py-2 text-sm font-semibold text-white bg-[#3483fa] rounded-lg hover:bg-blue-600 no-underline">
+                </button>
+                <button class="px-3 py-2 text-sm font-semibold text-white bg-[#3483fa] rounded-lg hover:bg-blue-600">
                     Abrir cuenta
-                </a>
+                </button>
             </div>
         </div>
     </header>
 
     <!-- Hero Section -->
-    <section id="home" class="min-h-screen pt-20 flex items-center">
+    <section class="min-h-screen pt-20 flex items-center">
         <div class="max-w-[1366px] mx-auto px-10 flex items-center gap-8">
             <!-- Content -->
             <div class="flex-1 pl-[110px] pr-8">
@@ -130,9 +112,9 @@
                     </div>
                 </div>
                 
-                <a href="#products" class="bg-[#3483fa] text-white px-6 py-3 rounded-md font-semibold hover:bg-blue-600 transition-colors inline-block no-underline">
+                <button class="bg-[#3483fa] text-white px-6 py-3 rounded-md font-semibold hover:bg-blue-600 transition-colors">
                     Pedir crédito
-                </a>
+                </button>
             </div>
             
             <!-- Hero Image -->
@@ -148,7 +130,7 @@
     </section>
 
     <!-- Products Section -->
-    <section id="products" class="py-20">
+    <section class="py-20">
         <div class="max-w-[1062px] mx-auto px-10">
             <!-- Title -->
             <div class="text-center mb-[84px]">
@@ -239,7 +221,7 @@
     </section>
 
     <!-- 3 Steps Section -->
-    <section id="steps" class="py-20 bg-white">
+    <section class="py-20 bg-white">
         <div class="max-w-[1366px] mx-auto px-10">
             <!-- Title -->
             <div class="text-center mb-16">
@@ -301,7 +283,7 @@
     </section>
 
     <!-- Requirements Section -->
-    <section id="requirements" class="py-20 bg-white">
+    <section class="py-20 bg-white">
         <div class="max-w-[845px] mx-auto px-10">
             <!-- Title -->
             <div class="text-center mb-16">
@@ -349,7 +331,7 @@
     </section>
 
     <!-- FAQ Section -->
-    <section id="faq" class="py-20 bg-white">
+    <section class="py-20 bg-white">
         <div class="max-w-[840px] mx-auto px-10">
             <!-- Title -->
             <div class="text-center mb-16">
@@ -401,24 +383,24 @@
     </section>
 
     <!-- CTA Section -->
-    <section id="cta" class="bg-[#ffe600] py-16">
+    <section class="bg-[#ffe600] py-16">
         <div class="max-w-[846px] mx-auto px-10 text-center">
             <h2 class="text-[40px] font-bold text-black/90 leading-[40px] mb-8 tracking-[-0.8px]">
                 Lleva tu negocio al siguiente nivel
             </h2>
             <div class="flex gap-6 justify-center">
-                <a href="https://www.mercadopago.com.co/registration" target="_blank" class="bg-[#3483fa] text-white px-6 py-3 rounded-md font-semibold hover:bg-blue-600 transition-colors no-underline">
+                <button class="bg-[#3483fa] text-white px-6 py-3 rounded-md font-semibold hover:bg-blue-600 transition-colors">
                     Abrir cuenta
-                </a>
-                <a href="https://www.mercadopago.com.co/" target="_blank" class="bg-[rgba(52,131,250,0.15)] text-[#3483fa] px-6 py-3 rounded-md font-semibold hover:bg-[rgba(52,131,250,0.2)] transition-colors no-underline">
+                </button>
+                <button class="bg-[rgba(52,131,250,0.15)] text-[#3483fa] px-6 py-3 rounded-md font-semibold hover:bg-[rgba(52,131,250,0.2)] transition-colors">
                     Iniciar sesión
-                </a>
+                </button>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer id="contact" class="bg-white py-16">
+    <footer class="bg-white py-16">
         <div class="max-w-[1366px] mx-auto px-10">
             <!-- Footer Content -->
             <div class="flex justify-between mb-16">
@@ -509,60 +491,12 @@
     </footer>
 
     <script>
-        // Smooth scroll for navigation links
-        document.addEventListener('DOMContentLoaded', function() {
-            // FAQ accordion functionality
-            document.querySelectorAll('.space-y-0 button').forEach(button => {
-                button.addEventListener('click', () => {
-                    const svg = button.querySelector('svg');
-                    if (svg) {
-                        svg.style.transform = svg.style.transform === 'rotate(180deg)' ? 'rotate(0deg)' : 'rotate(180deg)';
-                    }
-                });
+        // Simple accordion functionality for FAQ
+        document.querySelectorAll('.space-y-0 button').forEach(button => {
+            button.addEventListener('click', () => {
+                const svg = button.querySelector('svg');
+                svg.style.transform = svg.style.transform === 'rotate(180deg)' ? 'rotate(0deg)' : 'rotate(180deg)';
             });
-            
-            // Enhanced smooth scroll for navigation links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    const targetId = this.getAttribute('href');
-                    const targetElement = document.querySelector(targetId);
-                    
-                    if (targetElement) {
-                        const headerOffset = 100; // Account for fixed header
-                        const elementPosition = targetElement.getBoundingClientRect().top;
-                        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-                        
-                        window.scrollTo({
-                            top: offsetPosition,
-                            behavior: 'smooth'
-                        });
-                    }
-                });
-            });
-            
-            // Active nav link highlighting
-            const sections = document.querySelectorAll('section[id], footer[id]');
-            const navLinks = document.querySelectorAll('nav a[href^="#"]');
-            
-            function updateActiveNav() {
-                let current = '';
-                sections.forEach(section => {
-                    const sectionTop = section.getBoundingClientRect().top;
-                    if (sectionTop <= 150) {
-                        current = section.getAttribute('id');
-                    }
-                });
-                
-                navLinks.forEach(link => {
-                    link.classList.remove('bg-blue-100');
-                    if (link.getAttribute('href') === '#' + current) {
-                        link.classList.add('bg-blue-100');
-                    }
-                });
-            }
-            
-            window.addEventListener('scroll', updateActiveNav);
         });
     </script>
 </body>
