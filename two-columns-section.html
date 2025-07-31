@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Two Columns Cards</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Proxima+Nova:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Proxima Nova', sans-serif;
+        }
+        
+        /* Hover animations for left card */
+        .left-card {
+            transition: transform 0.3s ease;
+        }
+        
+        .left-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        /* Animated buttons container */
+        .animated-buttons {
+            position: absolute;
+            bottom: 32px;
+            left: 32px;
+            right: 32px;
+            z-index: 20;
+        }
+        
+        /* Individual button animations */
+        .push-button {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .left-card:hover .push-button:nth-child(1) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 0.1s;
+        }
+        
+        .left-card:hover .push-button:nth-child(2) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 0.3s;
+        }
+        
+        /* Button styles */
+        .cta-button {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #333;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .cta-button:hover {
+            background: rgba(255, 255, 255, 1);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .cta-button.secondary {
+            background: rgba(52, 131, 250, 0.9);
+            color: white;
+            border: 1px solid rgba(52, 131, 250, 0.3);
+        }
+        
+        .cta-button.secondary:hover {
+            background: rgba(52, 131, 250, 1);
+        }
+    </style>
+</head>
+<body>
+    <!-- Two Columns Section -->
+    <section class="py-16 px-4">
+        <div class="max-w-6xl mx-auto">
+            <div class="box-border content-stretch flex flex-col lg:flex-row gap-8 items-center justify-start p-0 relative w-full">
+                
+                <!-- Left Card -->
+                <div class="left-card bg-[#f7f8f9] box-border content-stretch flex flex-col h-[557px] items-start justify-start overflow-hidden p-0 relative rounded-[40px] w-full lg:w-[407px] shrink-0">
+                    <!-- Background Image -->
+                    <div class="absolute bg-center bg-cover bg-no-repeat h-[610px] left-[-2px] top-[-2px] w-[427px]"
+                         style="background-image: url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&h=600&fit=crop&crop=face');">
+                    </div>
+                    
+                    <!-- Content Overlay -->
+                    <div class="absolute box-border content-stretch flex flex-col gap-8 items-start justify-start left-0 pb-0 pt-8 px-8 right-0 top-0 z-10">
+                        <div class="box-border content-stretch flex flex-col gap-4 items-start justify-start p-0 relative shrink-0 w-full">
+                            <div class="box-border content-stretch flex flex-col gap-2 items-start justify-start p-0 relative shrink-0 w-full">
+                                <h3 class="font-bold text-white text-[24px] leading-[32px] text-left w-full">
+                                    Vende más de $500 por<br>
+                                    2 meses en Mercado Libre<br>
+                                    o Mercado Pago
+                                </h3>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Animated Buttons (appear on hover) -->
+                    <div class="animated-buttons">
+                        <div class="flex flex-col gap-3">
+                            <div class="push-button">
+                                <a href="#credit" class="cta-button">
+                                    📋 Pedir Crédito
+                                </a>
+                            </div>
+                            <div class="push-button">
+                                <a href="#info" class="cta-button secondary">
+                                    ℹ️ Mais Informações
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Right Card -->
+                <div class="bg-[#f7f8f9] box-border content-stretch flex flex-col h-[557px] items-start justify-start overflow-hidden p-0 relative rounded-[40px] w-full lg:w-[407px] shrink-0">
+                    <!-- Background Image -->
+                    <div class="absolute bg-center bg-cover bg-no-repeat h-[660px] left-0 top-[-30px] w-[407px]"
+                         style="background-image: url('https://images.unsplash.com/photo-1494790108755-2616c5e32bf0?w=500&h=600&fit=crop&crop=face');">
+                    </div>
+                    
+                    <!-- Content Overlay -->
+                    <div class="absolute box-border content-stretch flex flex-col gap-8 items-start justify-start left-0 pb-0 pt-8 px-8 right-0 top-0 z-10">
+                        <div class="box-border content-stretch flex flex-col gap-4 items-start justify-start p-0 relative shrink-0 w-full">
+                            <div class="box-border content-stretch flex flex-col gap-2 items-start justify-start p-0 relative shrink-0 w-full">
+                                <h3 class="font-bold text-[24px] leading-[32px] text-left w-full text-[rgba(0,0,0,0.9)]">
+                                    Mantén una buena reputación al vender en Mercado Libre
+                                </h3>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Reputation Badge -->
+                    <div class="absolute backdrop-blur-[4.6px] backdrop-filter bg-[rgba(255,255,255,0.12)] box-border content-stretch flex flex-row gap-5 h-20 items-center justify-start left-[46px] p-[16px] rounded-xl top-[403px] w-[242px] border border-white/30">
+                        <!-- Reputation Bars -->
+                        <div class="flex-1 box-border content-stretch flex flex-col gap-[22px] items-center justify-center min-h-px min-w-px p-0 relative">
+                            <div class="box-border content-stretch flex flex-row gap-[5px] h-[10px] items-center justify-start p-0 relative w-full">
+                                <!-- Red Bar (Background) -->
+                                <div class="flex-1 bg-[#f23d4f] h-full rounded-[11px] opacity-30"></div>
+                                <!-- Yellow Bar (Background) -->
+                                <div class="flex-1 bg-[#ffce52] h-full rounded-[11px] opacity-30"></div>
+                                <!-- Green Bar (Background) -->
+                                <div class="flex-1 bg-[#00a650] h-full rounded-[11px] opacity-30"></div>
+                                
+                                <!-- Active Red Bar -->
+                                <div class="absolute bg-[#f23d4f] h-[10px] left-0 rounded-[11px] top-0 w-[62px]"></div>
+                            </div>
+                        </div>
+                        
+                        <!-- Check Icon Circle -->
+                        <div class="absolute flex items-center justify-center left-[14px] w-[27px] h-[27px] top-[26px]">
+                            <div class="w-[27px] h-[27px] bg-[#f23d4f] rounded-full flex items-center justify-center">
+                                <!-- Check Icon -->
+                                <svg width="15" height="12" viewBox="0 0 15 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M13.5 1L5.25 9.25L1.5 5.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+</body>
+</html>

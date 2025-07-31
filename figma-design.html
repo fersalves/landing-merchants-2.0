@@ -35,6 +35,74 @@
         .animated-words {
             animation: slideWords 8s infinite;
         }
+        
+        /* Hover animations for left card */
+        .left-card {
+            transition: transform 0.3s ease;
+        }
+        
+        .left-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        /* Animated buttons container */
+        .animated-buttons {
+            position: absolute;
+            bottom: 32px;
+            left: 32px;
+            right: 32px;
+            z-index: 20;
+        }
+        
+        /* Individual button animations */
+        .push-button {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .left-card:hover .push-button:nth-child(1) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 0.1s;
+        }
+        
+        .left-card:hover .push-button:nth-child(2) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 0.3s;
+        }
+        
+        /* Button styles */
+        .cta-button {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #333;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .cta-button:hover {
+            background: rgba(255, 255, 255, 1);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .cta-button.secondary {
+            background: rgba(52, 131, 250, 0.9);
+            color: white;
+            border: 1px solid rgba(52, 131, 250, 0.3);
+        }
+        
+        .cta-button.secondary:hover {
+            background: rgba(52, 131, 250, 1);
+        }
     </style>
 </head>
 <body class="bg-white">
@@ -295,13 +363,29 @@
             <!-- Two Cards -->
             <div class="flex gap-8">
                 <!-- Card 1 -->
-                <div class="bg-gradient-to-br from-blue-600 to-purple-700 rounded-[40px] w-[407px] h-[557px] relative overflow-hidden">
+                <div class="left-card bg-gradient-to-br from-blue-600 to-purple-700 rounded-[40px] w-[407px] h-[557px] relative overflow-hidden">
                     <div class="absolute top-8 right-8 text-white/20 text-6xl">💳</div>
                     <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
                     <div class="absolute top-8 left-8 right-8">
                         <h3 class="text-2xl font-bold text-white leading-8">
                             Vende más de $500 por<br>2 meses en Mercado Libre<br>o Mercado Pago
                         </h3>
+                    </div>
+                    
+                    <!-- Animated Buttons (appear on hover) -->
+                    <div class="animated-buttons">
+                        <div class="flex flex-col gap-3">
+                            <div class="push-button">
+                                <a href="#credit" class="cta-button">
+                                    📋 Pedir Crédito
+                                </a>
+                            </div>
+                            <div class="push-button">
+                                <a href="#info" class="cta-button secondary">
+                                    ℹ️ Mais Informações
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 
