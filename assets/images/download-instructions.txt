@@ -1,0 +1,33 @@
+INSTRUÇÕES RÁPIDAS - DOWNLOAD DE IMAGENS DO FIGMA
+
+Link direto: https://www.figma.com/design/gbplqYDdmUZooyR2tep4nk/Merchant--Handoff--Landing-P%C3%BAblica?node-id=5850-17590&t=SgD4ANb0vYL1FYr6-4
+
+IMAGENS NECESSÁRIAS (em ordem de prioridade):
+
+1. HERO - Mulher de camisa amarela
+   - Selecionar → Export → PNG
+   - Salvar como: hero-woman-yellow.jpg
+
+2. CARD AZUL - "Dinero rápido para lo que necesites"  
+   - Selecionar → Export → JPG
+   - Salvar como: product-dinero-rapido.jpg
+
+3. CARD AMARELO - "Invierte en tus proyectos más grandes"
+   - Selecionar → Export → JPG  
+   - Salvar como: product-invierte.jpg
+
+4. CARD ESCURO - "Recibe antes el dinero de tus ventas"
+   - Selecionar → Export → JPG
+   - Salvar como: product-recibe-antes.jpg
+
+5. CARD AMARELO INFERIOR - "Esqueça as parcelas"
+   - Selecionar → Export → JPG
+   - Salvar como: product-esqueca.jpg
+
+APÓS DOWNLOAD:
+- Colocar todas na pasta: assets/images/
+- git add assets/images/
+- git commit -m "Add Figma images"
+- git push origin main
+
+RESULTADO: Landing page idêntica ao Figma!
