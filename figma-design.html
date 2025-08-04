@@ -103,6 +103,31 @@
         .cta-button.secondary:hover {
             background: rgba(52, 131, 250, 1);
         }
+
+        /* Hero Words Animation - Exato como no Figma */
+        .animated-words {
+            animation: wordSlide 10s infinite;
+            transform: translateY(0);
+        }
+        
+        @keyframes wordSlide {
+            0% { transform: translateY(0); }
+            18% { transform: translateY(0); }
+            20% { transform: translateY(-104px); }
+            38% { transform: translateY(-104px); }
+            40% { transform: translateY(-208px); }
+            58% { transform: translateY(-208px); }
+            60% { transform: translateY(-312px); }
+            78% { transform: translateY(-312px); }
+            80% { transform: translateY(-416px); }
+            98% { transform: translateY(-416px); }
+            100% { transform: translateY(0); }
+        }
+        
+        /* Smooth transitions for words */
+        .animated-words > div {
+            transition: opacity 0.3s ease;
+        }
     </style>
 </head>
 <body class="bg-white">
