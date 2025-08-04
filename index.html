@@ -49,25 +49,14 @@
 
         .logo {
             height: 32px;
-            width: 127px;
+            width: auto;
             display: flex;
             align-items: center;
-            color: #000;
-            font-weight: 700;
-            font-size: 14px;
-            gap: 8px;
         }
 
-        .logo::before {
-            content: '';
-            width: 32px;
+        .logo img {
             height: 32px;
-            background: linear-gradient(135deg, #3483fa, #2968c8);
-            border-radius: 50%;
-            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>');
-            background-size: 16px;
-            background-repeat: no-repeat;
-            background-position: center;
+            width: auto;
         }
 
         .nav-menu {
@@ -736,7 +725,9 @@
         <div class="container">
             <div class="header-content">
                 <div class="nav-left">
-                    <div class="logo">mercado pago</div>
+                    <div class="logo">
+                        <img src="./assets/images/Header-Logo.png" alt="Mercado Pago" />
+                    </div>
                     <nav class="nav-menu">
                         <a href="#" class="nav-item dropdown">Para ti</a>
                         <a href="#" class="nav-item dropdown">Para tu negocio</a>
@@ -926,7 +917,9 @@
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <div class="logo">mercado pago</div>
+                <div class="logo">
+                    <img src="./assets/images/footer-logo.png" alt="Mercado Pago" />
+                </div>
                 <div class="footer-columns">
                     <div class="footer-column">
                         <h4>Mercado Pago Financiera</h4>
