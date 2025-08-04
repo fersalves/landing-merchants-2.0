@@ -52,12 +52,22 @@
             width: 127px;
             display: flex;
             align-items: center;
-            color: #fff;
-            background: linear-gradient(135deg, #3483fa, #2968c8);
-            border-radius: 8px;
-            padding: 8px 16px;
+            color: #000;
             font-weight: 700;
             font-size: 14px;
+            gap: 8px;
+        }
+
+        .logo::before {
+            content: '';
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, #3483fa, #2968c8);
+            border-radius: 50%;
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>');
+            background-size: 16px;
+            background-repeat: no-repeat;
+            background-position: center;
         }
 
         .nav-menu {
@@ -106,7 +116,7 @@
         .hero {
             margin-top: 73px;
             padding: 80px 0;
-            background: white;
+            background: #ffe600;
         }
 
         .hero-content {
@@ -125,8 +135,16 @@
             font-weight: 700;
             line-height: 80px;
             letter-spacing: -3.2px;
-            margin-bottom: 32px;
+            margin-bottom: 16px;
             color: rgba(0,0,0,0.9);
+        }
+
+        .hero-subtitle {
+            font-size: 18px;
+            font-weight: 400;
+            line-height: 24px;
+            margin-bottom: 32px;
+            color: rgba(0,0,0,0.7);
         }
 
         .hero-cta {
@@ -152,7 +170,10 @@
             height: 517px;
             border-radius: 40px;
             overflow: hidden;
-            background: linear-gradient(135deg, #3483fa, #2968c8);
+            background: linear-gradient(135deg, #8B4513, #D2691E);
+            background-image: url('https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=888&q=80');
+            background-size: cover;
+            background-position: center;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -163,21 +184,25 @@
             text-align: center;
             color: white;
             z-index: 2;
+            background: rgba(0,0,0,0.4);
+            padding: 20px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
         }
 
         .hero-image-content .icon {
-            font-size: 120px;
-            margin-bottom: 24px;
+            font-size: 60px;
+            margin-bottom: 16px;
         }
 
         .hero-image-content h3 {
-            font-size: 32px;
+            font-size: 24px;
             font-weight: 700;
-            margin-bottom: 8px;
+            margin-bottom: 4px;
         }
 
         .hero-image-content p {
-            font-size: 18px;
+            font-size: 14px;
             opacity: 0.9;
         }
 
@@ -722,7 +747,7 @@
         <div class="container">
             <div class="header-content">
                 <div class="nav-left">
-                    <div class="logo">MercadoPago</div>
+                    <div class="logo">mercado pago</div>
                     <nav class="nav-menu">
                         <a href="#" class="nav-item dropdown">Para ti</a>
                         <a href="#" class="nav-item dropdown">Para tu negocio</a>
@@ -732,7 +757,7 @@
                     <nav class="nav-menu">
                         <a href="#" class="nav-item">Ayuda</a>
                         <a href="#" class="nav-item login">Iniciar sesión</a>
-                        <a href="#" class="nav-item signup">Abrir cuenta</a>
+                        <a href="#" class="nav-item signup">Simular crédito</a>
                     </nav>
                 </div>
             </div>
@@ -744,8 +769,9 @@
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text">
-                    <h1 class="hero-title">Créditos para impulsar tu negocio</h1>
-                    <a href="#productos" class="hero-cta">Pedir crédito</a>
+                    <h1 class="hero-title">Tienes un crédito para impulsar tu negocio</h1>
+                    <p class="hero-subtitle">Simula tu crédito y obtén el dinero al instante.</p>
+                    <a href="#productos" class="hero-cta">Simular crédito</a>
                 </div>
                 <div class="hero-image">
                     <div class="hero-image-content">
@@ -916,7 +942,7 @@
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <div class="logo">MercadoPago</div>
+                <div class="logo">mercado pago</div>
                 <div class="footer-columns">
                     <div class="footer-column">
                         <h4>Mercado Pago Financiera</h4>
