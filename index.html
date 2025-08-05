@@ -251,22 +251,22 @@
         /* Posicionamento sticky progressivo com 80px visíveis */
         .product-card:nth-child(1) {
             top: 200px; /* Primeiro card fixa a 200px do topo */
-            z-index: 1;
+            z-index: 4; /* Maior z-index para ficar sempre visível por cima */
         }
 
         .product-card:nth-child(2) {
             top: 280px; /* 200px + 80px visíveis */
-            z-index: 2;
+            z-index: 3;
         }
 
         .product-card:nth-child(3) {
             top: 360px; /* 280px + 80px visíveis */
-            z-index: 3;
+            z-index: 2;
         }
 
         .product-card:nth-child(4) {
             top: 440px; /* 360px + 80px do Card 3 visível */
-            z-index: 4;
+            z-index: 1; /* Menor z-index para ficar por baixo, permitindo outros cards visíveis por cima */
         }
 
         .card-content {
