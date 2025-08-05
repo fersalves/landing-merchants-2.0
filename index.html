@@ -1185,7 +1185,11 @@
             });
         });
 
-        // Scroll to card function - volta para posição onde card fica totalmente visível
+        // Estado para controlar scroll toggle
+        let lastScrollPosition = null;
+        let currentActiveCard = null;
+
+        // Scroll to card function com toggle - volta para posição onde card fica totalmente visível
         function scrollToCard(cardNumber) {
             const productsSection = document.querySelector('#productos');
             const sectionTop = productsSection.offsetTop;
@@ -1199,12 +1203,28 @@
                 4: sectionTop - headerHeight + 1404 // Card 4: 936px + 420px + 48px
             };
             
-            const targetPosition = cardPositions[cardNumber];
-            
-            window.scrollTo({
-                top: targetPosition,
-                behavior: 'smooth'
-            });
+            // Se clicou no mesmo card novamente, volta para posição original
+            if (currentActiveCard === cardNumber && lastScrollPosition !== null) {
+                window.scrollTo({
+                    top: lastScrollPosition,
+                    behavior: 'smooth'
+                });
+                
+                // Reset do estado
+                currentActiveCard = null;
+                lastScrollPosition = null;
+            } else {
+                // Salva a posição atual antes de fazer scroll
+                lastScrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+                currentActiveCard = cardNumber;
+                
+                const targetPosition = cardPositions[cardNumber];
+                
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+            }
         }
     </script>
 </body>
