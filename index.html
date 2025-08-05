@@ -105,7 +105,20 @@
         .hero {
             margin-top: 73px;
             padding: 80px 0;
-            background: #ffe600;
+            background: linear-gradient(135deg, #ffe600 0%, #ffcd3c 25%, #ffa726 50%, #ff9800 75%, #ff8f00 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(255,230,0,0.1) 0%, rgba(255,152,0,0.05) 100%);
+            pointer-events: none;
         }
 
         .hero-content {
