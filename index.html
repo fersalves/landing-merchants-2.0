@@ -209,7 +209,7 @@
         /* Products Section */
         .products {
             padding: 84px 0;
-            padding-bottom: 200px; /* Espaço normal - Card 4 não é sticky */
+            padding-bottom: 800px; /* Espaço para todos empilharem corretamente, depois subirem juntos */
             background: white;
         }
 
@@ -265,7 +265,7 @@
         }
 
         .product-card:nth-child(4) {
-            position: relative; /* Card 4 não é sticky - empurra todos para cima */
+            top: 440px; /* 360px + 80px do Card 3 visível */
             z-index: 4;
         }
 
