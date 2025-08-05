@@ -237,7 +237,6 @@
             border-radius: 24px;
             box-shadow: 0 6px 16px rgba(0,0,0,0.1);
             position: sticky;
-            top: 70px; /* Offset para mostrar 70px do card anterior */
             overflow: hidden;
             cursor: pointer;
             transition: transform 0.3s ease;
@@ -248,21 +247,24 @@
             transform: translateY(-4px);
         }
 
-        /* Z-index crescente para últimos cards ficarem acima */
+        /* Posicionamento sticky progressivo com 80px visíveis */
         .product-card:nth-child(1) {
             top: 200px; /* Primeiro card fixa a 200px do topo */
             z-index: 1;
         }
 
         .product-card:nth-child(2) {
+            top: 280px; /* 200px + 80px visíveis */
             z-index: 2;
         }
 
         .product-card:nth-child(3) {
+            top: 360px; /* 280px + 80px visíveis */
             z-index: 3;
         }
 
         .product-card:nth-child(4) {
+            top: 440px; /* 360px + 80px visíveis */
             z-index: 4;
         }
 
