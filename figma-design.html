@@ -421,7 +421,7 @@
                 </div>
 
                 <!-- Porcentaje de Ventas -->
-                <div class="bg-gradient-to-r from-red-500 to-pink-600 rounded-3xl h-[420px] relative z-[4] overflow-hidden shadow-lg cursor-pointer hover:shadow-xl transition-shadow" onclick="scrollToCard(4)">
+                <div class="bg-gradient-to-r from-red-500 to-pink-600 rounded-3xl h-[420px] relative z-[4] overflow-hidden shadow-lg cursor-pointer hover:shadow-xl transition-shadow">
                     <div class="absolute top-8 right-8 text-white/20 text-8xl">📈</div>
                     <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
                     <div class="relative z-10 p-12 h-full flex flex-col justify-between w-[517px]">
@@ -780,18 +780,18 @@
         let lastScrollPosition = null;
         let currentActiveCard = null;
 
-        // Scroll to card function com toggle - outros cards "saem da frente" do card clicado
+        // Scroll to card function com toggle - volta para posição onde card fica totalmente visível
         function scrollToCard(cardNumber) {
             const productsSection = document.querySelector('.py-20');
             const sectionTop = productsSection.offsetTop;
             const headerHeight = 73; // Header fixo
             
-            // Posições calculadas para "revelar" cada card (outros cards saem da frente)
-            const cardRevealPositions = {
-                1: sectionTop - headerHeight + 50, // Card 1: scroll pouco para baixo para revelar
-                2: sectionTop - headerHeight + 200, // Card 2: scroll até sticky começar  
-                3: sectionTop - headerHeight + 280, // Card 3: scroll até card 2 ficar sticky
-                4: sectionTop - headerHeight + 1404 // Card 4: posição original (já visível quando ativo)
+            // Posições calculadas para cada card ficar totalmente visível (apenas cards 1, 2, 3)
+            const cardPositions = {
+                1: sectionTop - headerHeight - 50, // Card 1: posição inicial (antes do sticky)
+                2: sectionTop - headerHeight + 468, // Card 2: 420px (altura card) + 48px (gap)
+                3: sectionTop - headerHeight + 936  // Card 3: 468px + 420px + 48px
+                // Card 4 removido - não precisa de click para visualização
             };
             
             // Se clicou no mesmo card novamente, volta para posição original
@@ -809,7 +809,7 @@
                 lastScrollPosition = window.pageYOffset || document.documentElement.scrollTop;
                 currentActiveCard = cardNumber;
                 
-                const targetPosition = cardRevealPositions[cardNumber];
+                const targetPosition = cardPositions[cardNumber];
                 
                 window.scrollTo({
                     top: targetPosition,
