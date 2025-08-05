@@ -228,7 +228,6 @@
             position: relative;
             max-width: 1062px;
             margin: 0 auto;
-            height: calc(420px + (70px * 3)); /* Altura base + 70px para cada card sobreposto */
         }
 
         .product-card {
@@ -241,31 +240,36 @@
             transition: transform 0.3s ease;
             background: #fbf9f9;
             width: 100%;
+            margin-bottom: -350px; /* Sobreposição: -420px + 70px visíveis */
         }
 
         .product-card:hover {
             transform: translateY(-4px);
         }
 
+        .product-card:last-child {
+            margin-bottom: 0; /* Remove margin do último card */
+        }
+
         /* Posicionamento sticky específico para cada card */
         .product-card:nth-child(1) {
             top: 0;
-            z-index: 4;
+            z-index: 1; /* Primeiro card por baixo */
         }
 
         .product-card:nth-child(2) {
-            top: -350px; /* -420px + 70px visíveis */
-            z-index: 3;
-        }
-
-        .product-card:nth-child(3) {
-            top: -700px; /* -420px*2 + 70px*2 visíveis */
+            top: 0;
             z-index: 2;
         }
 
+        .product-card:nth-child(3) {
+            top: 0;
+            z-index: 3;
+        }
+
         .product-card:nth-child(4) {
-            top: -1050px; /* -420px*3 + 70px*3 visíveis */
-            z-index: 1;
+            top: 0;
+            z-index: 4; /* Último card por cima */
         }
 
         .card-content {
