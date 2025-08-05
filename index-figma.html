@@ -69,7 +69,6 @@
         /* Hover effect for left card */
         .left-card-hover {
             transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            cursor: pointer;
         }
         
         .hover-card {
@@ -77,27 +76,15 @@
             bottom: 140px;
             right: 32px;
             transform: translateY(100%);
-            width: 240px;
-            height: 80px;
-            background: linear-gradient(135deg, 
-                rgba(255, 255, 255, 0.1) 0%, 
-                rgba(255, 255, 255, 0.2) 50%, 
-                rgba(255, 255, 255, 0.1) 100%);
-            backdrop-filter: blur(20px) saturate(180%);
-            border-radius: 16px;
-            border: 1px solid rgba(255, 255, 255, 0.4);
-            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2), 
-                        inset 0 1px 0 rgba(255, 255, 255, 0.5);
+            width: 280px;
+            height: 68px;
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(20px);
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
             opacity: 0;
             transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             z-index: 10;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 16px;
-            font-weight: 600;
-            color: white;
-            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
         }
 
         .hover-card-2 {
@@ -105,28 +92,16 @@
             bottom: 48px;
             right: 32px;
             transform: translateY(100%);
-            width: 240px;
-            height: 80px;
-            background: linear-gradient(135deg, 
-                rgba(255, 255, 255, 0.1) 0%, 
-                rgba(255, 255, 255, 0.2) 50%, 
-                rgba(255, 255, 255, 0.1) 100%);
-            backdrop-filter: blur(20px) saturate(180%);
-            border-radius: 16px;
-            border: 1px solid rgba(255, 255, 255, 0.4);
-            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2), 
-                        inset 0 1px 0 rgba(255, 255, 255, 0.5);
+            width: 280px;
+            height: 68px;
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(20px);
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
             opacity: 0;
             transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             transition-delay: 1s;
             z-index: 9;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 16px;
-            font-weight: 600;
-            color: white;
-            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
         }
 
         .left-card-hover:hover .hover-card {
@@ -137,6 +112,56 @@
         .left-card-hover:hover .hover-card-2 {
             transform: translateY(0);
             opacity: 1;
+        }
+
+        .push-content {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 16px;
+            height: 100%;
+        }
+
+        .push-icon {
+            width: 49px;
+            height: 49px;
+            background: #ffd100;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .ml-icon {
+            width: 33px;
+            height: 23px;
+            background: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzMiIGhlaWdodD0iMjMiIHZpZXdCb3g9IjAgMCAzMyAyMyIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEuNSAwSDBWMjNIMzNWMTAuODY2NEgxNC44MDk0VjEyLjExNzJIMzEuNTA0N1YyMS43NDMzSDEuNDk2NEwxLjUgMFoiIGZpbGw9IndoaXRlIi8+Cjwvc3ZnPgo=') no-repeat center;
+            background-size: contain;
+        }
+
+        .push-text {
+            display: flex;
+            flex: 1;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .push-title {
+            font-family: 'Proxima Nova', sans-serif;
+            font-size: 16px;
+            font-weight: 500;
+            color: white;
+            line-height: 1;
+        }
+
+        .push-time {
+            font-family: 'Proxima Nova', sans-serif;
+            font-size: 12px;
+            font-weight: 400;
+            color: white;
+            opacity: 0.8;
+            text-align: right;
         }
     </style>
 </head>
@@ -418,10 +443,26 @@
                     
                     <!-- Hover Card -->
                     <div class="hover-card">
-                        <span>💳 Ver detalles</span>
+                        <div class="push-content">
+                            <div class="push-icon">
+                                <div class="ml-icon"></div>
+                            </div>
+                            <div class="push-text">
+                                <span class="push-title">Nova venda</span>
+                                <span class="push-time">agora</span>
+                            </div>
+                        </div>
                     </div>
                     <div class="hover-card-2">
-                        <span>📊 Más información</span>
+                        <div class="push-content">
+                            <div class="push-icon">
+                                <div class="ml-icon"></div>
+                            </div>
+                            <div class="push-text">
+                                <span class="push-title">Crédito aprovado</span>
+                                <span class="push-time">2 min</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 
