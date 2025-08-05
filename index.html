@@ -1195,14 +1195,6 @@
             const sectionTop = productsSection.offsetTop;
             const headerHeight = 73; // Header fixo
             
-            // Posições calculadas para cada card ficar totalmente visível (apenas cards 1, 2, 3)
-            const cardPositions = {
-                1: sectionTop - headerHeight - 50, // Card 1: posição inicial (antes do sticky)
-                2: sectionTop - headerHeight + 200, // Card 2: posição exata onde fica sticky (não se move)
-                3: sectionTop - headerHeight + 936  // Card 3: 468px + 420px + 48px
-                // Card 4 removido - não precisa de click para visualização
-            };
-            
             // Se clicou no mesmo card novamente, volta para posição original
             if (currentActiveCard === cardNumber && lastScrollPosition !== null) {
                 window.scrollTo({
@@ -1218,7 +1210,18 @@
                 lastScrollPosition = window.pageYOffset || document.documentElement.scrollTop;
                 currentActiveCard = cardNumber;
                 
-                const targetPosition = cardPositions[cardNumber];
+                let targetPosition;
+                
+                if (cardNumber === 2) {
+                    // Card 2: NÃO se move! Só faz scroll mínimo para Cards 3 e 4 saírem da frente
+                    targetPosition = sectionTop - headerHeight + 280; // Card 2 fica sticky, Cards 3 e 4 saem
+                } else if (cardNumber === 1) {
+                    // Card 1: vai para posição inicial
+                    targetPosition = sectionTop - headerHeight - 50;
+                } else if (cardNumber === 3) {
+                    // Card 3: vai para posição onde fica totalmente visível
+                    targetPosition = sectionTop - headerHeight + 936;
+                }
                 
                 window.scrollTo({
                     top: targetPosition,
