@@ -146,10 +146,11 @@
         }
 
         .word-item {
-            height: 100px; /* Aumentado de 80px para 100px (+20px de espaço) */
+            height: 80px; /* Mantém 80px para não afetar entrelinha */
+            margin-bottom: 20px; /* 20px de distância entre palavras */
             display: flex;
             align-items: center;
-            justify-content: flex-start; /* Melhora a centralização horizontal */
+            justify-content: center; /* Centraliza horizontalmente no espaço */
             font-size: 80px;
             font-weight: 700;
             line-height: 80px;
@@ -160,13 +161,13 @@
         @keyframes wordSlide {
             0% { transform: translateY(0); }
             22% { transform: translateY(0); }
-            25% { transform: translateY(-100px); } /* Ajustado para múltiplos de 100px */
+            25% { transform: translateY(-100px); } /* 80px + 20px = 100px por palavra */
             47% { transform: translateY(-100px); }
             50% { transform: translateY(-200px); }
             72% { transform: translateY(-200px); }
             75% { transform: translateY(-300px); }
             97% { transform: translateY(-300px); }
-            100% { transform: translateY(-400px); } /* Total para 4 palavras com 100px cada */
+            100% { transform: translateY(-400px); } /* Total considerando 20px entre cada */
         }
 
         .hero-subtitle {
