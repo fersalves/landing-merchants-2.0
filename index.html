@@ -1213,14 +1213,14 @@
                 let targetPosition;
                 
                 if (cardNumber === 1) {
-                    // Card 1: todos os outros cards (2,3,4) se movem JUNTOS para baixo
-                    targetPosition = sectionTop - headerHeight + 200; // Card 1 visível, outros agrupados embaixo
+                    // Card 1: FICA PARADO. Cards 2,3,4 DESCEM JUNTOS
+                    targetPosition = sectionTop - headerHeight + 200;
                 } else if (cardNumber === 2) {
-                    // Card 2: Card 1 sobe, Cards 3 e 4 se movem JUNTOS para baixo
-                    targetPosition = sectionTop - headerHeight + 280; // Card 2 visível, Card 1 em cima, 3+4 embaixo
+                    // Card 2: FICA PARADO. Card 1 FICA PARADO (anterior). Cards 3,4 DESCEM JUNTOS
+                    targetPosition = sectionTop - headerHeight + 280;
                 } else if (cardNumber === 3) {
-                    // Card 3: Cards 1 e 2 se movem JUNTOS para cima, Card 4 para baixo
-                    targetPosition = sectionTop - headerHeight + 360; // Card 3 visível, 1+2 agrupados em cima
+                    // Card 3: FICA PARADO. Cards 1,2 FICAM PARADOS (anteriores). Card 4 DESCE
+                    targetPosition = sectionTop - headerHeight + 360;
                 }
                 
                 window.scrollTo({
