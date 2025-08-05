@@ -135,7 +135,7 @@
         /* Animated Words Container */
         .animated-word-container {
             display: inline-block;
-            height: 80px;
+            height: 100px; /* Aumentado para acomodar descenders (j, g) */
             overflow: hidden;
             position: relative;
         }
@@ -146,14 +146,14 @@
         }
 
         .word-item {
-            height: 80px; /* Mantém 80px para não afetar entrelinha */
+            height: 100px; /* Aumentado para acomodar descenders */
             margin-bottom: 20px; /* 20px de distância entre palavras */
             display: flex;
             align-items: center; /* Vertical: centralizado */
             justify-content: flex-start; /* Horizontal: alinhado à esquerda */
             font-size: 80px;
             font-weight: 700;
-            line-height: 80px;
+            line-height: 90px; /* Aumentado para dar espaço aos descenders */
             letter-spacing: -3.2px;
             color: rgba(0,0,0,0.9);
         }
@@ -161,13 +161,13 @@
         @keyframes wordSlide {
             0% { transform: translateY(0); }
             22% { transform: translateY(0); }
-            25% { transform: translateY(-100px); } /* 80px + 20px = 100px por palavra */
-            47% { transform: translateY(-100px); }
-            50% { transform: translateY(-200px); }
-            72% { transform: translateY(-200px); }
-            75% { transform: translateY(-300px); }
-            97% { transform: translateY(-300px); }
-            100% { transform: translateY(-400px); } /* Total considerando 20px entre cada */
+            25% { transform: translateY(-120px); } /* 100px + 20px = 120px por palavra */
+            47% { transform: translateY(-120px); }
+            50% { transform: translateY(-240px); }
+            72% { transform: translateY(-240px); }
+            75% { transform: translateY(-360px); }
+            97% { transform: translateY(-360px); }
+            100% { transform: translateY(-480px); } /* Total considerando altura + espaço */
         }
 
         .hero-subtitle {
