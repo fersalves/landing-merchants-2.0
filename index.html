@@ -126,6 +126,48 @@
             letter-spacing: -3.2px;
             margin-bottom: 16px;
             color: rgba(0,0,0,0.9);
+            display: flex;
+            flex-wrap: wrap;
+            align-items: baseline;
+            gap: 0.2em;
+        }
+
+        /* Animated Words Container */
+        .animated-word-container {
+            display: inline-block;
+            height: 80px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .animated-words {
+            animation: wordSlide 10s infinite;
+            transform: translateY(0);
+        }
+
+        .word-item {
+            height: 80px;
+            display: flex;
+            align-items: center;
+            font-size: 80px;
+            font-weight: 700;
+            line-height: 80px;
+            letter-spacing: -3.2px;
+            color: rgba(0,0,0,0.9);
+        }
+
+        @keyframes wordSlide {
+            0% { transform: translateY(0); }
+            18% { transform: translateY(0); }
+            20% { transform: translateY(-80px); }
+            38% { transform: translateY(-80px); }
+            40% { transform: translateY(-160px); }
+            58% { transform: translateY(-160px); }
+            60% { transform: translateY(-240px); }
+            78% { transform: translateY(-240px); }
+            80% { transform: translateY(-320px); }
+            98% { transform: translateY(-320px); }
+            100% { transform: translateY(0); }
         }
 
         .hero-subtitle {
@@ -749,7 +791,18 @@
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text">
-                    <h1 class="hero-title">Tienes un crédito para impulsar tu negocio</h1>
+                    <h1 class="hero-title">
+                        Tienes un crédito para impulsar tu 
+                        <div class="animated-word-container">
+                            <div class="animated-words">
+                                <div class="word-item">negocio</div>
+                                <div class="word-item">tienda</div>
+                                <div class="word-item">lojinha</div>
+                                <div class="word-item">mercado</div>
+                                <div class="word-item">negócio</div>
+                            </div>
+                        </div>
+                    </h1>
                     <p class="hero-subtitle">Simula tu crédito y obtén el dinero al instante.</p>
                     <a href="#productos" class="hero-cta">Simular crédito</a>
                 </div>
