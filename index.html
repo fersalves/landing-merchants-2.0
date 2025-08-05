@@ -528,9 +528,32 @@
             background-position: center;
         }
 
-        .requirement-card.card1:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 16px 32px rgba(52, 131, 250, 0.2);
+        .hover-card {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            width: 240px;
+            height: 80px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+            opacity: 0;
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            font-weight: 600;
+            color: rgba(0, 0, 0, 0.8);
+        }
+
+        .requirement-card.card1:hover .hover-card {
+            transform: translate(-50%, -50%) scale(1);
+            opacity: 1;
         }
 
         .requirement-card.card2 {
@@ -937,6 +960,9 @@
             <div class="requirements-cards">
                 <div class="requirement-card card1">
                     <h3>Vende más de $500 por<br>2 meses en Mercado Libre<br>o Mercado Pago</h3>
+                    <div class="hover-card">
+                        <span>💳 Ver detalles</span>
+                    </div>
                 </div>
                 <div class="requirement-card card2 dark">
                     <h3>Mantén una buena reputación al vender en Mercado Libre</h3>
