@@ -657,18 +657,18 @@
         let lastScrollPosition = null;
         let currentActiveCard = null;
 
-        // Scroll to card function com toggle - volta para posição onde card fica totalmente visível
+        // Scroll to card function com toggle - outros cards "saem da frente" do card clicado
         function scrollToCard(cardNumber) {
             const productsSection = document.querySelector('.py-20');
             const sectionTop = productsSection.offsetTop;
             const headerHeight = 73; // Header fixo
             
-            // Posições calculadas para cada card ficar totalmente visível
-            const cardPositions = {
-                1: sectionTop - headerHeight - 50, // Card 1: posição inicial (antes do sticky)
-                2: sectionTop - headerHeight + 468, // Card 2: 420px (altura card) + 48px (gap)
-                3: sectionTop - headerHeight + 936, // Card 3: 468px + 420px + 48px
-                4: sectionTop - headerHeight + 1404 // Card 4: 936px + 420px + 48px
+            // Posições calculadas para "revelar" cada card (outros cards saem da frente)
+            const cardRevealPositions = {
+                1: sectionTop - headerHeight + 50, // Card 1: scroll pouco para baixo para revelar
+                2: sectionTop - headerHeight + 200, // Card 2: scroll até sticky começar  
+                3: sectionTop - headerHeight + 280, // Card 3: scroll até card 2 ficar sticky
+                4: sectionTop - headerHeight + 1404 // Card 4: posição original (já visível quando ativo)
             };
             
             // Se clicou no mesmo card novamente, volta para posição original
@@ -686,7 +686,7 @@
                 lastScrollPosition = window.pageYOffset || document.documentElement.scrollTop;
                 currentActiveCard = cardNumber;
                 
-                const targetPosition = cardPositions[cardNumber];
+                const targetPosition = cardRevealPositions[cardNumber];
                 
                 window.scrollTo({
                     top: targetPosition,
