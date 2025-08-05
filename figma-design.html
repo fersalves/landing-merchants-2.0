@@ -41,10 +41,6 @@
         }
         
         /* Sticky Cards Effect */
-        .space-y-12 {
-            min-height: 2000px; /* Altura mínima para garantir sticky do Card 4 */
-        }
-        
         .space-y-12 > div {
             position: sticky !important;
         }
@@ -65,7 +61,7 @@
         }
         
         .space-y-12 > div:nth-child(4) {
-            top: 440px !important; /* 360px + 80px visíveis */
+            position: relative !important; /* Card 4 não é sticky - empurra todos para cima */
             z-index: 4 !important; /* Último card por cima */
         }
         
@@ -265,7 +261,7 @@
     </section>
 
     <!-- Products Section -->
-    <section class="py-20 pb-[1200px]">
+    <section class="py-20 pb-[200px]">
         <div class="max-w-[1062px] mx-auto px-10">
             <!-- Title -->
             <div class="text-center mb-[84px]">
