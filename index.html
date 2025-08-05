@@ -920,7 +920,7 @@
         <div class="container">
             <h2 class="section-title">Diferentes opciones para tus metas, grandes o pequeñas</h2>
             <div class="product-cards">
-                <div class="product-card dinero-express">
+                <div class="product-card dinero-express" onclick="scrollToCard(1)">
                     <div class="card-content">
                         <div class="card-text">
                             <div class="card-tag">DINERO EXPRESS</div>
@@ -930,7 +930,7 @@
                     </div>
                 </div>
                 
-                <div class="product-card cuotas-fijas">
+                <div class="product-card cuotas-fijas" onclick="scrollToCard(2)">
                     <div class="card-content">
                         <div class="card-text">
                             <div class="card-tag">CUOTAS FIJAS</div>
@@ -940,7 +940,7 @@
                     </div>
                 </div>
                 
-                <div class="product-card adelanto-dinero">
+                <div class="product-card adelanto-dinero" onclick="scrollToCard(3)">
                     <div class="card-content">
                         <div class="card-text">
                             <div class="card-tag">ADELANTO DE DINERO</div>
@@ -950,7 +950,7 @@
                     </div>
                 </div>
                 
-                <div class="product-card porcentaje-ventas">
+                <div class="product-card porcentaje-ventas" onclick="scrollToCard(4)">
                     <div class="card-content">
                         <div class="card-text">
                             <div class="card-tag">PORCENTAJE DE VENTAS</div>
@@ -1184,6 +1184,28 @@
                 }
             });
         });
+
+        // Scroll to card function - volta para posição onde card fica totalmente visível
+        function scrollToCard(cardNumber) {
+            const productsSection = document.querySelector('#productos');
+            const sectionTop = productsSection.offsetTop;
+            const headerHeight = 73; // Header fixo
+            
+            // Posições calculadas para cada card ficar totalmente visível
+            const cardPositions = {
+                1: sectionTop - headerHeight - 50, // Card 1: posição inicial (antes do sticky)
+                2: sectionTop - headerHeight + 468, // Card 2: 420px (altura card) + 48px (gap)
+                3: sectionTop - headerHeight + 936, // Card 3: 468px + 420px + 48px
+                4: sectionTop - headerHeight + 1404 // Card 4: 936px + 420px + 48px
+            };
+            
+            const targetPosition = cardPositions[cardNumber];
+            
+            window.scrollTo({
+                top: targetPosition,
+                behavior: 'smooth'
+            });
+        }
     </script>
 </body>
 </html>
