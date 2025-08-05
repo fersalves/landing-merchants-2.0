@@ -1213,8 +1213,8 @@
                 let targetPosition;
                 
                 if (cardNumber === 2) {
-                    // Card 2: NÃO se move! Só faz scroll mínimo para Cards 3 e 4 saírem da frente
-                    targetPosition = sectionTop - headerHeight + 280; // Card 2 fica sticky, Cards 3 e 4 saem
+                    // Card 2: NÃO se move! Mantém EXATAMENTE a posição atual
+                    targetPosition = lastScrollPosition; // Mantém posição atual - Card 2 não se move
                 } else if (cardNumber === 1) {
                     // Card 1: vai para posição inicial
                     targetPosition = sectionTop - headerHeight - 50;
