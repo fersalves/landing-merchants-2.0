@@ -681,14 +681,14 @@
                 let targetPosition;
                 
                 if (cardNumber === 1) {
-                    // Card 1: NÃO se move! Cards 2, 3 e 4 saem da frente (vai até Card 2 sticky)
-                    targetPosition = sectionTop - headerHeight + 280;
+                    // Card 1: fica totalmente visível no topo (posição inicial)
+                    targetPosition = sectionTop - headerHeight + 200; // Card 1 sticky position
                 } else if (cardNumber === 2) {
-                    // Card 2: NÃO se move! Cards 3 e 4 saem da frente (vai até Card 3 sticky)
-                    targetPosition = sectionTop - headerHeight + 360;
+                    // Card 2: fica totalmente visível no centro 
+                    targetPosition = sectionTop - headerHeight + 280; // Card 2 sticky position
                 } else if (cardNumber === 3) {
-                    // Card 3: vai para posição onde fica totalmente visível
-                    targetPosition = sectionTop - headerHeight + 936;
+                    // Card 3: fica totalmente visível no centro
+                    targetPosition = sectionTop - headerHeight + 360; // Card 3 sticky position
                 }
                 
                 window.scrollTo({
