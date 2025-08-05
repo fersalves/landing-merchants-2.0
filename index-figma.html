@@ -681,15 +681,17 @@
                 let targetPosition;
                 
                 if (cardNumber === 2) {
-                    // Card 2: NÃO se move! Se já está sticky, mantém onde está
+                    // Card 2: NÃO se move! Cards 3 e 4 se movem JUNTOS para sair da frente
                     const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
-                    const stickyActivation = sectionTop - headerHeight + 280; // Quando fica sticky
+                    const stickyActivation = sectionTop - headerHeight + 280; // Quando Card 2 fica sticky
                     
-                    // Se já passou da ativação do sticky, mantém posição atual
+                    // Se já está sticky, faz scroll mínimo para Cards 3 e 4 saírem JUNTOS
                     if (currentScroll >= stickyActivation) {
-                        targetPosition = currentScroll; // Não se move
+                        // Scroll até Card 3 ficar sticky (360px) - Cards 3 e 4 se movem juntos
+                        targetPosition = sectionTop - headerHeight + 360;
                     } else {
-                        targetPosition = stickyActivation; // Vai até posição sticky
+                        // Se ainda não está sticky, vai até posição sticky
+                        targetPosition = stickyActivation;
                     }
                 } else if (cardNumber === 1) {
                     // Card 1: vai para posição inicial
