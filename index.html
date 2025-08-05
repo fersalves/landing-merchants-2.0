@@ -504,6 +504,8 @@
             padding: 32px;
             position: relative;
             overflow: hidden;
+            transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            cursor: pointer;
         }
 
         .requirement-card h3 {
@@ -524,6 +526,11 @@
             background-image: url('./assets/images/requisito_1.png');
             background-size: cover;
             background-position: center;
+        }
+
+        .requirement-card.card1:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 16px 32px rgba(52, 131, 250, 0.2);
         }
 
         .requirement-card.card2 {
