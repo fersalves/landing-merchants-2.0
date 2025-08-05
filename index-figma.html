@@ -681,8 +681,16 @@
                 let targetPosition;
                 
                 if (cardNumber === 2) {
-                    // Card 2: NÃO se move! Mantém EXATAMENTE a posição atual
-                    targetPosition = lastScrollPosition; // Mantém posição atual - Card 2 não se move
+                    // Card 2: NÃO se move! Se já está sticky, mantém onde está
+                    const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+                    const stickyActivation = sectionTop - headerHeight + 280; // Quando fica sticky
+                    
+                    // Se já passou da ativação do sticky, mantém posição atual
+                    if (currentScroll >= stickyActivation) {
+                        targetPosition = currentScroll; // Não se move
+                    } else {
+                        targetPosition = stickyActivation; // Vai até posição sticky
+                    }
                 } else if (cardNumber === 1) {
                     // Card 1: vai para posição inicial
                     targetPosition = sectionTop - headerHeight - 50;
