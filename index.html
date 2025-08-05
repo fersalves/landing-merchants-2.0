@@ -269,8 +269,9 @@
         }
 
         .product-card:nth-child(4) {
-            top: 440px; /* 360px + 80px do Card 3 visível */
+            position: relative; /* Card 4 NÃO fica sticky - empurra toda seção */
             z-index: 4;
+            margin-top: -340px; /* Compensa altura dos 3 cards sticky acima */
         }
 
         .card-content {
