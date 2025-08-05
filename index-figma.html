@@ -39,6 +39,38 @@
         .animated-words {
             animation: slideWords 10s infinite;
         }
+        
+        /* Sticky Cards Effect */
+        .space-y-12 {
+            position: relative !important;
+            height: calc(420px + (70px * 3)) !important; /* Altura base + 70px para cada card sobreposto */
+            gap: 0 !important;
+        }
+        
+        .space-y-12 > div {
+            position: sticky !important;
+            width: 100% !important;
+        }
+        
+        .space-y-12 > div:nth-child(1) {
+            top: 0 !important;
+            z-index: 4 !important;
+        }
+        
+        .space-y-12 > div:nth-child(2) {
+            top: -350px !important; /* -420px + 70px visíveis */
+            z-index: 3 !important;
+        }
+        
+        .space-y-12 > div:nth-child(3) {
+            top: -700px !important; /* -420px*2 + 70px*2 visíveis */
+            z-index: 2 !important;
+        }
+        
+        .space-y-12 > div:nth-child(4) {
+            top: -1050px !important; /* -420px*3 + 70px*3 visíveis */
+            z-index: 1 !important;
+        }
     </style>
 </head>
 <body class="bg-white">
