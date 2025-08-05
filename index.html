@@ -225,7 +225,9 @@
         }
 
         .product-cards {
-            position: relative;
+            display: flex;
+            flex-direction: column;
+            gap: 48px;
             max-width: 1062px;
             margin: 0 auto;
         }
@@ -235,41 +237,33 @@
             border-radius: 24px;
             box-shadow: 0 6px 16px rgba(0,0,0,0.1);
             position: sticky;
+            top: 70px; /* Offset para mostrar 70px do card anterior */
             overflow: hidden;
             cursor: pointer;
             transition: transform 0.3s ease;
             background: #fbf9f9;
-            width: 100%;
-            margin-bottom: -350px; /* Sobreposição: -420px + 70px visíveis */
         }
 
         .product-card:hover {
             transform: translateY(-4px);
         }
 
-        .product-card:last-child {
-            margin-bottom: 0; /* Remove margin do último card */
-        }
-
-        /* Posicionamento sticky específico para cada card */
+        /* Z-index crescente para últimos cards ficarem acima */
         .product-card:nth-child(1) {
-            top: 0;
-            z-index: 1; /* Primeiro card por baixo */
+            top: 0; /* Primeiro card cola no topo */
+            z-index: 1;
         }
 
         .product-card:nth-child(2) {
-            top: 0;
             z-index: 2;
         }
 
         .product-card:nth-child(3) {
-            top: 0;
             z-index: 3;
         }
 
         .product-card:nth-child(4) {
-            top: 0;
-            z-index: 4; /* Último card por cima */
+            z-index: 4;
         }
 
         .card-content {
