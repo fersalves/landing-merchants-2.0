@@ -1261,6 +1261,7 @@
         // Video progress loader
         const video = document.querySelector('.video-phone video');
         const stepTabs = document.querySelectorAll('.step-tab');
+        let currentStepIndex = 0; // Controla o índice atual do carrossel
         
         if (video && stepTabs.length >= 3) {
             video.addEventListener('timeupdate', () => {
@@ -1331,29 +1332,13 @@
                 if (progress > 33.33) activeIndex = 1;
                 if (progress > 66.66) activeIndex = 2;
                 
-                // Anima o carrossel do título
-                const titleAnimated = document.querySelector('.step-title-animated');
-                if (titleAnimated) {
-                    // Verifica se está voltando do fim para o início (loop contínuo)
-                    const currentTransform = titleAnimated.style.transform;
-                    const currentY = currentTransform ? parseInt(currentTransform.match(/-?\d+/)?.[0] || 0) : 0;
+                // Só anima se mudou de índice
+                if (activeIndex !== currentStepIndex) {
+                    currentStepIndex = activeIndex;
                     
-                    if (activeIndex === 0 && currentY === -80) {
-                        // Do item 3 para 1: vai para o item 4 (duplicado) primeiro
-                        titleAnimated.style.transform = 'translateY(-120px)';
-                        
-                        // Depois de um delay, volta para o item 1 sem animação
-                        setTimeout(() => {
-                            titleAnimated.style.transition = 'none';
-                            titleAnimated.style.transform = 'translateY(0px)';
-                            
-                            // Restaura a transição
-                            setTimeout(() => {
-                                titleAnimated.style.transition = 'transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
-                            }, 50);
-                        }, 500);
-                    } else {
-                        const translateY = -activeIndex * 40; // 40px por item
+                    const titleAnimated = document.querySelector('.step-title-animated');
+                    if (titleAnimated) {
+                        const translateY = -activeIndex * 40;
                         titleAnimated.style.transform = `translateY(${translateY}px)`;
                     }
                 }
@@ -1385,31 +1370,13 @@
                     video.currentTime = targetTime;
                 }
                 
-                // Anima o carrossel do título
+                // Atualiza o índice atual e anima o carrossel
+                currentStepIndex = index;
+                
                 const titleAnimated = document.querySelector('.step-title-animated');
                 if (titleAnimated) {
-                    // Verifica se está voltando do fim para o início (loop contínuo)
-                    const currentTransform = titleAnimated.style.transform;
-                    const currentY = currentTransform ? parseInt(currentTransform.match(/-?\d+/)?.[0] || 0) : 0;
-                    
-                    if (index === 0 && currentY === -80) {
-                        // Do item 3 para 1: vai para o item 4 (duplicado) primeiro
-                        titleAnimated.style.transform = 'translateY(-120px)';
-                        
-                        // Depois de um delay, volta para o item 1 sem animação
-                        setTimeout(() => {
-                            titleAnimated.style.transition = 'none';
-                            titleAnimated.style.transform = 'translateY(0px)';
-                            
-                            // Restaura a transição
-                            setTimeout(() => {
-                                titleAnimated.style.transition = 'transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
-                            }, 50);
-                        }, 500);
-                    } else {
-                        const translateY = -index * 40; // 40px por item
-                        titleAnimated.style.transform = `translateY(${translateY}px)`;
-                    }
+                    const translateY = -index * 40;
+                    titleAnimated.style.transform = `translateY(${translateY}px)`;
                 }
             });
         });
