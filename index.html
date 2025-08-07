@@ -492,6 +492,29 @@
             line-height: 40px;
         }
 
+        /* Carrossel para o título dos steps */
+        .step-title-container {
+            height: 40px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .step-title-animated {
+            transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            transform: translateY(0);
+        }
+
+        .step-title-item {
+            height: 40px;
+            display: flex;
+            align-items: center;
+            font-size: 40px;
+            font-weight: 700;
+            line-height: 40px;
+            letter-spacing: -1.6px;
+            color: rgba(0,0,0,0.9);
+        }
+
         .mockup-container {
             width: 517px;
             height: 517px;
@@ -1055,7 +1078,13 @@
                             <img src="./assets/images/Cash.svg" alt="Cash" class="step-icon-svg">
                         </button>
                     </div>
-                    <h3 class="step-title">1. Ingresa un monto</h3>
+                    <div class="step-title-container">
+                        <div class="step-title-animated">
+                            <div class="step-title-item">1. Ingresa un monto</div>
+                            <div class="step-title-item">2. Elige tu plazo</div>
+                            <div class="step-title-item">3. Recibe tu dinero</div>
+                        </div>
+                    </div>
                 </div>
                 <div class="mockup-container">
                     <div class="video-phone">
@@ -1301,7 +1330,12 @@
                 if (progress > 33.33) activeIndex = 1;
                 if (progress > 66.66) activeIndex = 2;
                 
-                document.querySelector('.step-title').textContent = stepTitles[activeIndex];
+                // Anima o carrossel do título
+                const titleAnimated = document.querySelector('.step-title-animated');
+                if (titleAnimated) {
+                    const translateY = -activeIndex * 40; // 40px por item
+                    titleAnimated.style.transform = `translateY(${translateY}px)`;
+                }
             });
         }
 
@@ -1330,14 +1364,12 @@
                     video.currentTime = targetTime;
                 }
                 
-                // Atualiza o título
-                const stepTitles = [
-                    '1. Ingresa un monto',
-                    '2. Elige tu plazo',
-                    '3. Recibe tu dinero'
-                ];
-                
-                document.querySelector('.step-title').textContent = stepTitles[index];
+                // Anima o carrossel do título
+                const titleAnimated = document.querySelector('.step-title-animated');
+                if (titleAnimated) {
+                    const translateY = -index * 40; // 40px por item
+                    titleAnimated.style.transform = `translateY(${translateY}px)`;
+                }
             });
         });
 
