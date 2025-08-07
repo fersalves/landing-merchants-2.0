@@ -980,7 +980,7 @@
     <!-- Steps Section -->
     <section class="steps">
         <div class="container">
-            <h2 class="section-title">Lo pides, lo tienes. Así de rápido</h2>
+            <h2 class="section-title animated-title" id="steps-title">Lo pides, lo tienes. Así de rápido</h2>
             <div class="steps-content">
                 <div class="steps-text">
                     <div class="step-tabs">
@@ -1016,7 +1016,7 @@
     <!-- Requirements Section -->
     <section class="requirements">
         <div class="container">
-            <h2 class="section-title">Recibes créditos al vender y usar Mercado Pago</h2>
+            <h2 class="section-title animated-title" id="requirements-title">Recibes créditos al vender y usar Mercado Pago</h2>
             <div class="requirements-cards">
                 <div class="requirement-card card1">
                     <h3>Vende más de $500 por<br>2 meses en Mercado Libre<br>o Mercado Pago</h3>
@@ -1204,8 +1204,12 @@
         let currentActiveCard = null;
 
         // Scroll to card function com toggle - volta para posição onde card fica totalmente visível
-        // Intersection Observer para animação do título
-        const animatedTitle = document.getElementById('products-title');
+        // Intersection Observer para animação dos títulos
+        const animatedTitles = [
+            document.getElementById('products-title'),
+            document.getElementById('steps-title'),
+            document.getElementById('requirements-title')
+        ];
         
         const titleObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -1218,9 +1222,12 @@
             rootMargin: '0px 0px -50px 0px' // Margem para ativar um pouco antes
         });
         
-        if (animatedTitle) {
-            titleObserver.observe(animatedTitle);
-        }
+        // Observa todos os títulos animados
+        animatedTitles.forEach(title => {
+            if (title) {
+                titleObserver.observe(title);
+            }
+        });
 
         function scrollToCard(cardNumber) {
             const productsSection = document.querySelector('#productos');
