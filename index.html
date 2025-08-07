@@ -419,17 +419,25 @@
             color: white;
         }
 
-        .step-tab:not(.active) {
+        /* Botões inativos (azul claro) */
+        .step-tab:not(.active):not(.loading):not(.completed) {
             background: rgba(52, 131, 250, 0.15);
             color: #3483fa;
         }
 
-        /* Loader progressivo - transição gradual */
-        .step-tab.loading {
+        /* Botões completados (azul claro) */
+        .step-tab.completed {
             background: rgba(52, 131, 250, 0.15);
+            color: #3483fa;
+        }
+
+        /* Botão fazendo loader (azul médio) */
+        .step-tab.loading {
+            background: rgba(52, 131, 250, 0.4);
             position: relative;
         }
 
+        /* Loader azul escuro por cima */
         .step-tab.loading::before {
             content: '';
             position: absolute;
@@ -447,6 +455,7 @@
             position: relative;
             z-index: 2;
             transition: filter 0.3s ease;
+            filter: brightness(0) saturate(100%) invert(24%) sepia(89%) saturate(1847%) hue-rotate(213deg) brightness(99%) contrast(95%);
         }
 
         /* Ícone fica branco quando o loader passa de 50% */
@@ -1225,7 +1234,7 @@
                 
                 // Reset all tabs
                 stepTabs.forEach(tab => {
-                    tab.classList.remove('active', 'loading', 'icon-white');
+                    tab.classList.remove('active', 'loading', 'icon-white', 'completed');
                     tab.style.removeProperty('--progress');
                 });
                 
@@ -1233,41 +1242,33 @@
                 if (progress <= 33.33) {
                     const segmentProgress = (progress / 33.33) * 100;
                     
-                    if (segmentProgress < 100) {
-                        stepTabs[0].classList.add('loading');
-                        stepTabs[0].style.setProperty('--progress', `${segmentProgress}%`);
-                        
-                        // Ícone fica branco quando passa de 50%
-                        if (segmentProgress >= 50) {
-                            stepTabs[0].classList.add('icon-white');
-                        }
-                    } else {
-                        stepTabs[0].classList.add('active');
+                    stepTabs[0].classList.add('loading');
+                    stepTabs[0].style.setProperty('--progress', `${segmentProgress}%`);
+                    
+                    // Ícone fica branco quando passa de 50%
+                    if (segmentProgress >= 50) {
+                        stepTabs[0].classList.add('icon-white');
                     }
                 }
                 // Segundo botão (33-66%)
                 else if (progress <= 66.66) {
-                    // Primeiro botão completo
-                    stepTabs[0].classList.add('active');
+                    // Primeiro botão completado (azul claro)
+                    stepTabs[0].classList.add('completed');
                     
                     const segmentProgress = ((progress - 33.33) / 33.33) * 100;
                     
-                    if (segmentProgress < 100) {
-                        stepTabs[1].classList.add('loading');
-                        stepTabs[1].style.setProperty('--progress', `${segmentProgress}%`);
-                        
-                        if (segmentProgress >= 50) {
-                            stepTabs[1].classList.add('icon-white');
-                        }
-                    } else {
-                        stepTabs[1].classList.add('active');
+                    stepTabs[1].classList.add('loading');
+                    stepTabs[1].style.setProperty('--progress', `${segmentProgress}%`);
+                    
+                    if (segmentProgress >= 50) {
+                        stepTabs[1].classList.add('icon-white');
                     }
                 }
                 // Terceiro botão (66-100%)
                 else {
-                    // Primeiros dois botões completos
-                    stepTabs[0].classList.add('active');
-                    stepTabs[1].classList.add('active');
+                    // Primeiros dois botões completados (azul claro)
+                    stepTabs[0].classList.add('completed');
+                    stepTabs[1].classList.add('completed');
                     
                     const segmentProgress = ((progress - 66.66) / 33.34) * 100;
                     
@@ -1279,7 +1280,7 @@
                             stepTabs[2].classList.add('icon-white');
                         }
                     } else {
-                        stepTabs[2].classList.add('active');
+                        stepTabs[2].classList.add('completed');
                     }
                 }
                 
@@ -1302,7 +1303,7 @@
         document.querySelectorAll('.step-tab').forEach((tab, index) => {
             tab.addEventListener('click', () => {
                 document.querySelectorAll('.step-tab').forEach(t => {
-                    t.classList.remove('active', 'loading', 'icon-white');
+                    t.classList.remove('active', 'loading', 'icon-white', 'completed');
                     t.style.removeProperty('--progress');
                 });
                 tab.classList.add('active');
