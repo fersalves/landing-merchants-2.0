@@ -1308,12 +1308,29 @@
         // Step tabs (manual click)
         document.querySelectorAll('.step-tab').forEach((tab, index) => {
             tab.addEventListener('click', () => {
-                document.querySelectorAll('.step-tab').forEach(t => {
-                    t.classList.remove('active', 'loading', 'icon-white', 'completed');
-                    t.style.removeProperty('--progress');
-                });
-                tab.classList.add('active');
+                // Controla o vídeo baseado no botão clicado
+                if (video) {
+                    const duration = video.duration;
+                    let targetTime;
+                    
+                    switch(index) {
+                        case 0: // Botão 1 - Reinicia o vídeo
+                            targetTime = 0;
+                            break;
+                        case 1: // Botão 2 - Vai para 33.33% do vídeo
+                            targetTime = duration * 0.3333;
+                            break;
+                        case 2: // Botão 3 - Vai para 66.66% do vídeo
+                            targetTime = duration * 0.6666;
+                            break;
+                        default:
+                            targetTime = 0;
+                    }
+                    
+                    video.currentTime = targetTime;
+                }
                 
+                // Atualiza o título
                 const stepTitles = [
                     '1. Ingresa un monto',
                     '2. Elige tu plazo',
