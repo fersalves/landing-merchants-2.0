@@ -125,7 +125,7 @@
             line-height: 90px; /* Aumentado de 80px para 90px (+10px) */
             letter-spacing: -3.2px;
             margin-bottom: 16px;
-            color: rgba(0,0,0,0.9);
+            color: red;
             display: flex;
             flex-wrap: wrap;
             align-items: baseline;
@@ -420,6 +420,11 @@
             color: #3483fa;
         }
 
+        .step-icon-svg {
+            width: 24px;
+            height: 24px;
+        }
+
         .step-title {
             font-size: 40px;
             font-weight: 700;
@@ -476,7 +481,7 @@
 
         .phone-overlay {
             position: absolute;
-            top: calc(18% + 2px);
+            top: calc(18% + 3px);
             left: calc(18.5% + 2px);
             right: calc(18.5% - 2px);
             bottom: 0%;
@@ -980,13 +985,13 @@
                 <div class="steps-text">
                     <div class="step-tabs">
                         <button class="step-tab active" data-step="1">
-                            <span>💳</span>
+                            <img src="./assets/images/Payment.svg" alt="Payment" class="step-icon-svg">
                         </button>
                         <button class="step-tab" data-step="2">
-                            <span>📅</span>
+                            <img src="./assets/images/Calendar.svg" alt="Calendar" class="step-icon-svg">
                         </button>
                         <button class="step-tab" data-step="3">
-                            <span>💰</span>
+                            <img src="./assets/images/Cash.svg" alt="Cash" class="step-icon-svg">
                         </button>
                     </div>
                     <h3 class="step-title">1. Ingresa un monto</h3>
