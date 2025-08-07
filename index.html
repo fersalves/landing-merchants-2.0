@@ -229,6 +229,20 @@
             margin-right: auto;
         }
 
+        /* Animated title with motion blur */
+        .animated-title {
+            opacity: 0;
+            transform: translateY(30px);
+            filter: blur(10px);
+            transition: all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .animated-title.visible {
+            opacity: 1;
+            transform: translateY(0);
+            filter: blur(0px);
+        }
+
         .product-cards {
             display: flex;
             flex-direction: column;
@@ -918,7 +932,7 @@
     <!-- Products Section -->
     <section class="products" id="productos">
         <div class="container">
-            <h2 class="section-title">Diferentes opciones para tus metas, grandes o pequeñas</h2>
+            <h2 class="section-title animated-title" id="products-title">Diferentes opciones para tus metas, grandes o pequeñas</h2>
             <div class="product-cards">
                 <div class="product-card dinero-express" onclick="scrollToCard(1)">
                     <div class="card-content">
@@ -1190,6 +1204,24 @@
         let currentActiveCard = null;
 
         // Scroll to card function com toggle - volta para posição onde card fica totalmente visível
+        // Intersection Observer para animação do título
+        const animatedTitle = document.getElementById('products-title');
+        
+        const titleObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.3, // Ativa quando 30% do elemento está visível
+            rootMargin: '0px 0px -50px 0px' // Margem para ativar um pouco antes
+        });
+        
+        if (animatedTitle) {
+            titleObserver.observe(animatedTitle);
+        }
+
         function scrollToCard(cardNumber) {
             const productsSection = document.querySelector('#productos');
             const sectionTop = productsSection.offsetTop;
