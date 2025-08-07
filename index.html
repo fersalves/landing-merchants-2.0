@@ -424,49 +424,7 @@
             color: #3483fa;
         }
 
-        /* Loader progressivo para os botões */
-        .step-tab.loading {
-            background: rgba(52, 131, 250, 0.15);
-        }
 
-        .step-tab.loading::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 8px;
-            right: 8px;
-            height: 3px;
-            background: rgba(52, 131, 250, 0.3);
-            border-radius: 2px;
-            transform: translateY(-50%);
-            z-index: 1;
-        }
-
-        .step-tab.loading::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 8px;
-            width: var(--progress, 0%);
-            height: 3px;
-            background: #3483fa;
-            border-radius: 2px;
-            transform: translateY(-50%);
-            transition: width 0.1s ease;
-            z-index: 2;
-        }
-
-        .step-tab.loading .step-icon-svg {
-            position: relative;
-            z-index: 3;
-            filter: brightness(0) saturate(100%) invert(24%) sepia(89%) saturate(1847%) hue-rotate(213deg) brightness(99%) contrast(95%);
-            transition: filter 0.3s ease;
-        }
-
-        /* Quando o loader está carregando e quase completo, o ícone fica branco */
-        .step-tab.loading.icon-white .step-icon-svg {
-            filter: brightness(0) invert(1);
-        }
 
         .step-icon-svg {
             width: 24px;
@@ -1237,61 +1195,18 @@
                 
                 // Reset all tabs
                 stepTabs.forEach(tab => {
-                    tab.classList.remove('active', 'loading', 'icon-white');
-                    tab.style.removeProperty('--progress');
+                    tab.classList.remove('active');
                 });
                 
-                // Primeiro botão (0-33%)
-                if (progress <= 33.33) {
-                    const segmentProgress = (progress / 33.33) * 100;
-                    stepTabs[0].classList.add('loading');
-                    stepTabs[0].style.setProperty('--progress', `${Math.min(segmentProgress, 100)}%`);
-                    
-                    if (segmentProgress >= 50) {
-                        stepTabs[0].classList.add('icon-white');
-                    }
-                    
-                    if (segmentProgress >= 100) {
-                        stepTabs[0].classList.remove('loading', 'icon-white');
-                        stepTabs[0].classList.add('active');
-                    }
-                }
-                // Segundo botão (33-66%)
-                else if (progress <= 66.66) {
-                    // Primeiro botão completado
+                // Ativa botões baseado no progresso do vídeo
+                if (progress >= 0) {
                     stepTabs[0].classList.add('active');
-                    
-                    const segmentProgress = ((progress - 33.33) / 33.33) * 100;
-                    stepTabs[1].classList.add('loading');
-                    stepTabs[1].style.setProperty('--progress', `${Math.min(segmentProgress, 100)}%`);
-                    
-                    if (segmentProgress >= 50) {
-                        stepTabs[1].classList.add('icon-white');
-                    }
-                    
-                    if (segmentProgress >= 100) {
-                        stepTabs[1].classList.remove('loading', 'icon-white');
-                        stepTabs[1].classList.add('active');
-                    }
                 }
-                // Terceiro botão (66-100%)
-                else {
-                    // Primeiros dois botões completados
-                    stepTabs[0].classList.add('active');
+                if (progress >= 33.33) {
                     stepTabs[1].classList.add('active');
-                    
-                    const segmentProgress = ((progress - 66.66) / 33.34) * 100;
-                    stepTabs[2].classList.add('loading');
-                    stepTabs[2].style.setProperty('--progress', `${Math.min(segmentProgress, 100)}%`);
-                    
-                    if (segmentProgress >= 50) {
-                        stepTabs[2].classList.add('icon-white');
-                    }
-                    
-                    if (segmentProgress >= 100) {
-                        stepTabs[2].classList.remove('loading', 'icon-white');
-                        stepTabs[2].classList.add('active');
-                    }
+                }
+                if (progress >= 66.66) {
+                    stepTabs[2].classList.add('active');
                 }
                 
                 // Atualiza o título baseado no progresso
@@ -1302,8 +1217,8 @@
                 ];
                 
                 let activeIndex = 0;
-                if (progress > 33.33) activeIndex = 1;
-                if (progress > 66.66) activeIndex = 2;
+                if (progress >= 33.33) activeIndex = 1;
+                if (progress >= 66.66) activeIndex = 2;
                 
                 document.querySelector('.step-title').textContent = stepTitles[activeIndex];
             });
@@ -1313,8 +1228,7 @@
         document.querySelectorAll('.step-tab').forEach((tab, index) => {
             tab.addEventListener('click', () => {
                 document.querySelectorAll('.step-tab').forEach(t => {
-                    t.classList.remove('active', 'loading', 'icon-white');
-                    t.style.removeProperty('--progress');
+                    t.classList.remove('active');
                 });
                 tab.classList.add('active');
                 
