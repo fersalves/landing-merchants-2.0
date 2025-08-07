@@ -1329,8 +1329,8 @@
                 ];
                 
                 let activeIndex = 0;
-                if (progress > 33.33) activeIndex = 1;
-                if (progress > 66.66) activeIndex = 2;
+                if (progress > 40) activeIndex = 1;
+                if (progress > 70) activeIndex = 2;
                 
                 // Só anima se mudou de índice
                 if (activeIndex !== currentStepIndex) {
@@ -1375,11 +1375,11 @@
                         case 0: // Botão 1 - Reinicia o vídeo
                             targetTime = 0;
                             break;
-                        case 1: // Botão 2 - Vai para 33.33% do vídeo
-                            targetTime = duration * 0.3333;
+                        case 1: // Botão 2 - Vai para 40% do vídeo
+                            targetTime = duration * 0.40;
                             break;
-                        case 2: // Botão 3 - Vai para 66.66% do vídeo
-                            targetTime = duration * 0.6666;
+                        case 2: // Botão 3 - Vai para 70% do vídeo
+                            targetTime = duration * 0.70;
                             break;
                         default:
                             targetTime = 0;
