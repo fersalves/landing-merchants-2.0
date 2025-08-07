@@ -1333,8 +1333,8 @@
                 if (progress > 40) activeIndex = 1;
                 if (progress > 70) activeIndex = 2;
                 
-                // Quando chega no final (95%), pausa por 2 segundos
-                if (progress >= 95 && !isPaused) {
+                // Quando chega no final (100%), pausa por 2 segundos
+                if (progress >= 99.5 && !isPaused) {
                     isPaused = true;
                     video.pause();
                     
