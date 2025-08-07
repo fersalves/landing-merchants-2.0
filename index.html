@@ -429,19 +429,33 @@
         .step-tab.loading::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            width: var(--progress, 0%);
-            height: 100%;
-            background: #3483fa;
-            border-radius: 48px;
-            transition: width 0.1s ease;
+            top: 50%;
+            left: 8px;
+            right: 8px;
+            height: 3px;
+            background: rgba(52, 131, 250, 0.3);
+            border-radius: 2px;
+            transform: translateY(-50%);
             z-index: 1;
+        }
+
+        .step-tab.loading::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 8px;
+            width: var(--progress, 0%);
+            height: 3px;
+            background: #3483fa;
+            border-radius: 2px;
+            transform: translateY(-50%);
+            transition: width 0.1s ease;
+            z-index: 2;
         }
 
         .step-tab.loading .step-icon-svg {
             position: relative;
-            z-index: 2;
+            z-index: 3;
             filter: brightness(0) saturate(100%) invert(24%) sepia(89%) saturate(1847%) hue-rotate(213deg) brightness(99%) contrast(95%);
             transition: filter 0.3s ease;
         }
@@ -1224,44 +1238,60 @@
                     tab.style.removeProperty('--progress');
                 });
                 
-                if (progress < 33.33) {
-                    // Primeiro terço: primeiro botão ativo
+                // Primeiro botão (0-33%)
+                if (progress <= 33.33) {
+                    const segmentProgress = (progress / 33.33) * 100;
+                    stepTabs[0].classList.add('loading');
+                    stepTabs[0].style.setProperty('--progress', `${Math.min(segmentProgress, 100)}%`);
+                    
+                    if (segmentProgress >= 50) {
+                        stepTabs[0].classList.add('icon-white');
+                    }
+                    
+                    if (segmentProgress >= 100) {
+                        stepTabs[0].classList.remove('loading', 'icon-white');
+                        stepTabs[0].classList.add('active');
+                    }
+                }
+                // Segundo botão (33-66%)
+                else if (progress <= 66.66) {
+                    // Primeiro botão completado
                     stepTabs[0].classList.add('active');
-                } else if (progress < 66.66) {
-                    // Segundo terço: segundo botão com loader
+                    
                     const segmentProgress = ((progress - 33.33) / 33.33) * 100;
                     stepTabs[1].classList.add('loading');
-                    stepTabs[1].style.setProperty('--progress', `${segmentProgress}%`);
+                    stepTabs[1].style.setProperty('--progress', `${Math.min(segmentProgress, 100)}%`);
                     
-                    // Se o loader estiver em mais de 50%, ícone fica branco
                     if (segmentProgress >= 50) {
                         stepTabs[1].classList.add('icon-white');
                     }
                     
-                    // Se o loader estiver completo, ativa o botão
                     if (segmentProgress >= 100) {
                         stepTabs[1].classList.remove('loading', 'icon-white');
                         stepTabs[1].classList.add('active');
                     }
-                } else {
-                    // Terceiro terço: terceiro botão com loader
+                }
+                // Terceiro botão (66-100%)
+                else {
+                    // Primeiros dois botões completados
+                    stepTabs[0].classList.add('active');
+                    stepTabs[1].classList.add('active');
+                    
                     const segmentProgress = ((progress - 66.66) / 33.34) * 100;
                     stepTabs[2].classList.add('loading');
-                    stepTabs[2].style.setProperty('--progress', `${segmentProgress}%`);
+                    stepTabs[2].style.setProperty('--progress', `${Math.min(segmentProgress, 100)}%`);
                     
-                    // Se o loader estiver em mais de 50%, ícone fica branco
                     if (segmentProgress >= 50) {
                         stepTabs[2].classList.add('icon-white');
                     }
                     
-                    // Se o loader estiver completo, ativa o botão
                     if (segmentProgress >= 100) {
                         stepTabs[2].classList.remove('loading', 'icon-white');
                         stepTabs[2].classList.add('active');
                     }
                 }
                 
-                // Atualiza o título baseado no estado atual
+                // Atualiza o título baseado no progresso
                 const stepTitles = [
                     '1. Ingresa un monto',
                     '2. Elige tu plazo',
@@ -1269,8 +1299,8 @@
                 ];
                 
                 let activeIndex = 0;
-                if (progress >= 33.33 && progress < 66.66) activeIndex = 1;
-                else if (progress >= 66.66) activeIndex = 2;
+                if (progress > 33.33) activeIndex = 1;
+                if (progress > 66.66) activeIndex = 2;
                 
                 document.querySelector('.step-title').textContent = stepTitles[activeIndex];
             });
