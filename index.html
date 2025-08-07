@@ -443,13 +443,12 @@
             left: 20.503%;
             right: 21.277%;
             bottom: 0;
-            background: white;
             border-radius: 24px 24px 0 0;
-            box-shadow: 0 6px 16px rgba(0,0,0,0.1);
             overflow: hidden;
             display: flex;
             align-items: center;
             justify-content: center;
+            z-index: 1;
         }
 
         .video-phone video {
@@ -457,6 +456,27 @@
             height: 100%;
             object-fit: cover;
             border-radius: 24px 24px 0 0;
+        }
+
+        .phone-overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .phone-overlay img {
+            width: auto;
+            height: 100%;
+            max-width: 100%;
+            object-fit: contain;
         }
 
         /* Requirements Section */
@@ -963,6 +983,9 @@
                             <source src="./assets/images/asidesimples.mp4" type="video/mp4">
                             Tu navegador no soporta el elemento video.
                         </video>
+                    </div>
+                    <div class="phone-overlay">
+                        <img src="./assets/images/cell-mockup.png" alt="Phone mockup" />
                     </div>
                 </div>
             </div>
