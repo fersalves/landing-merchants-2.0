@@ -447,7 +447,7 @@
             height: 100%;
             background: #2968C8;
             border-radius: 0;
-            transition: width 0.05s linear;
+            transition: none;
             z-index: 1;
         }
 
@@ -1244,43 +1244,43 @@
                     tab.style.removeProperty('--progress');
                 });
                 
-                // Primeiro botão (0-33%)
+                // Primeiro botão (0-33.33%)
                 if (progress <= 33.33) {
-                    const segmentProgress = (progress / 33.33) * 100;
+                    const segmentProgress = Math.min((progress / 33.33) * 100, 100);
                     
                     stepTabs[0].classList.add('loading');
-                    stepTabs[0].style.setProperty('--progress', `${segmentProgress}%`);
+                    stepTabs[0].style.setProperty('--progress', `${segmentProgress.toFixed(2)}%`);
                     
                     // Ícone fica branco quando passa de 50%
                     if (segmentProgress >= 50) {
                         stepTabs[0].classList.add('icon-white');
                     }
                 }
-                // Segundo botão (33-66%)
+                // Segundo botão (33.33-66.66%)
                 else if (progress <= 66.66) {
                     // Primeiro botão completado (azul claro)
                     stepTabs[0].classList.add('completed');
                     
-                    const segmentProgress = ((progress - 33.33) / 33.33) * 100;
+                    const segmentProgress = Math.min(((progress - 33.33) / 33.33) * 100, 100);
                     
                     stepTabs[1].classList.add('loading');
-                    stepTabs[1].style.setProperty('--progress', `${segmentProgress}%`);
+                    stepTabs[1].style.setProperty('--progress', `${segmentProgress.toFixed(2)}%`);
                     
                     if (segmentProgress >= 50) {
                         stepTabs[1].classList.add('icon-white');
                     }
                 }
-                // Terceiro botão (66-100%)
+                // Terceiro botão (66.66-100%)
                 else {
                     // Primeiros dois botões completados (azul claro)
                     stepTabs[0].classList.add('completed');
                     stepTabs[1].classList.add('completed');
                     
-                    const segmentProgress = ((progress - 66.66) / 33.34) * 100;
+                    const segmentProgress = Math.min(((progress - 66.66) / 33.34) * 100, 100);
                     
                     if (segmentProgress < 100) {
                         stepTabs[2].classList.add('loading');
-                        stepTabs[2].style.setProperty('--progress', `${segmentProgress}%`);
+                        stepTabs[2].style.setProperty('--progress', `${segmentProgress.toFixed(2)}%`);
                         
                         if (segmentProgress >= 50) {
                             stepTabs[2].classList.add('icon-white');
