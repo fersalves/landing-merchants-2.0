@@ -463,6 +463,17 @@
             box-shadow: none;
         }
 
+        .video-phone::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: #f5f5f5;
+            z-index: 3;
+        }
+
         .phone-overlay {
             position: absolute;
             top: calc(18% + 2px);
