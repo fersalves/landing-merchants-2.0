@@ -1330,7 +1330,7 @@
                 
                 let activeIndex = 0;
                 if (progress > 40) activeIndex = 1;
-                if (progress > 70) activeIndex = 2;
+                if (progress > 65) activeIndex = 2;
                 
                 // Só anima se mudou de índice
                 if (activeIndex !== currentStepIndex) {
@@ -1378,8 +1378,8 @@
                         case 1: // Botão 2 - Vai para 40% do vídeo
                             targetTime = duration * 0.40;
                             break;
-                        case 2: // Botão 3 - Vai para 70% do vídeo
-                            targetTime = duration * 0.70;
+                        case 2: // Botão 3 - Vai para 65% do vídeo
+                            targetTime = duration * 0.65;
                             break;
                         default:
                             targetTime = 0;
