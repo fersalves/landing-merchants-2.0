@@ -425,6 +425,16 @@
             height: 24px;
         }
 
+        /* Ícones brancos quando botão ativo (azul escuro) */
+        .step-tab.active .step-icon-svg {
+            filter: brightness(0) invert(1);
+        }
+
+        /* Ícones azuis quando botão inativo (azul claro) */
+        .step-tab:not(.active) .step-icon-svg {
+            filter: brightness(0) saturate(100%) invert(27%) sepia(51%) saturate(2878%) hue-rotate(346deg) brightness(104%) contrast(97%);
+        }
+
         .step-title {
             font-size: 40px;
             font-weight: 700;
