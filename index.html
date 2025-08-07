@@ -446,7 +446,7 @@
             width: var(--progress, 0%);
             height: 100%;
             background: #2968C8;
-            border-radius: 48px;
+            border-radius: 0;
             transition: width 0.2s ease;
             z-index: 1;
         }
@@ -455,13 +455,13 @@
             position: relative;
             z-index: 2;
             transition: filter 0.3s ease;
-            filter: brightness(0) invert(1);
+            filter: brightness(0) invert(1) !important;
         }
 
         /* Ícone sempre branco no loading (tanto azul médio quanto azul escuro) */
         .step-tab.loading .step-icon-svg,
         .step-tab.loading.icon-white .step-icon-svg {
-            filter: brightness(0) invert(1);
+            filter: brightness(0) invert(1) !important;
         }
 
 
@@ -477,7 +477,12 @@
         }
 
         /* Ícones azuis quando botão inativo (azul claro) */
-        .step-tab:not(.active) .step-icon-svg {
+        .step-tab:not(.active):not(.loading) .step-icon-svg {
+            filter: brightness(0) saturate(100%) invert(24%) sepia(89%) saturate(1847%) hue-rotate(213deg) brightness(99%) contrast(95%);
+        }
+
+        /* Ícones azuis quando botão completado (azul claro) */
+        .step-tab.completed .step-icon-svg {
             filter: brightness(0) saturate(100%) invert(24%) sepia(89%) saturate(1847%) hue-rotate(213deg) brightness(99%) contrast(95%);
         }
 
