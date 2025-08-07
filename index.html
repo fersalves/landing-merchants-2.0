@@ -1334,13 +1334,31 @@
                 
                 // Só anima se mudou de índice
                 if (activeIndex !== currentStepIndex) {
-                    currentStepIndex = activeIndex;
-                    
                     const titleAnimated = document.querySelector('.step-title-animated');
                     if (titleAnimated) {
-                        const translateY = -activeIndex * 40;
-                        titleAnimated.style.transform = `translateY(${translateY}px)`;
+                        // Se está voltando do 3 para o 1, usa o loop contínuo
+                        if (currentStepIndex === 2 && activeIndex === 0) {
+                            // Vai para o item duplicado (posição 3) primeiro
+                            titleAnimated.style.transform = 'translateY(-120px)';
+                            
+                            // Depois reseta para a posição 0 sem animação
+                            setTimeout(() => {
+                                titleAnimated.style.transition = 'none';
+                                titleAnimated.style.transform = 'translateY(0px)';
+                                
+                                // Restaura a transição
+                                setTimeout(() => {
+                                    titleAnimated.style.transition = 'transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+                                }, 50);
+                            }, 500);
+                        } else {
+                            // Animação normal
+                            const translateY = -activeIndex * 40;
+                            titleAnimated.style.transform = `translateY(${translateY}px)`;
+                        }
                     }
+                    
+                    currentStepIndex = activeIndex;
                 }
             });
         }
@@ -1370,14 +1388,33 @@
                     video.currentTime = targetTime;
                 }
                 
-                // Atualiza o índice atual e anima o carrossel
-                currentStepIndex = index;
-                
+                // Anima o carrossel
                 const titleAnimated = document.querySelector('.step-title-animated');
                 if (titleAnimated) {
-                    const translateY = -index * 40;
-                    titleAnimated.style.transform = `translateY(${translateY}px)`;
+                    // Se está voltando do 3 para o 1, usa o loop contínuo
+                    if (currentStepIndex === 2 && index === 0) {
+                        // Vai para o item duplicado (posição 3) primeiro
+                        titleAnimated.style.transform = 'translateY(-120px)';
+                        
+                        // Depois reseta para a posição 0 sem animação
+                        setTimeout(() => {
+                            titleAnimated.style.transition = 'none';
+                            titleAnimated.style.transform = 'translateY(0px)';
+                            
+                            // Restaura a transição
+                            setTimeout(() => {
+                                titleAnimated.style.transition = 'transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+                            }, 50);
+                        }, 500);
+                    } else {
+                        // Animação normal
+                        const translateY = -index * 40;
+                        titleAnimated.style.transform = `translateY(${translateY}px)`;
+                    }
                 }
+                
+                // Atualiza o índice atual
+                currentStepIndex = index;
             });
         });
 
