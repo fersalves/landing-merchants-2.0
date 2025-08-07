@@ -426,78 +426,22 @@
             line-height: 40px;
         }
 
-        .mockup-container {
+        .video-container {
             width: 517px;
             height: 517px;
-            background: #f5f5f5;
             border-radius: 40px;
-            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
             display: flex;
             align-items: center;
             justify-content: center;
         }
 
-        .phone-mockup {
-            position: absolute;
-            top: 20.503%;
-            left: 20.503%;
-            right: 21.277%;
-            bottom: 0;
-            background: white;
-            border-radius: 24px 24px 0 0;
-            box-shadow: 0 6px 16px rgba(0,0,0,0.1);
-            padding: 40px 28px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .phone-content h4 {
-            font-size: 18px;
-            font-weight: 600;
-            text-align: center;
-            margin-bottom: 32px;
-            color: rgba(0,0,0,0.9);
-        }
-
-        .amount-input {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 48px;
-            font-size: 58px;
-            color: rgba(0,0,0,0.55);
-        }
-
-        .currency {
-            font-size: 30px;
-            margin-right: 8px;
-        }
-
-        .cursor-blink {
-            width: 2px;
-            height: 54px;
-            background: #3483fa;
-            margin-left: 8px;
-            animation: blink 1s infinite;
-        }
-
-        @keyframes blink {
-            0%, 50% { opacity: 1; }
-            51%, 100% { opacity: 0; }
-        }
-
-        .continue-btn {
+        .video-container video {
             width: 100%;
-            background: #3483fa;
-            color: white;
-            padding: 15px 24px;
-            border: none;
-            border-radius: 6px;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 40px;
         }
 
         /* Requirements Section */
@@ -998,18 +942,11 @@
                     </div>
                     <h3 class="step-title">1. Ingresa un monto</h3>
                 </div>
-                <div class="mockup-container">
-                    <div class="phone-mockup">
-                        <div class="phone-content">
-                            <h4>Ingresa el monto</h4>
-                            <div class="amount-input">
-                                <span class="currency">$</span>
-                                <span>1</span>
-                                <div class="cursor-blink"></div>
-                            </div>
-                            <button class="continue-btn">Continuar</button>
-                        </div>
-                    </div>
+                <div class="video-container">
+                    <video autoplay muted loop playsinline>
+                        <source src="./assets/images/asidesimples.mp4" type="video/mp4">
+                        Tu navegador no soporta el elemento video.
+                    </video>
                 </div>
             </div>
         </div>
