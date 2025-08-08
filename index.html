@@ -659,12 +659,22 @@
             z-index: 9;
         }
 
-        .requirement-card.card1:hover .hover-card {
+        .requirement-card.card1:hover:not(.animated) .hover-card {
             transform: translateY(0);
             opacity: 1;
         }
 
-        .requirement-card.card1:hover .hover-card-2 {
+        .requirement-card.card1:hover:not(.animated) .hover-card-2 {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .requirement-card.card1.animated .hover-card {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .requirement-card.card1.animated .hover-card-2 {
             transform: translateY(0);
             opacity: 1;
         }
@@ -839,9 +849,13 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: all 0.4s ease;
             overflow: visible;
             z-index: 10;
+        }
+
+        /* Remove transitions when animated to prevent loop */
+        .requirement-card.card2.animated .reputation-card__indicator-circle {
+            transition: none;
         }
 
         /* White smoke effect using star element */
@@ -879,20 +893,32 @@
             background-position: center;
         }
 
-        /* Hover animations for card2 - progressive reputation animation */
-        .requirement-card.card2:hover .reputation-card__segment--red-active {
+        /* One-time hover animations for card2 - progressive reputation animation */
+        .requirement-card.card2:hover:not(.animated) .reputation-card__segment--red-active {
             transform: scaleX(1);
             transition: transform 1s ease 0s;
         }
 
-        .requirement-card.card2:hover .reputation-card__segment--yellow-active {
+        .requirement-card.card2:hover:not(.animated) .reputation-card__segment--yellow-active {
             transform: scaleX(1);
             transition: transform 1s ease 1s;
         }
 
-        .requirement-card.card2:hover .reputation-card__segment--green-active {
+        .requirement-card.card2:hover:not(.animated) .reputation-card__segment--green-active {
             transform: scaleX(1);
             transition: transform 1s ease 2s;
+        }
+
+        .requirement-card.card2.animated .reputation-card__segment--red-active {
+            transform: scaleX(1);
+        }
+
+        .requirement-card.card2.animated .reputation-card__segment--yellow-active {
+            transform: scaleX(1);
+        }
+
+        .requirement-card.card2.animated .reputation-card__segment--green-active {
+            transform: scaleX(1);
         }
 
         /* Progress circle keyframe animation */
@@ -941,21 +967,36 @@
 
 
 
-        .requirement-card.card2:hover .reputation-card__indicator-circle {
+        .requirement-card.card2:hover:not(.animated) .reputation-card__indicator-circle {
             animation: progressCircleMove 3s ease forwards;
         }
 
-        .requirement-card.card2:hover .reputation-card__checkmark {
+        .requirement-card.card2:hover:not(.animated) .reputation-card__checkmark {
             opacity: 1;
             transform: scale(1);
-            transition: all 0.3s ease 3.3s;
+            transition: all 0.3s ease 2.55s;
         }
 
-        .requirement-card.card2:hover .reputation-card__star-glow {
+        .requirement-card.card2:hover:not(.animated) .reputation-card__star-glow {
             opacity: 1;
             transform: translate(-50%, -50%) scale(1.1);
             transition: opacity 0.4s ease 2.94s, transform 0.4s ease 2.94s;
             animation: smokeAppearDisappear 1.4s ease 2.94s forwards;
+        }
+
+        .requirement-card.card2.animated .reputation-card__indicator-circle {
+            left: calc(100% - 28px);
+            background: #00A650;
+            transform: translateY(-50%) scale(1);
+        }
+
+        .requirement-card.card2.animated .reputation-card__checkmark {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .requirement-card.card2.animated .reputation-card__star-glow {
+            opacity: 0;
         }
 
         @keyframes smokeAppearDisappear {
@@ -1828,6 +1869,35 @@
             if (title) {
                 titleObserver.observe(title);
             }
+        });
+
+        // One-time hover animations for cards
+        document.querySelectorAll('.requirement-card.card1, .requirement-card.card2').forEach(card => {
+            let animationTimeout;
+            
+            card.addEventListener('mouseenter', function() {
+                if (!this.classList.contains('animated')) {
+                    // Para card2, adicionar a classe após um pequeno delay para permitir a animação
+                    if (this.classList.contains('card2')) {
+                        animationTimeout = setTimeout(() => {
+                            this.classList.add('animated');
+                        }, 6000); // Após toda a animação terminar (3s animação + 3s buffer)
+                    } else {
+                        // Para card1, adicionar imediatamente
+                        animationTimeout = setTimeout(() => {
+                            this.classList.add('animated');
+                        }, 2000); // Após animação dos push cards
+                    }
+                }
+            });
+
+            card.addEventListener('mouseleave', function() {
+                // Se a animação ainda não terminou, forçar o estado final
+                if (!this.classList.contains('animated') && animationTimeout) {
+                    clearTimeout(animationTimeout);
+                    this.classList.add('animated');
+                }
+            });
         });
 
         function scrollToCard(cardNumber) {
