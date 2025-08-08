@@ -732,9 +732,8 @@
             position: absolute;
             top: 50%;
             right: 60px;
-            transform: translateY(-50%) scale(0.8);
-            opacity: 0;
-            transition: all 0.4s ease;
+            transform: translateY(-50%);
+            opacity: 1;
             width: 242px;
             height: 80px;
         }
@@ -860,37 +859,32 @@
             height: 27px;
         }
 
-        /* Hover animations for card2 */
-        .requirement-card.card2:hover .requirements__reputation-indicator {
-            opacity: 1;
-            transform: translateY(-50%) scale(1);
-        }
-
+        /* Hover animations for card2 - only triggers animation */
         .requirement-card.card2:hover .reputation-card__segment--red-active {
             transform: scaleX(1);
-            transition-delay: 0.2s;
+            transition: transform 0.5s ease 0.2s;
         }
 
         .requirement-card.card2:hover .reputation-card__segment--green-active {
             transform: scaleX(1);
-            transition-delay: 0.4s;
+            transition: transform 0.5s ease 0.4s;
         }
 
         .requirement-card.card2:hover .reputation-card__indicator-circle {
             transform: translateY(-50%) scale(1);
-            transition-delay: 0.6s;
+            transition: transform 0.4s ease 0.6s;
         }
 
         .requirement-card.card2:hover .reputation-card__checkmark {
             opacity: 1;
             transform: scale(1);
-            transition-delay: 0.8s;
+            transition: all 0.3s ease 0.8s;
         }
 
         .requirement-card.card2:hover .reputation-card__star-glow {
             opacity: 1;
             transform: rotate(180deg) scale(1);
-            transition-delay: 1s;
+            transition: all 0.5s ease 1s;
         }
 
         /* FAQ Section */
