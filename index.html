@@ -739,9 +739,9 @@
 
         .reputation-card {
             background: rgba(255, 255, 255, 0.12);
-            backdrop-filter: blur(4.6px);
-            border: 1px solid rgba(255, 255, 255, 1);
+            backdrop-filter: blur(20px);
             border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
             padding: 16px;
             width: 100%;
             height: 100%;
@@ -870,7 +870,7 @@
         }
 
         .requirement-card.card2:hover .reputation-card__indicator-circle {
-            transform: scale(1);
+            transform: translateY(-50%) scale(1);
             transition: transform 0.4s ease 0.6s;
         }
 
@@ -885,6 +885,8 @@
             transform: rotate(180deg) scale(1);
             transition: all 0.5s ease 1s;
         }
+
+
 
         /* FAQ Section */
         .faq {
@@ -1320,7 +1322,7 @@
                                         <defs>
                                             <filter id="filter0_f_5975_1553" x="-0.00292969" y="0.626953" width="39.502" height="39.502" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
                                                 <feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood>
-                                                <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"></feBlend>
+                                                <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"></feBlood>
                                                 <feGaussianBlur stdDeviation="2" result="effect1_foregroundBlur_5975_1553"></feGaussianBlur>
                                             </filter>
                                         </defs>
