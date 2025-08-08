@@ -844,21 +844,7 @@
             z-index: 10;
         }
 
-        /* Smoke effect behind circle */
-        .reputation-card__indicator-circle::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 60px;
-            height: 60px;
-            background: radial-gradient(circle, rgba(0, 166, 80, 0.3) 0%, rgba(0, 166, 80, 0.1) 30%, transparent 70%);
-            border-radius: 50%;
-            opacity: 0;
-            z-index: -1;
-            transition: all 0.3s ease;
-        }
+        /* White smoke effect using star element */
 
         .reputation-card__checkmark {
             position: relative;
@@ -879,16 +865,21 @@
 
         .reputation-card__star-glow {
             position: absolute;
-            top: -8px;
-            right: -8px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            width: 36px;
+            height: 36px;
             opacity: 0;
-            transform: rotate(180deg) scale(0);
-            transition: all 0.5s ease;
-        }
-
-        .reputation-card__star-glow svg {
-            width: 27px;
-            height: 27px;
+            z-index: -1;
+            transition: all 0.3s ease;
+            border-radius: 50%;
+            background: radial-gradient(circle, 
+                rgba(255, 255, 255, 0.6) 0%, 
+                rgba(255, 255, 255, 0.3) 50%, 
+                rgba(255, 255, 255, 0.1) 80%, 
+                transparent 100%);
+            filter: blur(3px);
         }
 
         /* Hover animations for card2 - progressive reputation animation */
@@ -951,40 +942,22 @@
             }
         }
 
-        /* Smoke effect animation */
-        @keyframes smokeEffect {
-            0% {
-                opacity: 0;
-                transform: translate(-50%, -50%) scale(0.5);
-            }
-            50% {
-                opacity: 1;
-                transform: translate(-50%, -50%) scale(1.2);
-            }
-            100% {
-                opacity: 0;
-                transform: translate(-50%, -50%) scale(1.5);
-            }
-        }
+
 
         .requirement-card.card2:hover .reputation-card__indicator-circle {
             animation: progressCircleMove 3s ease forwards;
         }
 
-        .requirement-card.card2:hover .reputation-card__indicator-circle::before {
-            animation: smokeEffect 0.8s ease 2.8s forwards;
-        }
-
         .requirement-card.card2:hover .reputation-card__checkmark {
             opacity: 1;
             transform: scale(1);
-            transition: all 0.3s ease 3.2s;
+            transition: all 0.3s ease 3.3s;
         }
 
         .requirement-card.card2:hover .reputation-card__star-glow {
             opacity: 1;
-            transform: rotate(180deg) scale(1);
-            transition: all 0.5s ease 4s;
+            transform: translate(-50%, -50%) scale(1.1);
+            transition: opacity 0.4s ease 2.94s, transform 0.4s ease 2.94s;
         }
 
 
@@ -1416,20 +1389,7 @@
                                         </svg>
                                     </div>
                                 </div>
-                                <div class="reputation-card__star-glow">
-                                    <svg width="27" height="27" viewBox="0 0 40 41" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <g filter="url(#filter0_f_5975_1553)">
-                                            <path d="M17.0486 6.89765C17.575 3.87019 21.9211 3.87018 22.4475 6.89765L22.5596 7.54258C22.9039 9.52279 25.1923 10.4707 26.8359 9.3139L27.3713 8.93715C29.8842 7.16859 32.9574 10.2418 31.1888 12.7547L30.8121 13.29C29.6553 14.9337 30.6032 17.2221 32.5834 17.5664L33.2283 17.6785C36.2558 18.2049 36.2558 22.551 33.2283 23.0774L32.5834 23.1895C30.6032 23.5338 29.6553 25.8222 30.8121 27.4658L31.1888 28.0012C32.9574 30.5141 29.8842 33.5873 27.3713 31.8187L26.8359 31.442C25.1923 30.2852 22.9039 31.2331 22.5596 33.2133L22.4475 33.8582C21.9211 36.8857 17.575 36.8857 17.0486 33.8582L16.9365 33.2133C16.5922 31.2331 14.3038 30.2852 12.6602 31.442L12.1248 31.8187C9.61191 33.5873 6.53871 30.5141 8.30727 28.0011L8.68402 27.4658C9.84081 25.8222 8.89292 23.5338 6.9127 23.1895L6.26777 23.0774C3.2403 22.551 3.2403 18.2049 6.26777 17.6785L6.91269 17.5664C8.89291 17.2221 9.8408 14.9337 8.68402 13.29L8.30727 12.7547C6.53872 10.2418 9.6119 7.1686 12.1248 8.93715L12.6601 9.3139C14.3038 10.4707 16.5922 9.5228 16.9365 7.54258L17.0486 6.89765Z" fill="#FFCE52"></path>
-                                        </g>
-                                        <defs>
-                                            <filter id="filter0_f_5975_1553" x="-0.00292969" y="0.626953" width="39.502" height="39.502" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-                                                <feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood>
-                                                <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"></feBlood>
-                                                <feGaussianBlur stdDeviation="2" result="effect1_foregroundBlur_5975_1553"></feGaussianBlur>
-                                            </filter>
-                                        </defs>
-                                    </svg>
-                                </div>
+                                <div class="reputation-card__star-glow"></div>
                             </div>
                         </div>
                     </div>
