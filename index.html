@@ -1400,7 +1400,7 @@
                     // Progresso baseado no tempo (mais lento)
                     const timeProgress = Math.min((step3Duration / step3TotalDuration) * 100, 100);
                     
-                    if (timeProgress < 100) {
+                    if (timeProgress < 99.8) { // Deixa chegar bem próximo a 100%
                         stepTabs[2].classList.add('loading');
                         stepTabs[2].style.setProperty('--progress', `${timeProgress.toFixed(2)}%`);
                         
@@ -1408,8 +1408,20 @@
                             stepTabs[2].classList.add('icon-white');
                         }
                     } else {
-                        stepTabs[2].classList.add('completed');
-                        step3Completed = true;
+                        // Garante que chegue a 100% antes de completar
+                        stepTabs[2].classList.add('loading');
+                        stepTabs[2].style.setProperty('--progress', '100%');
+                        stepTabs[2].classList.add('icon-white');
+                        
+                        // Após um pequeno delay, vira completed
+                        setTimeout(() => {
+                            if (step3StartTime !== null) { // Só se ainda estiver na etapa 3
+                                stepTabs[2].classList.remove('loading', 'icon-white');
+                                stepTabs[2].classList.add('completed');
+                                stepTabs[2].style.removeProperty('--progress');
+                                step3Completed = true;
+                            }
+                        }, 200); // 200ms para mostrar 100% completo
                     }
                 }
                 
