@@ -1263,6 +1263,8 @@
         const stepTabs = document.querySelectorAll('.step-tab');
         let currentStepIndex = 0; // Controla o índice atual do carrossel
         let isPaused = false; // Controla se está na pausa da fase 3
+        let step3StartTime = null; // Momento em que a etapa 3 começou
+        let step3Completed = false; // Se a etapa 3 já foi concluída
         
         if (video && stepTabs.length >= 3) {
             video.addEventListener('timeupdate', () => {
@@ -1333,15 +1335,14 @@
                 if (progress > 40) activeIndex = 1;
                 if (progress > 70) activeIndex = 2;
                 
-                // Pausa o vídeo por 2 segundos quando chega no final
-                if (progress >= 99.5 && activeIndex === 2 && !isPaused) {
+                // Pausa o vídeo aos 99% por 2 segundos antes de completar
+                if (progress >= 99 && progress < 99.5 && !isPaused) {
                     isPaused = true;
-                    video.pause(); // Pausa o vídeo
+                    video.pause(); // Pausa o vídeo aos 99%
                     
-                    // Após 2 segundos, reinicia o vídeo
+                    // Após 2 segundos, retoma para completar
                     setTimeout(() => {
-                        video.currentTime = 0; // Volta para o início
-                        video.play(); // Retoma a reprodução
+                        video.play(); // Retoma a reprodução para completar
                         isPaused = false;
                     }, 2000);
                 }
@@ -1386,23 +1387,36 @@
                     stepTabs[0].classList.add('completed');
                     stepTabs[1].classList.add('completed');
                     
-                    if (isPaused) {
-                        // Durante a pausa, mostra completado
-                        stepTabs[2].classList.add('completed');
-                    } else {
-                        const segmentProgress = Math.min(((progress - 70) / 30) * 100, 100);
-                        
-                        if (segmentProgress < 100) {
-                            stepTabs[2].classList.add('loading');
-                            stepTabs[2].style.setProperty('--progress', `${segmentProgress.toFixed(2)}%`);
-                            
-                            if (segmentProgress >= 50) {
-                                stepTabs[2].classList.add('icon-white');
-                            }
-                        } else {
-                            stepTabs[2].classList.add('completed');
-                        }
+                    // Marca o início da etapa 3
+                    if (step3StartTime === null) {
+                        step3StartTime = Date.now();
+                        step3Completed = false;
                     }
+                    
+                    // Calcula o tempo decorrido desde o início da etapa 3
+                    const step3Duration = Date.now() - step3StartTime;
+                    const step3TotalDuration = 4000; // 2 segundos extras (30% do vídeo + 2s = ~4s total)
+                    
+                    // Progresso baseado no tempo (mais lento)
+                    const timeProgress = Math.min((step3Duration / step3TotalDuration) * 100, 100);
+                    
+                    if (timeProgress < 100) {
+                        stepTabs[2].classList.add('loading');
+                        stepTabs[2].style.setProperty('--progress', `${timeProgress.toFixed(2)}%`);
+                        
+                        if (timeProgress >= 50) {
+                            stepTabs[2].classList.add('icon-white');
+                        }
+                    } else {
+                        stepTabs[2].classList.add('completed');
+                        step3Completed = true;
+                    }
+                }
+                
+                // Reset quando volta para etapa 1
+                if (activeIndex === 0 && step3StartTime !== null) {
+                    step3StartTime = null;
+                    step3Completed = false;
                 }
                 
                 // Só anima se mudou de índice
