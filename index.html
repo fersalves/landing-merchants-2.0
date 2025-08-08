@@ -1333,14 +1333,16 @@
                 if (progress > 40) activeIndex = 1;
                 if (progress > 70) activeIndex = 2;
                 
-                // Estende a etapa 3 por mais 2 segundos após o vídeo terminar
+                // Pausa o vídeo por 2 segundos quando chega no final
                 if (progress >= 99.5 && activeIndex === 2 && !isPaused) {
                     isPaused = true;
+                    video.pause(); // Pausa o vídeo
                     
-                    // Mantém a etapa 3 ativa por mais 2 segundos
+                    // Após 2 segundos, reinicia o vídeo
                     setTimeout(() => {
+                        video.currentTime = 0; // Volta para o início
+                        video.play(); // Retoma a reprodução
                         isPaused = false;
-                        // O vídeo continuará seu loop natural
                     }, 2000);
                 }
                 
