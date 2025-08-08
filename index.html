@@ -756,7 +756,7 @@
             width: 210px;
             height: 10px;
             display: flex;
-            gap: 5.5px;
+            gap: 4px;
         }
 
         .reputation-card__segments {
@@ -766,6 +766,7 @@
             border-radius: 11px;
             overflow: hidden;
             display: flex;
+            gap: 4px;
         }
 
         .reputation-card__segment {
@@ -781,21 +782,21 @@
             background: #F23D4F;
             opacity: 0.3;
             left: 0;
-            width: 33.33%;
+            width: calc(33.33% - 2.67px);
         }
 
         .reputation-card__segment--yellow {
             background: #FFCE52;
             opacity: 0.3;
-            left: 33.33%;
-            width: 33.33%;
+            left: calc(33.33% + 1.33px);
+            width: calc(33.33% - 2.67px);
         }
 
         .reputation-card__segment--green {
             background: #00A650;
             opacity: 0.1;
-            right: 0;
-            width: 33.34%;
+            left: calc(66.67% + 2.67px);
+            width: calc(33.33% - 2.67px);
         }
 
         /* Active segments (top layer) */
@@ -803,7 +804,7 @@
             background: #F23D4F;
             opacity: 1;
             left: 0;
-            width: 33.33%;
+            width: calc(33.33% - 2.67px);
             transform: scaleX(0);
             transform-origin: left;
         }
@@ -811,8 +812,8 @@
         .reputation-card__segment--yellow-active {
             background: #FFCE52;
             opacity: 1;
-            left: 33.33%;
-            width: 33.33%;
+            left: calc(33.33% + 1.33px);
+            width: calc(33.33% - 2.67px);
             transform: scaleX(0);
             transform-origin: left;
         }
@@ -820,8 +821,8 @@
         .reputation-card__segment--green-active {
             background: #00A650;
             opacity: 1;
-            right: 0;
-            width: 33.34%;
+            left: calc(66.67% + 2.67px);
+            width: calc(33.33% - 2.67px);
             transform: scaleX(0);
             transform-origin: left;
         }
