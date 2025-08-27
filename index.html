@@ -144,8 +144,8 @@
         }
 
         .animated-words {
-            animation: wordSlide 12s infinite;
-            animation-timing-function: ease-in-out;
+            animation: wordSlide 10s infinite;
+            animation-timing-function: cubic-bezier(0.23, 1, 0.32, 1); /* Gentle easing like Figma */
             transform: translateY(0);
         }
 
@@ -160,66 +160,56 @@
             line-height: 90px; /* Aumentado para dar espaço aos descenders */
             letter-spacing: -3.2px;
             color: rgba(0,0,0,0.9);
-            opacity: 1;
-            filter: blur(0px);
-            transition: opacity 0.4s ease-out, filter 0.4s ease-out;
         }
 
         @keyframes wordSlide {
             0% { 
                 transform: translateY(0);
             }
-            20% { 
+            22% { 
                 transform: translateY(0);
             }
-            23% { 
-                transform: translateY(-30px);
-                filter: blur(2px);
-                opacity: 0.7;
+            24% { 
+                transform: translateY(-15px);
             }
-            27% { 
-                transform: translateY(-120px);
-                filter: blur(0px);
-                opacity: 1;
+            26% { 
+                transform: translateY(-105px);
             }
-            45% { 
+            28% { 
                 transform: translateY(-120px);
             }
-            48% { 
-                transform: translateY(-150px);
-                filter: blur(2px);
-                opacity: 0.7;
+            47% { 
+                transform: translateY(-120px);
             }
-            52% { 
+            49% { 
+                transform: translateY(-135px);
+            }
+            51% { 
+                transform: translateY(-225px);
+            }
+            53% { 
                 transform: translateY(-240px);
-                filter: blur(0px);
-                opacity: 1;
             }
-            70% { 
+            72% { 
                 transform: translateY(-240px);
             }
-            73% { 
-                transform: translateY(-270px);
-                filter: blur(2px);
-                opacity: 0.7;
+            74% { 
+                transform: translateY(-255px);
             }
-            77% { 
-                transform: translateY(-360px);
-                filter: blur(0px);
-                opacity: 1;
+            76% { 
+                transform: translateY(-345px);
             }
-            95% { 
+            78% { 
                 transform: translateY(-360px);
             }
-            98% { 
-                transform: translateY(-390px);
-                filter: blur(2px);
-                opacity: 0.7;
+            97% { 
+                transform: translateY(-360px);
+            }
+            99% { 
+                transform: translateY(-375px);
             }
             100% { 
                 transform: translateY(-480px);
-                filter: blur(0px);
-                opacity: 1;
             }
         }
 
