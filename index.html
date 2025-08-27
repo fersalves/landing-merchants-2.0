@@ -163,9 +163,7 @@
         }
 
         @keyframes wordSlide {
-            0% { transform: translateY(-2px); } /* Inicia suave */
-            1% { transform: translateY(2px); } /* Assentamento rápido */
-            2% { transform: translateY(0); } /* Se acomoda - negócio */
+            0% { transform: translateY(0); } /* Inicia estático - negócio primeira vez */
             18% { transform: translateY(0); } /* Tempo para exibir palavra */
             20% { transform: translateY(-118px); } /* Transição para "tienda" */
             21% { transform: translateY(-122px); } /* Micro ajuste */
@@ -179,8 +177,10 @@
             61% { transform: translateY(-362px); } /* Micro ajuste */
             62% { transform: translateY(-360px); } /* Posição final */
             78% { transform: translateY(-360px); } /* Tempo para exibir palavra */
-            80% { transform: translateY(-480px); } /* Transição direta para "negócio" duplicado */
-            98% { transform: translateY(-480px); } /* Tempo para exibir palavra - SEM settling */
+            80% { transform: translateY(-478px); } /* Transição para "negócio" no giro */
+            81% { transform: translateY(-482px); } /* Micro ajuste - settling no giro */
+            82% { transform: translateY(-480px); } /* Posição final COM settling */
+            98% { transform: translateY(-480px); } /* Tempo para exibir palavra */
             100% { transform: translateY(-480px); } /* Mantém posição no final */
         }
 
