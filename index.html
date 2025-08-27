@@ -134,114 +134,64 @@
             gap: 0.2em;
         }
 
-        /* Animated Words Container - Inspired by maxbestene.github.io */
-        .animated-word-container {
+        /* Rotating word animation like maxbestene.github.io */
+        .rotating-word {
             display: inline-block;
-            height: 100px;
-            overflow: hidden;
-            position: relative;
-            margin-top: -10px;
-            perspective: 1000px; /* 3D perspective for depth */
-        }
-
-        .animated-words {
-            animation: modernWordSlide 12s infinite;
-            animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            transform-style: preserve-3d; /* Enable 3D transforms */
-        }
-
-        .word-item {
-            height: 100px;
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: flex-start;
             font-size: 80px;
             font-weight: 700;
             line-height: 90px;
             letter-spacing: -3.2px;
             color: rgba(0,0,0,0.9);
             transform-origin: center;
-            backface-visibility: hidden; /* Smooth 3D transitions */
+            perspective: 1000px;
+            animation: rotateWord 8s infinite ease-in-out;
         }
 
-        /* Modern word slide animation inspired by maxbestene.github.io */
-        @keyframes modernWordSlide {
-            0% { 
-                transform: translateY(0) rotateX(0deg) scale(1);
+        /* Rotating word animation with text change */
+        @keyframes rotateWord {
+            0%, 23% { 
+                transform: rotateY(0deg);
                 opacity: 1;
             }
-            22% { 
-                transform: translateY(0) rotateX(0deg) scale(1);
+            25% { 
+                transform: rotateY(90deg);
+                opacity: 0;
+            }
+            27% { 
+                transform: rotateY(90deg);
+                opacity: 0;
+            }
+            29%, 48% { 
+                transform: rotateY(0deg);
                 opacity: 1;
             }
-            24% { 
-                transform: translateY(-10px) rotateX(15deg) scale(0.98);
-                opacity: 0.9;
+            50% { 
+                transform: rotateY(90deg);
+                opacity: 0;
             }
-            26% { 
-                transform: translateY(-60px) rotateX(45deg) scale(0.95);
-                opacity: 0.3;
+            52% { 
+                transform: rotateY(90deg);
+                opacity: 0;
             }
-            28% { 
-                transform: translateY(-120px) rotateX(0deg) scale(1);
+            54%, 73% { 
+                transform: rotateY(0deg);
                 opacity: 1;
             }
-            30.5% { 
-                transform: translateY(-120px) rotateX(0deg) scale(1);
+            75% { 
+                transform: rotateY(90deg);
+                opacity: 0;
+            }
+            77% { 
+                transform: rotateY(90deg);
+                opacity: 0;
+            }
+            79%, 98% { 
+                transform: rotateY(0deg);
                 opacity: 1;
-            }
-            47% { 
-                transform: translateY(-120px) rotateX(0deg) scale(1);
-                opacity: 1;
-            }
-            49% { 
-                transform: translateY(-130px) rotateX(15deg) scale(0.98);
-                opacity: 0.9;
-            }
-            51% { 
-                transform: translateY(-180px) rotateX(45deg) scale(0.95);
-                opacity: 0.3;
-            }
-            53% { 
-                transform: translateY(-240px) rotateX(0deg) scale(1);
-                opacity: 1;
-            }
-            55.5% { 
-                transform: translateY(-240px) rotateX(0deg) scale(1);
-                opacity: 1;
-            }
-            72% { 
-                transform: translateY(-240px) rotateX(0deg) scale(1);
-                opacity: 1;
-            }
-            74% { 
-                transform: translateY(-250px) rotateX(15deg) scale(0.98);
-                opacity: 0.9;
-            }
-            76% { 
-                transform: translateY(-300px) rotateX(45deg) scale(0.95);
-                opacity: 0.3;
-            }
-            78% { 
-                transform: translateY(-360px) rotateX(0deg) scale(1);
-                opacity: 1;
-            }
-            80.5% { 
-                transform: translateY(-360px) rotateX(0deg) scale(1);
-                opacity: 1;
-            }
-            97% { 
-                transform: translateY(-360px) rotateX(0deg) scale(1);
-                opacity: 1;
-            }
-            99% { 
-                transform: translateY(-370px) rotateX(15deg) scale(0.98);
-                opacity: 0.9;
             }
             100% { 
-                transform: translateY(-480px) rotateX(0deg) scale(1);
-                opacity: 1;
+                transform: rotateY(90deg);
+                opacity: 0;
             }
         }
 
@@ -1363,18 +1313,7 @@
                 <div class="hero-text">
                     <h1 class="hero-title">
                         Creditos para impulsar tu 
-                        <div class="animated-word-container">
-                            <div class="animated-words">
-                                <div class="word-item">negócio</div>
-                                <div class="word-item">tienda</div>
-                                <div class="word-item">lojinha</div>
-                                <div class="word-item">mercado</div>
-                                <div class="word-item">negócio</div>
-                                <div class="word-item">tienda</div>
-                                <div class="word-item">lojinha</div>
-                                <div class="word-item">mercado</div>
-                            </div>
-                        </div>
+                        <span id="animated-word" class="rotating-word">negócio</span>
                     </h1>
                     <p class="hero-subtitle">Simula tu crédito y obtén el dinero al instante.</p>
                     <a href="#productos" class="hero-cta">Simular crédito</a>
@@ -1932,6 +1871,22 @@
         let currentActiveCard = null;
 
         // Scroll to card function com toggle - volta para posição onde card fica totalmente visível
+        // Rotating word functionality like maxbestene.github.io
+        const words = ['negócio', 'tienda', 'lojinha', 'mercado'];
+        let currentWordIndex = 0;
+        const animatedWord = document.getElementById('animated-word');
+        
+        function rotateWord() {
+            // Wait for rotation animation to hide the word
+            setTimeout(() => {
+                currentWordIndex = (currentWordIndex + 1) % words.length;
+                animatedWord.textContent = words[currentWordIndex];
+            }, 400); // Change word when opacity is 0 (middle of rotation)
+        }
+        
+        // Change word every 2 seconds (aligned with CSS animation)
+        setInterval(rotateWord, 2000);
+
         // Intersection Observer para animação dos títulos
         const animatedTitles = [
             document.getElementById('products-title'),
