@@ -163,7 +163,10 @@
         }
 
         @keyframes wordSlide {
-            0% { transform: translateY(0); }
+            0% { transform: translateY(-6px); } /* Inicia com micro movimento */
+            1% { transform: translateY(6px); } /* Ligeiramente abaixo */
+            2% { transform: translateY(-3px); } /* Ligeiramente acima */
+            3% { transform: translateY(0); } /* Se acomoda na posição inicial */
             22% { transform: translateY(0); }
             24% { transform: translateY(-6px); } /* Primeiro micro movimento - ultra suave */
             25.5% { transform: translateY(-114px); } /* Ligeiramente abaixo - movimento mais lento */
