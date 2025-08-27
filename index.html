@@ -134,63 +134,115 @@
             gap: 0.2em;
         }
 
-        /* Animated Words Container */
+        /* Animated Words Container - Inspired by maxbestene.github.io */
         .animated-word-container {
             display: inline-block;
-            height: 100px; /* Aumentado para acomodar descenders (j, g) */
+            height: 100px;
             overflow: hidden;
             position: relative;
-            margin-top: -10px; /* Compensa altura extra para manter entrelinha original */
+            margin-top: -10px;
+            perspective: 1000px; /* 3D perspective for depth */
         }
 
         .animated-words {
-            animation: wordSlide 12s infinite;
-            animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Gentle easing similar to Figma */
-            transform: translateY(0);
+            animation: modernWordSlide 12s infinite;
+            animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            transform-style: preserve-3d; /* Enable 3D transforms */
         }
 
         .word-item {
-            height: 100px; /* Aumentado para acomodar descenders */
-            margin-bottom: 20px; /* 20px de distância entre palavras */
+            height: 100px;
+            margin-bottom: 20px;
             display: flex;
-            align-items: center; /* Vertical: centralizado */
-            justify-content: flex-start; /* Horizontal: alinhado à esquerda */
+            align-items: center;
+            justify-content: flex-start;
             font-size: 80px;
             font-weight: 700;
-            line-height: 90px; /* Aumentado para dar espaço aos descenders */
+            line-height: 90px;
             letter-spacing: -3.2px;
             color: rgba(0,0,0,0.9);
+            transform-origin: center;
+            backface-visibility: hidden; /* Smooth 3D transitions */
         }
 
-        @keyframes wordSlide {
-            0% { transform: translateY(0); }
-            22% { transform: translateY(0); }
-            24% { transform: translateY(-6px); } /* Primeiro micro movimento - ultra suave */
-            25.5% { transform: translateY(-114px); } /* Ligeiramente abaixo - movimento mais lento */
-            26.5% { transform: translateY(-126px); } /* Ligeiramente acima */
-            27.5% { transform: translateY(-120px); } /* Posição intermediária */
-            28.5% { transform: translateY(-117px); } /* Segundo micro movimento - abaixo - ultra suave */
-            29.5% { transform: translateY(-123px); } /* Segundo micro movimento - acima - ultra suave */
-            30.5% { transform: translateY(-120px); } /* Posição final estabilizada - ultra suave */
-            47% { transform: translateY(-120px); }
-            49% { transform: translateY(-126px); } /* Primeiro micro movimento - ultra suave */
-            50.5% { transform: translateY(-234px); } /* Ligeiramente abaixo - movimento mais lento */
-            51.5% { transform: translateY(-246px); } /* Ligeiramente acima */
-            52.5% { transform: translateY(-240px); } /* Posição intermediária */
-            53.5% { transform: translateY(-237px); } /* Segundo micro movimento - abaixo - ultra suave */
-            54.5% { transform: translateY(-243px); } /* Segundo micro movimento - acima - ultra suave */
-            55.5% { transform: translateY(-240px); } /* Posição final estabilizada - ultra suave */
-            72% { transform: translateY(-240px); }
-            74% { transform: translateY(-246px); } /* Primeiro micro movimento - ultra suave */
-            75.5% { transform: translateY(-354px); } /* Ligeiramente abaixo - movimento mais lento */
-            76.5% { transform: translateY(-366px); } /* Ligeiramente acima */
-            77.5% { transform: translateY(-360px); } /* Posição intermediária */
-            78.5% { transform: translateY(-357px); } /* Segundo micro movimento - abaixo - ultra suave */
-            79.5% { transform: translateY(-363px); } /* Segundo micro movimento - acima - ultra suave */
-            80.5% { transform: translateY(-360px); } /* Posição final estabilizada - ultra suave */
-            97% { transform: translateY(-360px); }
-            99% { transform: translateY(-366px); } /* Primeiro micro movimento - ultra suave */
-            100% { transform: translateY(-480px); } /* Posição final (loop) */
+        /* Modern word slide animation inspired by maxbestene.github.io */
+        @keyframes modernWordSlide {
+            0% { 
+                transform: translateY(0) rotateX(0deg) scale(1);
+                opacity: 1;
+            }
+            22% { 
+                transform: translateY(0) rotateX(0deg) scale(1);
+                opacity: 1;
+            }
+            24% { 
+                transform: translateY(-10px) rotateX(15deg) scale(0.98);
+                opacity: 0.9;
+            }
+            26% { 
+                transform: translateY(-60px) rotateX(45deg) scale(0.95);
+                opacity: 0.3;
+            }
+            28% { 
+                transform: translateY(-120px) rotateX(0deg) scale(1);
+                opacity: 1;
+            }
+            30.5% { 
+                transform: translateY(-120px) rotateX(0deg) scale(1);
+                opacity: 1;
+            }
+            47% { 
+                transform: translateY(-120px) rotateX(0deg) scale(1);
+                opacity: 1;
+            }
+            49% { 
+                transform: translateY(-130px) rotateX(15deg) scale(0.98);
+                opacity: 0.9;
+            }
+            51% { 
+                transform: translateY(-180px) rotateX(45deg) scale(0.95);
+                opacity: 0.3;
+            }
+            53% { 
+                transform: translateY(-240px) rotateX(0deg) scale(1);
+                opacity: 1;
+            }
+            55.5% { 
+                transform: translateY(-240px) rotateX(0deg) scale(1);
+                opacity: 1;
+            }
+            72% { 
+                transform: translateY(-240px) rotateX(0deg) scale(1);
+                opacity: 1;
+            }
+            74% { 
+                transform: translateY(-250px) rotateX(15deg) scale(0.98);
+                opacity: 0.9;
+            }
+            76% { 
+                transform: translateY(-300px) rotateX(45deg) scale(0.95);
+                opacity: 0.3;
+            }
+            78% { 
+                transform: translateY(-360px) rotateX(0deg) scale(1);
+                opacity: 1;
+            }
+            80.5% { 
+                transform: translateY(-360px) rotateX(0deg) scale(1);
+                opacity: 1;
+            }
+            97% { 
+                transform: translateY(-360px) rotateX(0deg) scale(1);
+                opacity: 1;
+            }
+            99% { 
+                transform: translateY(-370px) rotateX(15deg) scale(0.98);
+                opacity: 0.9;
+            }
+            100% { 
+                transform: translateY(-480px) rotateX(0deg) scale(1);
+                opacity: 1;
+            }
         }
 
         .hero-subtitle {
