@@ -144,8 +144,8 @@
         }
 
         .animated-words {
-            animation: wordSlide 16s infinite;
-            animation-timing-function: cubic-bezier(0.23, 1, 0.32, 1); /* Ultra smooth easing */
+            animation: wordSlide 20s infinite;
+            animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1); /* Ultra premium easing */
             transform: translateY(0);
         }
 
@@ -163,41 +163,42 @@
         }
 
         @keyframes wordSlide {
-            0% { transform: translateY(-4px); } /* Inicia com micro movimento mais suave */
-            1.5% { transform: translateY(4px); } /* Ligeiramente abaixo - mais tempo */
-            3% { transform: translateY(-2px); } /* Ligeiramente acima - mais tempo */
-            4.5% { transform: translateY(0); } /* Se acomoda na posição inicial - mais tempo */
+            0% { transform: translateY(-3px); } /* Inicia mais suave */
+            2% { transform: translateY(3px); } /* Ligeiramente abaixo - mais gradual */
+            4% { transform: translateY(-1px); } /* Ligeiramente acima - mais sutil */
+            6% { transform: translateY(0); } /* Se acomoda na posição - mais tempo */
+            8% { transform: translateY(0); } /* Garante estabilidade */
             22% { transform: translateY(0); }
-            23.5% { transform: translateY(-4px); } /* Primeiro micro movimento - ultra suave */
-            25% { transform: translateY(-116px); } /* Ligeiramente abaixo - movimento mais lento */
-            26.5% { transform: translateY(-124px); } /* Ligeiramente acima - mais tempo */
-            28% { transform: translateY(-120px); } /* Posição intermediária - mais tempo */
-            29% { transform: translateY(-118px); } /* Segundo micro movimento - abaixo - ultra suave */
-            30% { transform: translateY(-122px); } /* Segundo micro movimento - acima - ultra suave */
-            31% { transform: translateY(-120px); } /* Posição final estabilizada - ultra suave */
+            23% { transform: translateY(-3px); } /* Primeiro micro movimento - ultra suave */
+            25.5% { transform: translateY(-117px); } /* Ligeiramente abaixo - movimento mais lento */
+            27.5% { transform: translateY(-123px); } /* Ligeiramente acima - mais tempo */
+            29% { transform: translateY(-120px); } /* Posição intermediária - mais tempo */
+            30% { transform: translateY(-119px); } /* Segundo micro movimento - abaixo - ultra suave */
+            31% { transform: translateY(-121px); } /* Segundo micro movimento - acima - ultra suave */
+            32% { transform: translateY(-120px); } /* Posição final estabilizada - ultra suave */
             47% { transform: translateY(-120px); }
-            48.5% { transform: translateY(-124px); } /* Primeiro micro movimento - ultra suave */
-            50% { transform: translateY(-236px); } /* Ligeiramente abaixo - movimento mais lento */
-            51.5% { transform: translateY(-244px); } /* Ligeiramente acima - mais tempo */
-            53% { transform: translateY(-240px); } /* Posição intermediária - mais tempo */
-            54% { transform: translateY(-238px); } /* Segundo micro movimento - abaixo - ultra suave */
-            55% { transform: translateY(-242px); } /* Segundo micro movimento - acima - ultra suave */
-            56% { transform: translateY(-240px); } /* Posição final estabilizada - ultra suave */
+            48% { transform: translateY(-123px); } /* Primeiro micro movimento - ultra suave */
+            50.5% { transform: translateY(-237px); } /* Ligeiramente abaixo - movimento mais lento */
+            52.5% { transform: translateY(-243px); } /* Ligeiramente acima - mais tempo */
+            54% { transform: translateY(-240px); } /* Posição intermediária - mais tempo */
+            55% { transform: translateY(-239px); } /* Segundo micro movimento - abaixo - ultra suave */
+            56% { transform: translateY(-241px); } /* Segundo micro movimento - acima - ultra suave */
+            57% { transform: translateY(-240px); } /* Posição final estabilizada - ultra suave */
             72% { transform: translateY(-240px); }
-            73.5% { transform: translateY(-244px); } /* Primeiro micro movimento - ultra suave */
-            75% { transform: translateY(-356px); } /* Ligeiramente abaixo - movimento mais lento */
-            76.5% { transform: translateY(-364px); } /* Ligeiramente acima - mais tempo */
-            78% { transform: translateY(-360px); } /* Posição intermediária - mais tempo */
-            79% { transform: translateY(-358px); } /* Segundo micro movimento - abaixo - ultra suave */
-            80% { transform: translateY(-362px); } /* Segundo micro movimento - acima - ultra suave */
-            81% { transform: translateY(-360px); } /* Posição final estabilizada - ultra suave */
+            73% { transform: translateY(-243px); } /* Primeiro micro movimento - ultra suave */
+            75.5% { transform: translateY(-357px); } /* Ligeiramente abaixo - movimento mais lento */
+            77.5% { transform: translateY(-363px); } /* Ligeiramente acima - mais tempo */
+            79% { transform: translateY(-360px); } /* Posição intermediária - mais tempo */
+            80% { transform: translateY(-359px); } /* Segundo micro movimento - abaixo - ultra suave */
+            81% { transform: translateY(-361px); } /* Segundo micro movimento - acima - ultra suave */
+            82% { transform: translateY(-360px); } /* Posição final estabilizada - ultra suave */
             92% { transform: translateY(-360px); }
-            93.5% { transform: translateY(-364px); } /* Primeiro micro movimento - ultra suave */
-            95% { transform: translateY(-476px); } /* Ligeiramente abaixo - movimento mais lento */
-            96.5% { transform: translateY(-484px); } /* Ligeiramente acima - mais tempo */
-            98% { transform: translateY(-480px); } /* Posição intermediária - mais tempo */
-            99% { transform: translateY(-478px); } /* Segundo micro movimento - abaixo - ultra suave */
-            99.5% { transform: translateY(-482px); } /* Segundo micro movimento - acima - ultra suave */
+            93% { transform: translateY(-363px); } /* Primeiro micro movimento - ultra suave */
+            95.5% { transform: translateY(-477px); } /* Ligeiramente abaixo - movimento mais lento */
+            97.5% { transform: translateY(-483px); } /* Ligeiramente acima - mais tempo */
+            98.5% { transform: translateY(-480px); } /* Posição intermediária - mais tempo */
+            99.2% { transform: translateY(-479px); } /* Segundo micro movimento - abaixo - ultra suave */
+            99.6% { transform: translateY(-481px); } /* Segundo micro movimento - acima - ultra suave */
             100% { transform: translateY(-480px); } /* Posição final estabilizada - ultra suave */
         }
 
