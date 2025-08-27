@@ -144,8 +144,8 @@
         }
 
         .animated-words {
-            animation: wordSlide 10s infinite;
-            animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Gentle easing similar to Figma */
+            animation: wordSlide 12s infinite;
+            animation-timing-function: ease-in-out;
             transform: translateY(0);
         }
 
@@ -160,18 +160,67 @@
             line-height: 90px; /* Aumentado para dar espaço aos descenders */
             letter-spacing: -3.2px;
             color: rgba(0,0,0,0.9);
+            opacity: 1;
+            filter: blur(0px);
+            transition: opacity 0.4s ease-out, filter 0.4s ease-out;
         }
 
         @keyframes wordSlide {
-            0% { transform: translateY(0); }
-            22% { transform: translateY(0); }
-            25% { transform: translateY(-120px); } /* 100px + 20px = 120px por palavra */
-            47% { transform: translateY(-120px); }
-            50% { transform: translateY(-240px); }
-            72% { transform: translateY(-240px); }
-            75% { transform: translateY(-360px); }
-            97% { transform: translateY(-360px); }
-            100% { transform: translateY(-480px); } /* Total considerando altura + espaço */
+            0% { 
+                transform: translateY(0);
+            }
+            20% { 
+                transform: translateY(0);
+            }
+            23% { 
+                transform: translateY(-30px);
+                filter: blur(2px);
+                opacity: 0.7;
+            }
+            27% { 
+                transform: translateY(-120px);
+                filter: blur(0px);
+                opacity: 1;
+            }
+            45% { 
+                transform: translateY(-120px);
+            }
+            48% { 
+                transform: translateY(-150px);
+                filter: blur(2px);
+                opacity: 0.7;
+            }
+            52% { 
+                transform: translateY(-240px);
+                filter: blur(0px);
+                opacity: 1;
+            }
+            70% { 
+                transform: translateY(-240px);
+            }
+            73% { 
+                transform: translateY(-270px);
+                filter: blur(2px);
+                opacity: 0.7;
+            }
+            77% { 
+                transform: translateY(-360px);
+                filter: blur(0px);
+                opacity: 1;
+            }
+            95% { 
+                transform: translateY(-360px);
+            }
+            98% { 
+                transform: translateY(-390px);
+                filter: blur(2px);
+                opacity: 0.7;
+            }
+            100% { 
+                transform: translateY(-480px);
+                filter: blur(0px);
+                opacity: 1;
+            }
         }
 
         .hero-subtitle {
