@@ -647,7 +647,7 @@
 
         .hover-card {
             position: absolute;
-            bottom: 110px;
+            bottom: 150px;
             right: 30px;
             transform: translateX(100%);
             width: 240px;
@@ -663,7 +663,7 @@
 
         .hover-card-2 {
             position: absolute;
-            bottom: 30px;
+            bottom: 70px;
             right: 30px;
             transform: translateX(100%);
             width: 240px;
@@ -679,23 +679,38 @@
         }
 
         .requirement-card.card1:hover:not(.animated) .hover-card {
-            transform: translateX(0);
+            animation: pushSettle 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
             opacity: 1;
         }
 
         .requirement-card.card1:hover:not(.animated) .hover-card-2 {
-            transform: translateX(0);
+            animation: pushSettle 0.8s cubic-bezier(0.16, 1, 0.3, 1) 1.2s forwards;
             opacity: 1;
         }
 
         .requirement-card.card1.animated .hover-card {
-            transform: translateX(0);
+            animation: pushSettle 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
             opacity: 1;
         }
 
         .requirement-card.card1.animated .hover-card-2 {
-            transform: translateX(0);
+            animation: pushSettle 0.8s cubic-bezier(0.16, 1, 0.3, 1) 1.2s forwards;
             opacity: 1;
+        }
+
+        @keyframes pushSettle {
+            0% {
+                transform: translateX(100%);
+            }
+            60% {
+                transform: translateX(-8px);
+            }
+            80% {
+                transform: translateX(4px);
+            }
+            100% {
+                transform: translateX(0);
+            }
         }
 
         .push-content {
