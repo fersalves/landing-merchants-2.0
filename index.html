@@ -144,8 +144,8 @@
         }
 
         .animated-words {
-            animation: wordSlide 20s infinite;
-            animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1); /* Ultra premium easing */
+            animation: wordSlide 14s infinite;
+            animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Smooth easing */
             transform: translateY(0);
         }
 
@@ -163,43 +163,26 @@
         }
 
         @keyframes wordSlide {
-            0% { transform: translateY(-3px); } /* Inicia mais suave */
-            2% { transform: translateY(3px); } /* Ligeiramente abaixo - mais gradual */
-            4% { transform: translateY(-1px); } /* Ligeiramente acima - mais sutil */
-            6% { transform: translateY(0); } /* Se acomoda na posição - mais tempo */
-            8% { transform: translateY(0); } /* Garante estabilidade */
-            22% { transform: translateY(0); }
-            23% { transform: translateY(-3px); } /* Primeiro micro movimento - ultra suave */
-            25.5% { transform: translateY(-117px); } /* Ligeiramente abaixo - movimento mais lento */
-            27.5% { transform: translateY(-123px); } /* Ligeiramente acima - mais tempo */
-            29% { transform: translateY(-120px); } /* Posição intermediária - mais tempo */
-            30% { transform: translateY(-119px); } /* Segundo micro movimento - abaixo - ultra suave */
-            31% { transform: translateY(-121px); } /* Segundo micro movimento - acima - ultra suave */
-            32% { transform: translateY(-120px); } /* Posição final estabilizada - ultra suave */
-            47% { transform: translateY(-120px); }
-            48% { transform: translateY(-123px); } /* Primeiro micro movimento - ultra suave */
-            50.5% { transform: translateY(-237px); } /* Ligeiramente abaixo - movimento mais lento */
-            52.5% { transform: translateY(-243px); } /* Ligeiramente acima - mais tempo */
-            54% { transform: translateY(-240px); } /* Posição intermediária - mais tempo */
-            55% { transform: translateY(-239px); } /* Segundo micro movimento - abaixo - ultra suave */
-            56% { transform: translateY(-241px); } /* Segundo micro movimento - acima - ultra suave */
-            57% { transform: translateY(-240px); } /* Posição final estabilizada - ultra suave */
-            72% { transform: translateY(-240px); }
-            73% { transform: translateY(-243px); } /* Primeiro micro movimento - ultra suave */
-            75.5% { transform: translateY(-357px); } /* Ligeiramente abaixo - movimento mais lento */
-            77.5% { transform: translateY(-363px); } /* Ligeiramente acima - mais tempo */
-            79% { transform: translateY(-360px); } /* Posição intermediária - mais tempo */
-            80% { transform: translateY(-359px); } /* Segundo micro movimento - abaixo - ultra suave */
-            81% { transform: translateY(-361px); } /* Segundo micro movimento - acima - ultra suave */
-            82% { transform: translateY(-360px); } /* Posição final estabilizada - ultra suave */
-            92% { transform: translateY(-360px); }
-            93% { transform: translateY(-363px); } /* Primeiro micro movimento - ultra suave */
-            95.5% { transform: translateY(-477px); } /* Ligeiramente abaixo - movimento mais lento */
-            97.5% { transform: translateY(-483px); } /* Ligeiramente acima - mais tempo */
-            98.5% { transform: translateY(-480px); } /* Posição intermediária - mais tempo */
-            99.2% { transform: translateY(-479px); } /* Segundo micro movimento - abaixo - ultra suave */
-            99.6% { transform: translateY(-481px); } /* Segundo micro movimento - acima - ultra suave */
-            100% { transform: translateY(-480px); } /* Posição final estabilizada - ultra suave */
+            0% { transform: translateY(-2px); } /* Inicia suave */
+            1% { transform: translateY(2px); } /* Assentamento rápido */
+            2% { transform: translateY(0); } /* Se acomoda */
+            18% { transform: translateY(0); } /* Menos tempo parado */
+            20% { transform: translateY(-118px); } /* Transição direta */
+            21% { transform: translateY(-122px); } /* Micro ajuste */
+            22% { transform: translateY(-120px); } /* Posição final */
+            43% { transform: translateY(-120px); } /* Menos tempo parado */
+            45% { transform: translateY(-238px); } /* Transição direta */
+            46% { transform: translateY(-242px); } /* Micro ajuste */
+            47% { transform: translateY(-240px); } /* Posição final */
+            68% { transform: translateY(-240px); } /* Menos tempo parado */
+            70% { transform: translateY(-358px); } /* Transição direta */
+            71% { transform: translateY(-362px); } /* Micro ajuste */
+            72% { transform: translateY(-360px); } /* Posição final */
+            93% { transform: translateY(-360px); } /* Menos tempo parado */
+            95% { transform: translateY(-478px); } /* Transição direta */
+            96% { transform: translateY(-482px); } /* Micro ajuste */
+            97% { transform: translateY(-480px); } /* Posição final */
+            100% { transform: translateY(-480px); } /* Loop */
         }
 
         .hero-subtitle {
