@@ -165,23 +165,23 @@
         @keyframes wordSlide {
             0% { transform: translateY(0); opacity: 1; } /* Inicia estático - negócio primeira vez */
             18% { transform: translateY(0); opacity: 1; } /* MAIS tempo parado */
-            19% { transform: translateY(0); opacity: 0.3; } /* Fade out antes de subir */
-            20% { transform: translateY(-118px); opacity: 0.3; } /* Transição para "tienda" */
+            20% { transform: translateY(-118px); opacity: 1; } /* Começa movimento, mantém opacidade */
+            20.5% { transform: translateY(-118px); opacity: 0.3; } /* Fade out COM delay */
             21% { transform: translateY(-122px); opacity: 0.8; } /* Micro ajuste + fade in */
             22% { transform: translateY(-120px); opacity: 1; } /* Posição final + totalmente visível */
             38% { transform: translateY(-120px); opacity: 1; } /* Tempo para exibir palavra */
-            39% { transform: translateY(-120px); opacity: 0.3; } /* Fade out antes de subir */
-            40% { transform: translateY(-238px); opacity: 0.3; } /* Transição para "lojinha" */
+            40% { transform: translateY(-238px); opacity: 1; } /* Começa movimento, mantém opacidade */
+            40.5% { transform: translateY(-238px); opacity: 0.3; } /* Fade out COM delay */
             41% { transform: translateY(-242px); opacity: 0.8; } /* Micro ajuste + fade in */
             42% { transform: translateY(-240px); opacity: 1; } /* Posição final + totalmente visível */
             58% { transform: translateY(-240px); opacity: 1; } /* Tempo para exibir palavra */
-            59% { transform: translateY(-240px); opacity: 0.3; } /* Fade out antes de subir */
-            60% { transform: translateY(-358px); opacity: 0.3; } /* Transição para "mercado" */
+            60% { transform: translateY(-358px); opacity: 1; } /* Começa movimento, mantém opacidade */
+            60.5% { transform: translateY(-358px); opacity: 0.3; } /* Fade out COM delay */
             61% { transform: translateY(-362px); opacity: 0.8; } /* Micro ajuste + fade in */
             62% { transform: translateY(-360px); opacity: 1; } /* Posição final + totalmente visível */
             78% { transform: translateY(-360px); opacity: 1; } /* Tempo para exibir palavra */
-            79% { transform: translateY(-360px); opacity: 0.3; } /* Fade out antes de subir */
-            80% { transform: translateY(-478px); opacity: 0.3; } /* Transição para "negócio" no giro */
+            80% { transform: translateY(-478px); opacity: 1; } /* Começa movimento, mantém opacidade */
+            80.5% { transform: translateY(-478px); opacity: 0.3; } /* Fade out COM delay */
             81% { transform: translateY(-482px); opacity: 0.8; } /* Micro ajuste + fade in */
             82% { transform: translateY(-480px); opacity: 1; } /* Posição final + totalmente visível */
             82.5% { transform: translateY(-480px); opacity: 1; } /* FLASH rápido da segunda palavra negócio */
