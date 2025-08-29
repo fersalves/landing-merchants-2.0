@@ -169,97 +169,38 @@
             14% { transform: translateY(-40px); opacity: 1; } /* Movimento mantendo visibilidade */
             15% { transform: translateY(-60px); opacity: 0.8; } /* Leve fade no meio */
             16% { transform: translateY(-80px); opacity: 0.5; } /* Fade mais acentuado */
-            17% { transform: translateY(-100px); opacity: 0; color: rgba(180,180,180,0); } /* INVISÍVEL - início da chegada */
-            17.5% { transform: translateY(-105px); opacity: 0.1; color: rgba(180,180,180,0.1); } /* Começando aparecer */
-            18% { transform: translateY(-110px); opacity: 0.2; color: rgba(180,180,180,0.2); } /* Fade-in cinza claro */
-            18.5% { transform: translateY(-113px); opacity: 0.3; color: rgba(175,175,175,0.3); } /* Continuando fade */
-            19% { transform: translateY(-116px); opacity: 0.4; color: rgba(170,170,170,0.4); } /* Cinza claro */
-            19.5% { transform: translateY(-118px); opacity: 0.5; color: rgba(165,165,165,0.5); } /* Meio do fade */
-            20% { transform: translateY(-119px); opacity: 0.6; color: rgba(160,160,160,0.6); } /* Cinza claro médio */
-            20.5% { transform: translateY(-120px); opacity: 0.65; color: rgba(155,155,155,0.65); } /* Continuando */
-            21% { transform: translateY(-121px); opacity: 0.7; color: rgba(150,150,150,0.7); } /* Cinza médio */
-            21.5% { transform: translateY(-121px); opacity: 0.75; color: rgba(140,140,140,0.75); } /* Continuando */
-            22% { transform: translateY(-120px); opacity: 0.8; color: rgba(130,130,130,0.8); } /* Cinza */
-            22.5% { transform: translateY(-120px); opacity: 0.85; color: rgba(120,120,120,0.85); } /* Continuando */
-            23% { transform: translateY(-120px); opacity: 0.9; color: rgba(100,100,100,0.9); } /* Cinza escuro */
-            23.5% { transform: translateY(-120px); opacity: 0.93; color: rgba(80,80,80,0.93); } /* Quase final */
-            24% { transform: translateY(-120px); opacity: 0.96; color: rgba(70,70,70,0.96); } /* Cinza muito escuro */
-            24.5% { transform: translateY(-120px); opacity: 0.98; color: rgba(50,50,50,0.98); } /* Quase preto */
-            25% { transform: translateY(-120px); opacity: 0.99; color: rgba(30,30,30,0.99); } /* Quase preto */
-            25.5% { transform: translateY(-120px); opacity: 1; color: rgba(10,10,10,1); } /* Quase final */
-            26% { transform: translateY(-120px); opacity: 1; color: rgba(0,0,0,0.9); } /* TOTALMENTE PRETA */
-            34% { transform: translateY(-120px); opacity: 1; color: rgba(0,0,0,0.9); } /* PERMANECE TOTALMENTE PRETA */
+            17% { transform: translateY(-100px); opacity: 0; } /* Totalmente invisível no começo */
+            18% { transform: translateY(-110px); opacity: 0.5; } /* Fade mais acentuado */
+            19% { transform: translateY(-115px); opacity: 0.8; } /* Leve fade no meio do movimento */
+            20% { transform: translateY(-120px); opacity: 1; } /* Continua visível subindo */
+            34% { transform: translateY(-120px); opacity: 1; } /* PERMANECE TOTALMENTE VISÍVEL */
             35% { transform: translateY(-130px); opacity: 1; } /* Começando movimento ainda visível */
             36% { transform: translateY(-160px); opacity: 1; } /* Movimento mantendo visibilidade */
             37% { transform: translateY(-180px); opacity: 0.8; } /* Leve fade no meio */
             38% { transform: translateY(-200px); opacity: 0.5; } /* Fade mais acentuado */
-            39% { transform: translateY(-220px); opacity: 0; color: rgba(180,180,180,0); } /* INVISÍVEL - início da chegada */
-            39.5% { transform: translateY(-225px); opacity: 0.1; color: rgba(180,180,180,0.1); } /* Começando aparecer */
-            40% { transform: translateY(-230px); opacity: 0.2; color: rgba(180,180,180,0.2); } /* Fade-in cinza claro */
-            40.5% { transform: translateY(-233px); opacity: 0.3; color: rgba(175,175,175,0.3); } /* Continuando fade */
-            41% { transform: translateY(-236px); opacity: 0.4; color: rgba(170,170,170,0.4); } /* Cinza claro */
-            41.5% { transform: translateY(-238px); opacity: 0.5; color: rgba(165,165,165,0.5); } /* Meio do fade */
-            42% { transform: translateY(-239px); opacity: 0.6; color: rgba(160,160,160,0.6); } /* Cinza claro médio */
-            42.5% { transform: translateY(-240px); opacity: 0.65; color: rgba(155,155,155,0.65); } /* Continuando */
-            43% { transform: translateY(-241px); opacity: 0.7; color: rgba(150,150,150,0.7); } /* Cinza médio */
-            43.5% { transform: translateY(-241px); opacity: 0.75; color: rgba(140,140,140,0.75); } /* Continuando */
-            44% { transform: translateY(-240px); opacity: 0.8; color: rgba(130,130,130,0.8); } /* Cinza */
-            44.5% { transform: translateY(-240px); opacity: 0.85; color: rgba(120,120,120,0.85); } /* Continuando */
-            45% { transform: translateY(-240px); opacity: 0.9; color: rgba(100,100,100,0.9); } /* Cinza escuro */
-            45.5% { transform: translateY(-240px); opacity: 0.93; color: rgba(80,80,80,0.93); } /* Quase final */
-            46% { transform: translateY(-240px); opacity: 0.96; color: rgba(70,70,70,0.96); } /* Cinza muito escuro */
-            46.5% { transform: translateY(-240px); opacity: 0.98; color: rgba(50,50,50,0.98); } /* Quase preto */
-            47% { transform: translateY(-240px); opacity: 0.99; color: rgba(30,30,30,0.99); } /* Quase preto */
-            47.5% { transform: translateY(-240px); opacity: 1; color: rgba(10,10,10,1); } /* Quase final */
-            48% { transform: translateY(-240px); opacity: 1; color: rgba(0,0,0,0.9); } /* TOTALMENTE PRETA */
-            56% { transform: translateY(-240px); opacity: 1; color: rgba(0,0,0,0.9); } /* PERMANECE TOTALMENTE PRETA */
+            39% { transform: translateY(-220px); opacity: 0; } /* Totalmente invisível no começo */
+            40% { transform: translateY(-230px); opacity: 0.5; } /* Fade mais acentuado */
+            41% { transform: translateY(-235px); opacity: 0.8; } /* Leve fade no meio do movimento */
+            42% { transform: translateY(-240px); opacity: 1; } /* Continua visível subindo */
+            56% { transform: translateY(-240px); opacity: 1; } /* PERMANECE TOTALMENTE VISÍVEL */
             57% { transform: translateY(-250px); opacity: 1; } /* Começando movimento ainda visível */
             58% { transform: translateY(-280px); opacity: 1; } /* Movimento mantendo visibilidade */
             59% { transform: translateY(-300px); opacity: 0.8; } /* Leve fade no meio */
             60% { transform: translateY(-320px); opacity: 0.5; } /* Fade mais acentuado */
-            61% { transform: translateY(-340px); opacity: 0; color: rgba(180,180,180,0); } /* INVISÍVEL - início da chegada */
-            61.5% { transform: translateY(-345px); opacity: 0.1; color: rgba(180,180,180,0.1); } /* Começando aparecer */
-            62% { transform: translateY(-350px); opacity: 0.2; color: rgba(180,180,180,0.2); } /* Fade-in cinza claro */
-            62.5% { transform: translateY(-353px); opacity: 0.3; color: rgba(175,175,175,0.3); } /* Continuando fade */
-            63% { transform: translateY(-356px); opacity: 0.4; color: rgba(170,170,170,0.4); } /* Cinza claro */
-            63.5% { transform: translateY(-358px); opacity: 0.5; color: rgba(165,165,165,0.5); } /* Meio do fade */
-            64% { transform: translateY(-359px); opacity: 0.6; color: rgba(160,160,160,0.6); } /* Cinza claro médio */
-            64.5% { transform: translateY(-360px); opacity: 0.65; color: rgba(155,155,155,0.65); } /* Continuando */
-            65% { transform: translateY(-361px); opacity: 0.7; color: rgba(150,150,150,0.7); } /* Cinza médio */
-            65.5% { transform: translateY(-361px); opacity: 0.75; color: rgba(140,140,140,0.75); } /* Continuando */
-            66% { transform: translateY(-360px); opacity: 0.8; color: rgba(130,130,130,0.8); } /* Cinza */
-            66.5% { transform: translateY(-360px); opacity: 0.85; color: rgba(120,120,120,0.85); } /* Continuando */
-            67% { transform: translateY(-360px); opacity: 0.9; color: rgba(100,100,100,0.9); } /* Cinza escuro */
-            67.5% { transform: translateY(-360px); opacity: 0.93; color: rgba(80,80,80,0.93); } /* Quase final */
-            68% { transform: translateY(-360px); opacity: 0.96; color: rgba(70,70,70,0.96); } /* Cinza muito escuro */
-            68.5% { transform: translateY(-360px); opacity: 0.98; color: rgba(50,50,50,0.98); } /* Quase preto */
-            69% { transform: translateY(-360px); opacity: 0.99; color: rgba(30,30,30,0.99); } /* Quase preto */
-            69.5% { transform: translateY(-360px); opacity: 1; color: rgba(10,10,10,1); } /* Quase final */
-            70% { transform: translateY(-360px); opacity: 1; color: rgba(0,0,0,0.9); } /* TOTALMENTE PRETA */
-            78% { transform: translateY(-360px); opacity: 1; color: rgba(0,0,0,0.9); } /* PERMANECE TOTALMENTE PRETA */
+            61% { transform: translateY(-340px); opacity: 0; } /* Totalmente invisível no começo */
+            62% { transform: translateY(-350px); opacity: 0.5; } /* Fade mais acentuado */
+            63% { transform: translateY(-355px); opacity: 0.8; } /* Leve fade no meio do movimento */
+            64% { transform: translateY(-360px); opacity: 1; } /* Continua visível subindo */
+            78% { transform: translateY(-360px); opacity: 1; } /* PERMANECE TOTALMENTE VISÍVEL */
             79% { transform: translateY(-370px); opacity: 1; } /* Começando movimento ainda visível */
             80% { transform: translateY(-400px); opacity: 1; } /* Movimento mantendo visibilidade */
             81% { transform: translateY(-420px); opacity: 0.8; } /* Leve fade no meio */
             82% { transform: translateY(-440px); opacity: 0.5; } /* Fade mais acentuado */
-            83% { transform: translateY(-460px); opacity: 0; color: rgba(180,180,180,0); } /* INVISÍVEL - início da chegada */
-            83.5% { transform: translateY(-465px); opacity: 0.1; color: rgba(180,180,180,0.1); } /* Começando aparecer */
-            84% { transform: translateY(-470px); opacity: 0.2; color: rgba(180,180,180,0.2); } /* Fade-in cinza claro */
-            84.5% { transform: translateY(-473px); opacity: 0.3; color: rgba(175,175,175,0.3); } /* Continuando fade */
-            85% { transform: translateY(-476px); opacity: 0.4; color: rgba(170,170,170,0.4); } /* Cinza claro */
-            85.5% { transform: translateY(-478px); opacity: 0.5; color: rgba(165,165,165,0.5); } /* Meio do fade */
-            86% { transform: translateY(-479px); opacity: 0.6; color: rgba(160,160,160,0.6); } /* Cinza claro médio */
-            86.5% { transform: translateY(-480px); opacity: 0.65; color: rgba(155,155,155,0.65); } /* Continuando */
-            87% { transform: translateY(-481px); opacity: 0.7; color: rgba(150,150,150,0.7); } /* Cinza médio */
-            87.5% { transform: translateY(-481px); opacity: 0.75; color: rgba(140,140,140,0.75); } /* Continuando */
-            88% { transform: translateY(-480px); opacity: 0.8; color: rgba(130,130,130,0.8); } /* Cinza */
-            88.5% { transform: translateY(-480px); opacity: 0.85; color: rgba(120,120,120,0.85); } /* Continuando */
-            89% { transform: translateY(-480px); opacity: 0.9; color: rgba(100,100,100,0.9); } /* Cinza escuro */
-            89.2% { transform: translateY(-480px); opacity: 0.93; color: rgba(80,80,80,0.93); } /* Quase final */
-            89.4% { transform: translateY(-480px); opacity: 0.96; color: rgba(70,70,70,0.96); } /* Cinza muito escuro */
-            89.6% { transform: translateY(-480px); opacity: 0.98; color: rgba(50,50,50,0.98); } /* Quase preto */
-            89.8% { transform: translateY(-480px); opacity: 0.99; color: rgba(30,30,30,0.99); } /* Quase preto */
-            90% { transform: translateY(-480px); opacity: 1; color: rgba(0,0,0,0.9); } /* TOTALMENTE PRETA */
-            100% { transform: translateY(-480px); opacity: 1; color: rgba(0,0,0,0.9); } /* Mantém posição no final */
+            83% { transform: translateY(-460px); opacity: 0; } /* Totalmente invisível no começo */
+            84% { transform: translateY(-470px); opacity: 0.5; } /* Fade mais acentuado */
+            85% { transform: translateY(-475px); opacity: 0.8; } /* Leve fade no meio do movimento */
+            86% { transform: translateY(-480px); opacity: 1; } /* Continua visível subindo */
+            100% { transform: translateY(-480px); opacity: 1; } /* Mantém posição no final */
         }
 
         .hero-subtitle {
