@@ -163,37 +163,33 @@
         }
 
         @keyframes wordSlide {
-            0% { transform: translateY(0); opacity: 1; color: rgba(0,0,0,0.9); } /* Inicia estático - negócio primeira vez */
-            12% { transform: translateY(0); opacity: 1; color: rgba(0,0,0,0.9); } /* Menos tempo parado */
-            13% { transform: translateY(0); opacity: 0.8; color: rgba(0,0,0,0.6); } /* FADEOUT com degradê de cor */
-            14% { transform: translateY(-40px); opacity: 0.4; color: rgba(0,0,0,0.3); } /* Movimento com cor mais suave */
-            18% { transform: translateY(-118px); opacity: 0.1; color: rgba(0,0,0,0.15); } /* Transição quase transparente */
-            20% { transform: translateY(-122px); opacity: 0.4; color: rgba(0,0,0,0.3); } /* Começando FADEIN com cor suave */
-            21% { transform: translateY(-121px); opacity: 0.7; color: rgba(0,0,0,0.6); } /* Degradê intermediário */
-            22% { transform: translateY(-120px); opacity: 1; color: rgba(0,0,0,0.9); } /* Posição final + cor completa */
-            34% { transform: translateY(-120px); opacity: 1; color: rgba(0,0,0,0.9); } /* Menos tempo parado */
-            35% { transform: translateY(-120px); opacity: 0.8; color: rgba(0,0,0,0.6); } /* FADEOUT com degradê de cor */
-            36% { transform: translateY(-160px); opacity: 0.4; color: rgba(0,0,0,0.3); } /* Movimento com cor mais suave */
-            40% { transform: translateY(-238px); opacity: 0.1; color: rgba(0,0,0,0.15); } /* Transição quase transparente */
-            42% { transform: translateY(-242px); opacity: 0.4; color: rgba(0,0,0,0.3); } /* Começando FADEIN com cor suave */
-            43% { transform: translateY(-241px); opacity: 0.7; color: rgba(0,0,0,0.6); } /* Degradê intermediário */
-            44% { transform: translateY(-240px); opacity: 1; color: rgba(0,0,0,0.9); } /* Posição final + cor completa */
-            56% { transform: translateY(-240px); opacity: 1; color: rgba(0,0,0,0.9); } /* Menos tempo parado */
-            57% { transform: translateY(-240px); opacity: 0.8; color: rgba(0,0,0,0.6); } /* FADEOUT com degradê de cor */
-            58% { transform: translateY(-280px); opacity: 0.4; color: rgba(0,0,0,0.3); } /* Movimento com cor mais suave */
-            62% { transform: translateY(-358px); opacity: 0.1; color: rgba(0,0,0,0.15); } /* Transição quase transparente */
-            64% { transform: translateY(-362px); opacity: 0.4; color: rgba(0,0,0,0.3); } /* Começando FADEIN com cor suave */
-            65% { transform: translateY(-361px); opacity: 0.7; color: rgba(0,0,0,0.6); } /* Degradê intermediário */
-            66% { transform: translateY(-360px); opacity: 1; color: rgba(0,0,0,0.9); } /* Posição final + cor completa */
-            78% { transform: translateY(-360px); opacity: 1; color: rgba(0,0,0,0.9); } /* Menos tempo parado */
-            79% { transform: translateY(-360px); opacity: 0.8; color: rgba(0,0,0,0.6); } /* FADEOUT com degradê de cor */
-            80% { transform: translateY(-400px); opacity: 0.4; color: rgba(0,0,0,0.3); } /* Movimento com cor mais suave */
-            84% { transform: translateY(-478px); opacity: 0.1; color: rgba(0,0,0,0.15); } /* Transição quase transparente */
-            86% { transform: translateY(-482px); opacity: 0.4; color: rgba(0,0,0,0.3); } /* Começando FADEIN com cor suave */
-            87% { transform: translateY(-481px); opacity: 0.7; color: rgba(0,0,0,0.6); } /* Degradê intermediário */
-            88% { transform: translateY(-480px); opacity: 1; color: rgba(0,0,0,0.9); } /* Posição final + cor completa */
-            89% { transform: translateY(-480px); opacity: 1; color: rgba(0,0,0,0.9); } /* FLASH rápido da segunda palavra negócio */
-            100% { transform: translateY(-480px); opacity: 1; color: rgba(0,0,0,0.9); } /* Mantém posição no final */
+            0% { transform: translateY(0); opacity: 1; } /* Inicia estático - negócio primeira vez */
+            12% { transform: translateY(0); opacity: 1; } /* Menos tempo parado */
+            13% { transform: translateY(0); opacity: 0.1; } /* FADEOUT no início do movimento */
+            14% { transform: translateY(-40px); opacity: 0.1; } /* Movimento iniciando com fade */
+            18% { transform: translateY(-118px); opacity: 0.1; } /* Transição com fade */
+            20% { transform: translateY(-122px); opacity: 0.5; } /* Micro ajuste + começando FADEIN */
+            22% { transform: translateY(-120px); opacity: 1; } /* Posição final + FADEIN completo */
+            34% { transform: translateY(-120px); opacity: 1; } /* Menos tempo parado */
+            35% { transform: translateY(-120px); opacity: 0.1; } /* FADEOUT no início do movimento */
+            36% { transform: translateY(-160px); opacity: 0.1; } /* Movimento iniciando com fade */
+            40% { transform: translateY(-238px); opacity: 0.1; } /* Transição com fade */
+            42% { transform: translateY(-242px); opacity: 0.5; } /* Micro ajuste + começando FADEIN */
+            44% { transform: translateY(-240px); opacity: 1; } /* Posição final + FADEIN completo */
+            56% { transform: translateY(-240px); opacity: 1; } /* Menos tempo parado */
+            57% { transform: translateY(-240px); opacity: 0.1; } /* FADEOUT no início do movimento */
+            58% { transform: translateY(-280px); opacity: 0.1; } /* Movimento iniciando com fade */
+            62% { transform: translateY(-358px); opacity: 0.1; } /* Transição com fade */
+            64% { transform: translateY(-362px); opacity: 0.5; } /* Micro ajuste + começando FADEIN */
+            66% { transform: translateY(-360px); opacity: 1; } /* Posição final + FADEIN completo */
+            78% { transform: translateY(-360px); opacity: 1; } /* Menos tempo parado */
+            79% { transform: translateY(-360px); opacity: 0.1; } /* FADEOUT no início do movimento */
+            80% { transform: translateY(-400px); opacity: 0.1; } /* Movimento iniciando com fade */
+            84% { transform: translateY(-478px); opacity: 0.1; } /* Transição com fade */
+            86% { transform: translateY(-482px); opacity: 0.5; } /* Micro ajuste + começando FADEIN */
+            88% { transform: translateY(-480px); opacity: 1; } /* Posição final + FADEIN completo */
+            89% { transform: translateY(-480px); opacity: 1; } /* FLASH rápido da segunda palavra negócio */
+            100% { transform: translateY(-480px); opacity: 1; } /* Mantém posição no final */
         }
 
         .hero-subtitle {
