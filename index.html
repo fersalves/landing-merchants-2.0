@@ -165,25 +165,29 @@
         @keyframes wordSlide {
             0% { transform: translateY(0); opacity: 1; } /* Inicia estático - negócio primeira vez */
             12% { transform: translateY(0); opacity: 1; } /* Menos tempo parado */
-            14% { transform: translateY(0); opacity: 0.3; } /* Fade out antes de subir */
-            18% { transform: translateY(-118px); opacity: 0.3; } /* Transição mais lenta para "tienda" */
-            20% { transform: translateY(-122px); opacity: 0.8; } /* Micro ajuste + fade in */
-            22% { transform: translateY(-120px); opacity: 1; } /* Posição final + totalmente visível */
+            13% { transform: translateY(0); opacity: 0.1; } /* FADEOUT no início do movimento */
+            14% { transform: translateY(-40px); opacity: 0.1; } /* Movimento iniciando com fade */
+            18% { transform: translateY(-118px); opacity: 0.1; } /* Transição com fade */
+            20% { transform: translateY(-122px); opacity: 0.5; } /* Micro ajuste + começando FADEIN */
+            22% { transform: translateY(-120px); opacity: 1; } /* Posição final + FADEIN completo */
             34% { transform: translateY(-120px); opacity: 1; } /* Menos tempo parado */
-            36% { transform: translateY(-120px); opacity: 0.3; } /* Fade out antes de subir */
-            40% { transform: translateY(-238px); opacity: 0.3; } /* Transição mais lenta para "lojinha" */
-            42% { transform: translateY(-242px); opacity: 0.8; } /* Micro ajuste + fade in */
-            44% { transform: translateY(-240px); opacity: 1; } /* Posição final + totalmente visível */
+            35% { transform: translateY(-120px); opacity: 0.1; } /* FADEOUT no início do movimento */
+            36% { transform: translateY(-160px); opacity: 0.1; } /* Movimento iniciando com fade */
+            40% { transform: translateY(-238px); opacity: 0.1; } /* Transição com fade */
+            42% { transform: translateY(-242px); opacity: 0.5; } /* Micro ajuste + começando FADEIN */
+            44% { transform: translateY(-240px); opacity: 1; } /* Posição final + FADEIN completo */
             56% { transform: translateY(-240px); opacity: 1; } /* Menos tempo parado */
-            58% { transform: translateY(-240px); opacity: 0.3; } /* Fade out antes de subir */
-            62% { transform: translateY(-358px); opacity: 0.3; } /* Transição mais lenta para "mercado" */
-            64% { transform: translateY(-362px); opacity: 0.8; } /* Micro ajuste + fade in */
-            66% { transform: translateY(-360px); opacity: 1; } /* Posição final + totalmente visível */
+            57% { transform: translateY(-240px); opacity: 0.1; } /* FADEOUT no início do movimento */
+            58% { transform: translateY(-280px); opacity: 0.1; } /* Movimento iniciando com fade */
+            62% { transform: translateY(-358px); opacity: 0.1; } /* Transição com fade */
+            64% { transform: translateY(-362px); opacity: 0.5; } /* Micro ajuste + começando FADEIN */
+            66% { transform: translateY(-360px); opacity: 1; } /* Posição final + FADEIN completo */
             78% { transform: translateY(-360px); opacity: 1; } /* Menos tempo parado */
-            80% { transform: translateY(-360px); opacity: 0.3; } /* Fade out antes de subir */
-            84% { transform: translateY(-478px); opacity: 0.3; } /* Transição mais lenta para "negócio" no giro */
-            86% { transform: translateY(-482px); opacity: 0.8; } /* Micro ajuste + fade in */
-            88% { transform: translateY(-480px); opacity: 1; } /* Posição final + totalmente visível */
+            79% { transform: translateY(-360px); opacity: 0.1; } /* FADEOUT no início do movimento */
+            80% { transform: translateY(-400px); opacity: 0.1; } /* Movimento iniciando com fade */
+            84% { transform: translateY(-478px); opacity: 0.1; } /* Transição com fade */
+            86% { transform: translateY(-482px); opacity: 0.5; } /* Micro ajuste + começando FADEIN */
+            88% { transform: translateY(-480px); opacity: 1; } /* Posição final + FADEIN completo */
             89% { transform: translateY(-480px); opacity: 1; } /* FLASH rápido da segunda palavra negócio */
             100% { transform: translateY(-480px); opacity: 1; } /* Mantém posição no final */
         }
