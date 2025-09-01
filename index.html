@@ -296,7 +296,23 @@
             margin-right: auto;
         }
 
-        /* Animated title with motion blur */
+        /* Animated section with smooth fade-in */
+        .animated-section {
+            opacity: 0;
+            transform: translateY(60px);
+            filter: blur(15px);
+            transition: opacity 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                        transform 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                        filter 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .animated-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+            filter: blur(0px);
+        }
+
+        /* Legacy animated title (now redundant but keeping for compatibility) */
         .animated-title {
             opacity: 0;
             transform: translateY(60px);
@@ -1377,7 +1393,7 @@
     </section>
 
     <!-- Products Section -->
-    <section class="products" id="productos">
+    <section class="products animated-section" id="productos">
         <div class="container">
             <h2 class="section-title animated-title" id="products-title">Diferentes opciones para tus metas, grandes o pequeñas</h2>
             <div class="product-cards">
@@ -1425,7 +1441,7 @@
     </section>
 
     <!-- Steps Section -->
-    <section class="steps">
+    <section class="steps animated-section">
         <div class="container">
             <h2 class="section-title animated-title" id="steps-title">Lo pides, lo tienes. Así de rápido</h2>
             <div class="steps-content">
@@ -1466,7 +1482,7 @@
     </section>
 
     <!-- Requirements Section -->
-    <section class="requirements">
+    <section class="requirements animated-section">
         <div class="container">
             <h2 class="section-title animated-title" id="requirements-title">¡Más ventas, más créditos! Elige Mercado Pago para tu negocio</h2>
             <div class="requirements-cards">
@@ -1923,17 +1939,18 @@
         let currentActiveCard = null;
 
         // Scroll to card function com toggle - volta para posição onde card fica totalmente visível
-        // Intersection Observer para animação dos títulos
-        const animatedTitles = [
-            document.getElementById('products-title'),
-            document.getElementById('steps-title'),
-            document.getElementById('requirements-title')
-        ];
+        // Intersection Observer para animação das seções completas
+        const animatedSections = document.querySelectorAll('.animated-section');
         
-        const titleObserver = new IntersectionObserver((entries) => {
+        const sectionObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
+                    // Também anima o título dentro da seção
+                    const title = entry.target.querySelector('.animated-title');
+                    if (title) {
+                        title.classList.add('visible');
+                    }
                 }
             });
         }, {
@@ -1941,10 +1958,10 @@
             rootMargin: '0px 0px -50px 0px' // Margem para ativar um pouco antes
         });
         
-        // Observa todos os títulos animados
-        animatedTitles.forEach(title => {
-            if (title) {
-                titleObserver.observe(title);
+        // Observa todas as seções animadas
+        animatedSections.forEach(section => {
+            if (section) {
+                sectionObserver.observe(section);
             }
         });
 
