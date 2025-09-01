@@ -84,9 +84,16 @@
             background-color: rgba(0,0,0,0.05);
         }
 
-        .nav-item.dropdown::after {
-            content: '▼';
-            font-size: 10px;
+        .nav-item.dropdown {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .nav-item.dropdown .chevron {
+            width: 12px;
+            height: 12px;
+            opacity: 1;
         }
 
         .nav-item.login {
@@ -1371,8 +1378,14 @@
                         <img src="./assets/images/Header-Logo.png" alt="Mercado Pago" />
                     </div>
                     <nav class="nav-menu">
-                        <a href="#" class="nav-item dropdown">Para ti</a>
-                        <a href="#" class="nav-item dropdown">Para tu negocio</a>
+                        <a href="#" class="nav-item dropdown">
+                            Para ti
+                            <img src="./assets/images/Chevron Down.svg" alt="" class="chevron">
+                        </a>
+                        <a href="#" class="nav-item dropdown">
+                            Para tu negocio
+                            <img src="./assets/images/Chevron Down.svg" alt="" class="chevron">
+                        </a>
                     </nav>
                 </div>
                 <div class="nav-right">
