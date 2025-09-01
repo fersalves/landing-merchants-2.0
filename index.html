@@ -1231,6 +1231,7 @@
         .footer {
             background: white;
             padding: 64px 0 0;
+            width: 100%;
         }
 
         .footer-content {
@@ -1272,11 +1273,23 @@
 
         .footer-bottom {
             background: #f5f5f5;
-            padding: 24px 40px;
-            margin: 0 -40px;
+            padding: 24px 0;
+            margin: 0;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            width: 100vw;
+            margin-left: calc(-50vw + 50%);
+        }
+
+        .footer-bottom-content {
+            max-width: 1366px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
         }
 
         .footer-copyright {
@@ -1367,10 +1380,11 @@
                 align-items: center;
             }
 
-            .footer-bottom {
+            .footer-bottom-content {
                 flex-direction: column;
                 gap: 16px;
                 text-align: center;
+                padding: 0 20px;
             }
         }
     </style>
@@ -1669,20 +1683,22 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p class="footer-copyright">Copyright © 2023 Mercado Pago Colombia Ltda. Carrera 17 Número 93 - 09 Piso 3, Bogotá, Colombia</p>
-                <div class="social-links">
-                    <a href="#" title="Facebook">
-                        <img src="./assets/images/Facebook.svg" alt="Facebook">
-                    </a>
-                    <a href="#" title="Twitter">
-                        <img src="./assets/images/twitter.svg" alt="Twitter">
-                    </a>
-                    <a href="#" title="LinkedIn">
-                        <img src="./assets/images/Linkedin.svg" alt="LinkedIn">
-                    </a>
-                    <a href="#" title="YouTube">
-                        <img src="./assets/images/Youtube.svg" alt="YouTube">
-                    </a>
+                <div class="footer-bottom-content">
+                    <p class="footer-copyright">Copyright © 2023 Mercado Pago Colombia Ltda. Carrera 17 Número 93 - 09 Piso 3, Bogotá, Colombia</p>
+                    <div class="social-links">
+                        <a href="#" title="Facebook">
+                            <img src="./assets/images/Facebook.svg" alt="Facebook">
+                        </a>
+                        <a href="#" title="Twitter">
+                            <img src="./assets/images/twitter.svg" alt="Twitter">
+                        </a>
+                        <a href="#" title="LinkedIn">
+                            <img src="./assets/images/Linkedin.svg" alt="LinkedIn">
+                        </a>
+                        <a href="#" title="YouTube">
+                            <img src="./assets/images/Youtube.svg" alt="YouTube">
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
