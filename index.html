@@ -35,6 +35,13 @@
             width: 100%;
             top: 0;
             z-index: 1000;
+            transition: padding 0.3s ease, background-color 0.3s ease;
+        }
+
+        .header.scrolled {
+            padding: 12px 0;
+            background: rgba(255, 230, 0, 0.95);
+            backdrop-filter: blur(10px);
         }
 
         .header-content {
@@ -95,6 +102,23 @@
             height: 20px;
             opacity: 1;
             filter: brightness(0); /* Força cor preta */
+        }
+
+        /* Header scrolled state */
+        .header.scrolled .nav-item.dropdown,
+        .header.scrolled .nav-item:not(.signup) {
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .header.scrolled .nav-item.signup {
+            opacity: 1;
+            transition: opacity 0.3s ease;
+        }
+
+        .nav-item {
+            transition: opacity 0.3s ease;
         }
 
         .nav-item.login {
@@ -2102,6 +2126,22 @@
                 });
             }
         }
+
+        // Header scroll transformation
+        const header = document.querySelector('.header');
+        let isScrolled = false;
+
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
+            if (scrollTop > 100 && !isScrolled) {
+                header.classList.add('scrolled');
+                isScrolled = true;
+            } else if (scrollTop <= 100 && isScrolled) {
+                header.classList.remove('scrolled');
+                isScrolled = false;
+            }
+        });
     </script>
 </body>
 </html>
