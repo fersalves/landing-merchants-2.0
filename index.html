@@ -466,14 +466,23 @@
             padding-left: 145px;
         }
 
-        .steps-text h2 {
+        .steps-text {
+            display: flex;
+            flex-direction: column;
+            gap: 48px;
+        }
+
+        .steps-text .section-title {
+            text-align: left;
+            margin: 0;
             font-size: 56px;
             font-weight: 700;
             line-height: 56px;
             letter-spacing: -1.12px;
-            margin-bottom: 84px;
-            text-align: center;
+            margin-bottom: 0;
         }
+
+        /* Título do steps agora está definido em .steps-text .section-title */
 
         .step-tabs {
             display: flex;
@@ -1315,6 +1324,12 @@
                 padding-left: 0;
             }
 
+            .steps-text .section-title {
+                text-align: center;
+                font-size: 48px;
+                line-height: 52px;
+            }
+
             .requirements-cards {
                 grid-template-columns: 1fr;
             }
@@ -1443,9 +1458,9 @@
     <!-- Steps Section -->
     <section class="steps animated-section">
         <div class="container">
-            <h2 class="section-title animated-title" id="steps-title">Lo pides, lo tienes. Así de rápido</h2>
             <div class="steps-content">
                 <div class="steps-text">
+                    <h2 class="section-title animated-title" id="steps-title">Lo pides, lo tienes. Así de rápido</h2>
                     <div class="step-tabs">
                         <button class="step-tab active" data-step="1">
                             <img src="./assets/images/Payment.svg" alt="Payment" class="step-icon-svg">
