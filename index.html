@@ -469,7 +469,7 @@
         .steps-text {
             display: flex;
             flex-direction: column;
-            gap: 48px;
+            gap: 0; /* Removemos gap global para controlar individualmente */
         }
 
         .steps-text .section-title {
@@ -479,7 +479,7 @@
             font-weight: 700;
             line-height: 56px;
             letter-spacing: -1.12px;
-            margin-bottom: 0;
+            margin-bottom: 80px;
         }
 
         /* Título do steps agora está definido em .steps-text .section-title */
@@ -487,7 +487,7 @@
         .step-tabs {
             display: flex;
             gap: 8px;
-            margin-bottom: 32px;
+            margin-bottom: 16px;
         }
 
         .step-tab {
@@ -1328,6 +1328,7 @@
                 text-align: center;
                 font-size: 48px;
                 line-height: 52px;
+                margin-bottom: 60px; /* Proporcionalmente menor no mobile */
             }
 
             .requirements-cards {
