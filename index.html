@@ -1268,15 +1268,16 @@
         .back-to-top {
             background: #ffe600;
             border: none;
-            border-radius: 50px 50px 0 0;
+            border-radius: 80px 80px 50px 50px;
             width: 160px;
-            height: 40px;
+            height: 60px;
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
             position: relative;
             margin-bottom: -1px;
+            clip-path: ellipse(80px 60px at 50% 50%);
         }
 
 
@@ -1462,7 +1463,8 @@
 
             .back-to-top {
                 width: 120px;
-                height: 32px;
+                height: 45px;
+                clip-path: ellipse(60px 45px at 50% 50%);
             }
 
             .back-to-top-icon {
