@@ -1268,7 +1268,6 @@
         .back-to-top {
             background: #ffe600;
             border: none;
-            border-radius: 50px 50px 0 0;
             width: 120px;
             height: 40px;
             display: flex;
@@ -1277,30 +1276,14 @@
             cursor: pointer;
             position: relative;
             margin-bottom: -1px;
-        }
-
-        .back-to-top::before {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: -20px;
-            width: 20px;
-            height: 20px;
-            background: transparent;
-            border-radius: 0 0 20px 0;
-            box-shadow: 10px 10px 0 #ffe600;
-        }
-
-        .back-to-top::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            right: -20px;
-            width: 20px;
-            height: 20px;
-            background: transparent;
-            border-radius: 0 0 0 20px;
-            box-shadow: -10px 10px 0 #ffe600;
+            clip-path: polygon(
+                20% 0%, 
+                80% 0%, 
+                100% 60%, 
+                95% 100%, 
+                5% 100%, 
+                0% 60%
+            );
         }
 
 
@@ -1487,22 +1470,14 @@
             .back-to-top {
                 width: 90px;
                 height: 32px;
-            }
-
-            .back-to-top::before {
-                left: -15px;
-                width: 15px;
-                height: 15px;
-                border-radius: 0 0 15px 0;
-                box-shadow: 7.5px 7.5px 0 #ffe600;
-            }
-
-            .back-to-top::after {
-                right: -15px;
-                width: 15px;
-                height: 15px;
-                border-radius: 0 0 0 15px;
-                box-shadow: -7.5px 7.5px 0 #ffe600;
+                clip-path: polygon(
+                    20% 0%, 
+                    80% 0%, 
+                    100% 60%, 
+                    95% 100%, 
+                    5% 100%, 
+                    0% 60%
+                );
             }
 
             .back-to-top-icon {
