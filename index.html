@@ -1259,24 +1259,25 @@
         .back-to-top-container {
             display: flex;
             justify-content: center;
-            padding: 0;
+            padding: 32px 0 0 0;
             position: relative;
             z-index: 1;
-            margin-bottom: 0;
+            margin-bottom: -32px;
         }
 
         .back-to-top {
-            background: #ffe600;
+            background: white;
             border: none;
-            border-radius: 50px 50px 0 0;
-            width: 160px;
-            height: 40px;
+            border-radius: 50%;
+            width: 64px;
+            height: 64px;
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
             position: relative;
-            margin-bottom: -1px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+            margin-bottom: 0;
         }
 
 
@@ -1467,12 +1468,13 @@
 
             /* Back to top responsive */
             .back-to-top-container {
-                margin-bottom: 0;
+                padding: 24px 0 0 0;
+                margin-bottom: -24px;
             }
 
             .back-to-top {
-                width: 120px;
-                height: 32px;
+                width: 48px;
+                height: 48px;
             }
 
             .back-to-top-icon {
