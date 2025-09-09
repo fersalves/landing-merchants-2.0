@@ -195,80 +195,25 @@
         }
 
         @keyframes wordSlide {
-            0% { transform: translateY(0); opacity: 1; } /* Inicia estático - negócio primeira vez */
-            12% { transform: translateY(0); opacity: 1; } /* Menos tempo parado */
-            13% { transform: translateY(-10px); opacity: 1; } /* Começando movimento ainda visível */
-            14% { transform: translateY(-40px); opacity: 1; } /* Movimento mantendo visibilidade */
-            15% { transform: translateY(-60px); opacity: 0.8; } /* Leve fade no meio */
-            16% { transform: translateY(-80px); opacity: 0.5; } /* Fade mais acentuado */
-            16.5% { transform: translateY(-90px); opacity: 0.4; } /* Começa fade de entrada mais cedo */
-            17% { transform: translateY(-100px); opacity: 0.45; } /* Fade muito gradual */
-            17.5% { transform: translateY(-105px); opacity: 0.5; } /* Continuando fade suave */
-            18% { transform: translateY(-110px); opacity: 0.6; } /* Fade gradual */
-            18.5% { transform: translateY(-113px); opacity: 0.7; } /* Meio do fade */
-            19% { transform: translateY(-115px); opacity: 0.8; } /* Leve fade no meio do movimento */
-            19.5% { transform: translateY(-118px); opacity: 0.9; } /* Quase visível */
-            20% { transform: translateY(-120px); opacity: 1; } /* Continua visível subindo */
-            21% { transform: translateY(-124px); opacity: 1; } /* Movimento maior para cima */
-            22% { transform: translateY(-116px); opacity: 1; } /* Desce mais - assentamento ampliado */
-            23% { transform: translateY(-122px); opacity: 1; } /* Sobe novamente - maior amplitude */
-            24% { transform: translateY(-118px); opacity: 1; } /* Desce suavemente - mais perceptível */
-            25% { transform: translateY(-120px); opacity: 1; } /* Volta à posição final - assentado */
-            34% { transform: translateY(-120px); opacity: 1; } /* PERMANECE TOTALMENTE VISÍVEL */
-            35% { transform: translateY(-130px); opacity: 1; } /* Começando movimento ainda visível */
-            36% { transform: translateY(-160px); opacity: 1; } /* Movimento mantendo visibilidade */
-            37% { transform: translateY(-180px); opacity: 0.8; } /* Leve fade no meio */
-            38% { transform: translateY(-200px); opacity: 0.5; } /* Fade mais acentuado */
-            38.5% { transform: translateY(-210px); opacity: 0.4; } /* Começa fade de entrada mais cedo */
-            39% { transform: translateY(-220px); opacity: 0.45; } /* Fade muito gradual */
-            39.5% { transform: translateY(-225px); opacity: 0.5; } /* Continuando fade suave */
-            40% { transform: translateY(-230px); opacity: 0.6; } /* Fade gradual */
-            40.5% { transform: translateY(-233px); opacity: 0.7; } /* Meio do fade */
-            41% { transform: translateY(-235px); opacity: 0.8; } /* Leve fade no meio do movimento */
-            41.5% { transform: translateY(-238px); opacity: 0.9; } /* Quase visível */
-            42% { transform: translateY(-240px); opacity: 1; } /* Continua visível subindo */
-            43% { transform: translateY(-244px); opacity: 1; } /* Movimento maior para cima */
-            44% { transform: translateY(-236px); opacity: 1; } /* Desce mais - assentamento ampliado */
-            45% { transform: translateY(-242px); opacity: 1; } /* Sobe novamente - maior amplitude */
-            46% { transform: translateY(-238px); opacity: 1; } /* Desce suavemente - mais perceptível */
-            47% { transform: translateY(-240px); opacity: 1; } /* Volta à posição final - assentado */
-            56% { transform: translateY(-240px); opacity: 1; } /* PERMANECE TOTALMENTE VISÍVEL */
-            57% { transform: translateY(-250px); opacity: 1; } /* Começando movimento ainda visível */
-            58% { transform: translateY(-280px); opacity: 1; } /* Movimento mantendo visibilidade */
-            59% { transform: translateY(-300px); opacity: 0.8; } /* Leve fade no meio */
-            60% { transform: translateY(-320px); opacity: 0.5; } /* Fade mais acentuado */
-            60.5% { transform: translateY(-330px); opacity: 0.4; } /* Começa fade de entrada mais cedo */
-            61% { transform: translateY(-340px); opacity: 0.45; } /* Fade muito gradual */
-            61.5% { transform: translateY(-345px); opacity: 0.5; } /* Continuando fade suave */
-            62% { transform: translateY(-350px); opacity: 0.6; } /* Fade gradual */
-            62.5% { transform: translateY(-353px); opacity: 0.7; } /* Meio do fade */
-            63% { transform: translateY(-355px); opacity: 0.8; } /* Leve fade no meio do movimento */
-            63.5% { transform: translateY(-358px); opacity: 0.9; } /* Quase visível */
-            64% { transform: translateY(-360px); opacity: 1; } /* Continua visível subindo */
-            65% { transform: translateY(-364px); opacity: 1; } /* Movimento maior para cima */
-            66% { transform: translateY(-356px); opacity: 1; } /* Desce mais - assentamento ampliado */
-            67% { transform: translateY(-362px); opacity: 1; } /* Sobe novamente - maior amplitude */
-            68% { transform: translateY(-358px); opacity: 1; } /* Desce suavemente - mais perceptível */
-            69% { transform: translateY(-360px); opacity: 1; } /* Volta à posição final - assentado */
-            78% { transform: translateY(-360px); opacity: 1; } /* PERMANECE TOTALMENTE VISÍVEL */
-            79% { transform: translateY(-370px); opacity: 1; } /* Começando movimento ainda visível */
-            80% { transform: translateY(-400px); opacity: 1; } /* Movimento mantendo visibilidade */
-            81% { transform: translateY(-420px); opacity: 0.8; } /* Leve fade no meio */
-            82% { transform: translateY(-440px); opacity: 0.5; } /* Fade mais acentuado */
-            82.5% { transform: translateY(-450px); opacity: 0.4; } /* Começa fade de entrada mais cedo */
-            83% { transform: translateY(-460px); opacity: 0.45; } /* Fade muito gradual */
-            83.5% { transform: translateY(-465px); opacity: 0.5; } /* Continuando fade suave */
-            84% { transform: translateY(-470px); opacity: 0.6; } /* Fade gradual */
-            84.5% { transform: translateY(-473px); opacity: 0.7; } /* Meio do fade */
-            85% { transform: translateY(-475px); opacity: 0.8; } /* Leve fade no meio do movimento */
-            85.5% { transform: translateY(-478px); opacity: 0.9; } /* Quase visível */
-            86% { transform: translateY(-480px); opacity: 1; } /* Continua visível subindo */
-            87% { transform: translateY(-484px); opacity: 1; } /* Movimento maior para cima */
-            88% { transform: translateY(-476px); opacity: 1; } /* Desce mais - assentamento ampliado */
-            89% { transform: translateY(-482px); opacity: 1; } /* Sobe novamente - maior amplitude */
-            90% { transform: translateY(-478px); opacity: 1; } /* Desce suavemente - mais perceptível */
-            91% { transform: translateY(-480px); opacity: 1; } /* Volta à posição final - assentado */
-            100% { transform: translateY(-480px); opacity: 1; } /* Mantém posição no final */
+            0% { transform: translateY(0); } /* Inicia estático - negócio primeira vez */
+            18% { transform: translateY(0); } /* MAIS tempo parado */
+            20% { transform: translateY(-118px); } /* Transição para "tienda" */
+            21% { transform: translateY(-122px); } /* Micro ajuste */
+            22% { transform: translateY(-120px); } /* Posição final */
+            38% { transform: translateY(-120px); } /* Tempo para exibir palavra */
+            40% { transform: translateY(-238px); } /* Transição para "lojinha" */
+            41% { transform: translateY(-242px); } /* Micro ajuste */
+            42% { transform: translateY(-240px); } /* Posição final */
+            58% { transform: translateY(-240px); } /* Tempo para exibir palavra */
+            60% { transform: translateY(-358px); } /* Transição para "mercado" */
+            61% { transform: translateY(-362px); } /* Micro ajuste */
+            62% { transform: translateY(-360px); } /* Posição final */
+            78% { transform: translateY(-360px); } /* Tempo para exibir palavra */
+            80% { transform: translateY(-478px); } /* Transição para "negócio" no giro */
+            81% { transform: translateY(-482px); } /* Micro ajuste - settling no giro */
+            82% { transform: translateY(-480px); } /* Posição final COM settling */
+            83.5% { transform: translateY(-480px); } /* MÍNIMO tempo para segunda palavra negócio */
+            100% { transform: translateY(-480px); } /* Mantém posição no final */
         }
 
         .hero-subtitle {
