@@ -181,6 +181,20 @@
             transform: translateY(0);
         }
 
+        /* TESTE 1 - Animação específica */
+        .test1-animated-words {
+            animation: wordSlide 10s infinite;
+            animation-timing-function: cubic-bezier(.69,0,.33,1); /* Transições mais suaves */
+            transform: translateY(0);
+        }
+
+        /* TESTE 2 - Animação específica */
+        .test2-animated-words {
+            animation: wordSlide 10s infinite;
+            animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Original - você pode modificar aqui */
+            transform: translateY(0);
+        }
+
         .word-item {
             height: 100px; /* Voltando para 100px - altura ideal para acomodar descenders */
             margin-bottom: 20px; /* 20px de distância entre palavras */
@@ -1510,7 +1524,7 @@
                         <span style="color: #666; font-size: 14px; display: block; margin-bottom: 10px; letter-spacing: 2px; font-weight: 600;">🧪 TESTE 1</span>
                         Creditos para impulsar tu 
                         <div class="animated-word-container">
-                            <div class="animated-words">
+                            <div class="test1-animated-words">
                                 <div class="word-item">negócio</div>
                                 <div class="word-item">tienda</div>
                                 <div class="word-item">lojinha</div>
@@ -1537,7 +1551,7 @@
                         <span style="color: #666; font-size: 14px; display: block; margin-bottom: 10px; letter-spacing: 2px; font-weight: 600;">🔬 TESTE 2</span>
                         Creditos para impulsar tu 
                         <div class="animated-word-container">
-                            <div class="animated-words">
+                            <div class="test2-animated-words">
                                 <div class="word-item">negócio</div>
                                 <div class="word-item">tienda</div>
                                 <div class="word-item">lojinha</div>
