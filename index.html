@@ -163,13 +163,13 @@
             display: flex;
             flex-wrap: wrap;
             align-items: baseline;
-            gap: 0.2em;
+            gap: 0.15em; /* Reduzido de 0.2em para 0.15em (16px → 12px) */
         }
 
         /* Animated Words Container */
         .animated-word-container {
             display: inline-block;
-            height: 100px; /* Aumentado para acomodar descenders (j, g) */
+            height: 100px; /* Voltando para 100px - altura ideal para acomodar descenders */
             overflow: hidden;
             position: relative;
             margin-top: -10px; /* Compensa altura extra para manter entrelinha original */
@@ -182,7 +182,7 @@
         }
 
         .word-item {
-            height: 100px; /* Aumentado para acomodar descenders */
+            height: 100px; /* Voltando para 100px - altura ideal para acomodar descenders */
             margin-bottom: 20px; /* 20px de distância entre palavras */
             display: flex;
             align-items: center; /* Vertical: centralizado */
