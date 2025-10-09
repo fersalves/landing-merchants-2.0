@@ -264,7 +264,7 @@
             height: 517px;
             border-radius: 40px;
             overflow: hidden;
-            background-image: url('./assets/images/hero_v2.png');
+            background-image: url('./assets/images/MLB_Hero_Desk_x2.png');
             background-size: cover;
             background-position: center;
         }
@@ -274,7 +274,7 @@
         /* Products Section */
         .products {
             padding: 84px 0;
-            padding-bottom: 80px; /* Reduzido para eliminar espaçamento extra */
+            padding-bottom: 20px; /* Reduzido para eliminar espaçamento extra */
             background: white;
         }
 
@@ -322,12 +322,25 @@
             filter: blur(0px);
         }
 
+        .products-cards-container {
+            position: relative;
+            padding: 40px 0;
+        }
+
         .product-cards {
             display: flex;
             flex-direction: column;
-            gap: 48px;
+            gap: 48px; /* Espaçamento inicial de 48px entre os cards */
             max-width: 1062px;
             margin: 0 auto;
+            position: sticky;
+            top: 200px; /* Posição onde os cards ficam "grudados" */
+        }
+
+        /* Quando a seção inteira rola (efeito wrap) */
+        .products-cards-container.scrolling .product-cards {
+            position: relative;
+            top: auto;
         }
 
         .product-card {
@@ -337,7 +350,7 @@
             position: sticky;
             overflow: hidden;
             cursor: pointer;
-            transition: transform 0.3s ease;
+            transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             background: #fbf9f9;
         }
 
@@ -349,22 +362,100 @@
         .product-card:nth-child(1) {
             top: 200px; /* Primeiro card fixa a 200px do topo */
             z-index: 1;
+            margin-bottom: 264px; /* Para alinhar a base com o card 4 */
         }
 
         .product-card:nth-child(2) {
-            top: 280px; /* 200px + 80px visíveis */
+            top: 284px; /* 200px + 80px visíveis + 4px */
             z-index: 2;
+            margin-bottom: 180px; /* Para alinhar a base com o card 4 */
         }
 
         .product-card:nth-child(3) {
-            top: 360px; /* 280px + 80px visíveis */
+            top: 374px; /* 284px + 80px visíveis + 10px */
             z-index: 3;
+            margin-bottom: 90px; /* Para alinhar a base com o card 4 */
         }
 
         .product-card:nth-child(4) {
-            position: relative; /* Card 4 NÃO fica sticky - empurra toda seção */
+            top: 464px; /* 374px + 80px visíveis + 10px */
             z-index: 4;
-            /* Sem margin-top negativo - mantém espaçamento normal de 48px */
+        }
+        
+        
+        /* Card 4: quando encontra limite de sobreposição, não pode subir mais */
+        .product-card:nth-child(4).overlapped {
+            position: sticky !important;
+            top: 464px !important; /* Mantém o limite de sobreposição */
+        }
+
+        /* Animação para descer cards 2, 3 e 4 quando card 1 é clicado */
+        .product-cards.descend .product-card:nth-child(2),
+        .product-cards.descend .product-card:nth-child(3),
+        .product-cards.descend .product-card:nth-child(4) {
+            transform: translateY(200px);
+            transition: transform 0.6s ease-in-out;
+        }
+
+
+        /* Textinho na parte superior direita - aparece apenas quando há sobreposição */
+        .product-card .card-top-right-text {
+            position: absolute;
+            top: 32px;
+            right: 32px;
+            font-size: 18px;
+            font-weight: 500;
+            color: white;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 10;
+            text-align: right;
+            white-space: nowrap;
+        }
+
+        /* Mostra o textinho apenas quando há sobreposição */
+        .product-card.overlapped .card-top-right-text {
+            opacity: 1;
+        }
+
+        /* Efeito de escadinha dinâmica - cada card encolhe conforme os próximos aparecem */
+        .product-card:nth-child(1).overlapped {
+            transform: scale(0.95) translateY(10px); /* Card 1: encolhe pouco primeiro */
+        }
+        
+        .product-card:nth-child(1).overlapped.step2 {
+            transform: scale(0.90) translateY(20px); /* Card 1: encolhe mais quando card 2 aparece */
+        }
+        
+        .product-card:nth-child(1).overlapped.step3 {
+            transform: scale(0.85) translateY(30px); /* Card 1: menor tamanho quando card 3 aparece */
+        }
+        
+        .product-card:nth-child(2).overlapped {
+            transform: scale(0.95) translateY(10px); /* Card 2: encolhe pouco primeiro */
+        }
+        
+        .product-card:nth-child(2).overlapped.step3 {
+            transform: scale(0.90) translateY(20px); /* Card 2: encolhe mais quando card 3 aparece */
+        }
+        
+        .product-card:nth-child(3).overlapped {
+            transform: scale(0.95) translateY(10px); /* Card 3: encolhe pouco */
+        }
+        
+        /* Card 4 não encolhe - é a última */
+        
+        /* Quando todos rolam juntos (step4) - todos encolhem mais */
+        .product-card:nth-child(1).overlapped.step4 {
+            transform: scale(0.80) translateY(40px); /* Card 1: menor ainda */
+        }
+        
+        .product-card:nth-child(2).overlapped.step4 {
+            transform: scale(0.85) translateY(30px); /* Card 2: menor */
+        }
+        
+        .product-card:nth-child(3).overlapped.step4 {
+            transform: scale(0.90) translateY(20px); /* Card 3: menor */
         }
 
         .card-content {
@@ -404,7 +495,7 @@
 
         .product-card.dinero-express {
             background: linear-gradient(135deg, #ff6b6b, #ee5a24);
-            background-image: url('./assets/images/DE_v2.png');
+            background-image: url('./assets/images/MLB_DE_Desk_x2.png');
             background-size: cover;
             background-position: center;
         }
@@ -415,7 +506,7 @@
 
         .product-card.cuotas-fijas {
             background: linear-gradient(135deg, #74b9ff, #0984e3);
-            background-image: url('./assets/images/CF_Desk_MLB.png');
+            background-image: url('./assets/images/MLB_CF_Desk_x2.png');
             background-size: cover;
             background-position: center;
         }
@@ -426,7 +517,7 @@
 
         .product-card.adelanto-dinero {
             background: linear-gradient(135deg, #a29bfe, #6c5ce7);
-            background-image: url('./assets/images/adelanto_v2.png');
+            background-image: url('./assets/images/MLB_Adelantos_Desk_x2.png');
             background-size: cover;
             background-position: center;
         }
@@ -437,14 +528,16 @@
 
         .product-card.porcentaje-ventas {
             background: linear-gradient(135deg, #ffeaa7, #fdcb6e);
-            background-image: url('./assets/images/PPV_v2.png');
+            background-image: url('./assets/images/MLB_PPV_Desk_x2.png');
             background-size: cover;
             background-position: center;
         }
+        
 
         .product-card.porcentaje-ventas .card-content {
             color: white;
         }
+        
 
         /* Steps Section */
         .steps {
@@ -705,7 +798,7 @@
 
         .requirement-card.card1 {
             background: linear-gradient(135deg, #3483fa, #2968c8);
-            background-image: url('./assets/images/Requisitos 1.png');
+            background-image: url('./assets/images/MLALL_Logueado_SO_Requisito-1_Desk_x2.png');
             background-size: cover;
             background-position: center;
         }
@@ -831,7 +924,7 @@
 
         .requirement-card.card2 {
             background: linear-gradient(135deg, #00a650, #00832d);
-            background-image: url('./assets/images/Requisitos 2.png');
+            background-image: url('./assets/images/MLALL_Logueado_SO_Requisito-2_Desk_x2.png');
             background-size: cover;
             background-position: center;
         }
@@ -1575,6 +1668,12 @@
     <section class="products animated-section" id="productos">
         <div class="container">
             <h2 class="section-title animated-title" id="products-title">Diferentes opciones para tus metas, grandes o pequeñas</h2>
+        </div>
+    </section>
+
+    <!-- Product Cards Container Section -->
+    <section class="products-cards-container">
+        <div class="container">
             <div class="product-cards">
                 <div class="product-card dinero-express" onclick="scrollToCard(1)">
                     <div class="card-content">
@@ -1584,6 +1683,8 @@
                         </div>
                         <p class="card-description">Pide hasta <strong>$ 100.000</strong><br>y lo devuelves en 28 días.</p>
                     </div>
+                    <!-- Textinho que aparece na parte superior direita quando ativo -->
+                    <div class="card-top-right-text">Hasta <strong>$ 100.000</strong> lo devuelves en 28 días.</div>
                 </div>
                 
                 <div class="product-card cuotas-fijas" onclick="scrollToCard(2)">
@@ -1594,6 +1695,8 @@
                         </div>
                         <p class="card-description">Pide hasta <strong>$ 10.000.000</strong> y lo<br>devuelves en hasta 24 cuotas fijas.</p>
                     </div>
+                    <!-- Textinho que aparece na parte superior direita quando ativo -->
+                    <div class="card-top-right-text">Hasta <strong>$ 10.000.000</strong> en hasta 24 cuotas fijas.</div>
                 </div>
                 
                 <div class="product-card adelanto-dinero" onclick="scrollToCard(3)">
@@ -1604,6 +1707,8 @@
                         </div>
                         <p class="card-description">Mantén tu negocio en movimiento, sin esperar a las ventas pendientes a liberar.</p>
                     </div>
+                    <!-- Textinho que aparece na parte superior direita quando ativo -->
+                    <div class="card-top-right-text">Recibe antes el dinero de tus ventas</div>
                 </div>
                 
                 <div class="product-card porcentaje-ventas">
@@ -1615,6 +1720,7 @@
                         <p class="card-description">Peça até <strong>R$ 550.000</strong> e devolva<br>com uma porcentagem de cada venda.</p>
                     </div>
                 </div>
+                
             </div>
         </div>
     </section>
@@ -2232,6 +2338,106 @@
                 });
             }
         }
+
+        // Detecção de sobreposição para mostrar textinhos nos product-cards
+        function updateProductCardsOverlap() {
+            const productsSection = document.querySelector('#productos');
+            if (!productsSection) return;
+            
+            const sectionTop = productsSection.offsetTop;
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            const headerHeight = 73;
+            
+            // Pega todos os product-cards e os containers
+            const cards = document.querySelectorAll('.product-card');
+            const cardsContainer = document.querySelector('.product-cards');
+            const productsCardsContainer = document.querySelector('.products-cards-container');
+            
+            // Remove todas as classes overlapped, steps e scrolling
+            cards.forEach(card => {
+                card.classList.remove('overlapped', 'step2', 'step3');
+            });
+            
+            // Remove classe scrolling do container
+            if (productsCardsContainer) {
+                productsCardsContainer.classList.remove('scrolling');
+            }
+            
+            
+            // Verifica se está na seção de produtos
+            if (scrollTop >= sectionTop - headerHeight) {
+                const relativeScroll = scrollTop - (sectionTop - headerHeight);
+                
+                console.log('Relative scroll:', relativeScroll); // Debug
+                
+                // Card 1: textinho aparece quando card 2 está na metade do card 1
+                if (relativeScroll >= 600 && cards[0]) {
+                    cards[0].classList.add('overlapped');
+                    console.log('Card 1 overlapped'); // Debug
+                }
+                
+                // Card 2: textinho aparece quando card 3 está na metade do card 2
+                if (relativeScroll >= 1350 && cards[1]) {
+                    cards[1].classList.add('overlapped');
+                    // Card 1 encolhe mais quando card 2 aparece
+                    if (cards[0]) {
+                        cards[0].classList.add('step2');
+                        console.log('Card 1 step2'); // Debug
+                    }
+                }
+                
+                // Card 3: textinho aparece quando card 4 está na metade do card 3
+                if (relativeScroll >= 1800 && cards[2]) {
+                    cards[2].classList.add('overlapped');
+                    // Card 1 chega ao menor tamanho e card 2 encolhe mais quando card 3 aparece
+                    if (cards[0]) {
+                        cards[0].classList.add('step3');
+                        console.log('Card 1 step3'); // Debug
+                    }
+                    if (cards[1]) {
+                        cards[1].classList.add('step3');
+                        console.log('Card 2 step3'); // Debug
+                    }
+                }
+                
+                // Card 4: quando card 3 chega no tamanho mínimo, card 4 encontra limite de sobreposição
+                if (relativeScroll >= 1000 && cards[3]) {
+                    cards[3].classList.add('overlapped');
+                    console.log('Card 4 limit reached'); // Debug
+                }
+                
+                // Efeito wrap: quando card 4 atinge limite, toda seção rola
+                if (relativeScroll >= 1200 && productsCardsContainer) {
+                    productsCardsContainer.classList.add('scrolling');
+                    console.log('Scrolling effect activated'); // Debug
+                }
+                
+            }
+        }
+
+        // Adiciona listener de scroll para detectar sobreposição
+        window.addEventListener('scroll', updateProductCardsOverlap);
+
+        // Função para fazer cards 2, 3 e 4 descerem quando card 1 é clicado
+        function handleCard1Click() {
+            const cardsContainer = document.querySelector('.product-cards');
+            
+            // Remove a classe descend se já existir
+            cardsContainer.classList.remove('descend');
+            
+            // Adiciona a classe descend para animar de forma coordenada
+            requestAnimationFrame(() => {
+                cardsContainer.classList.add('descend');
+            });
+        }
+
+        // Adiciona evento de clique ao card 1
+        document.addEventListener('DOMContentLoaded', function() {
+            const card1 = document.querySelector('.product-card:nth-child(1)');
+            if (card1) {
+                card1.addEventListener('click', handleCard1Click);
+            }
+        });
 
         // Header scroll transformation
         const header = document.querySelector('.header');
