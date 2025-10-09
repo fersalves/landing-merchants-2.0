@@ -198,6 +198,27 @@
             transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
+        /* TESTE 3 - Palavra fixa simples */
+        .test3-animated-words {
+            display: inline-block;
+        }
+
+        .test3-animated-words .word-item {
+            display: none;
+        }
+
+        .test3-animated-words .word-item:nth-child(1) {
+            display: block;
+        }
+
+        .test3-animated-words .word-item span {
+            display: inline-block;
+            font-size: 80px;
+            font-weight: 700;
+            color: #00a8ff;
+            line-height: 1;
+        }
+
         .word-item {
             height: 100px; /* Voltando para 100px - altura ideal para acomodar descenders */
             margin-bottom: 20px; /* 20px de distância entre palavras */
@@ -1590,7 +1611,7 @@
             <div class="hero-content">
                 <div class="hero-text">
                     <h1 class="hero-title">
-                        Creditos para impulsar tu 
+                        Créditos para impulsar tu 
                         <div class="animated-word-container">
                             <div class="animated-words">
                                 <div class="word-item">negócio</div>
@@ -1610,6 +1631,34 @@
         </div>
     </section>
 
+    <!-- Hero Section TESTE - Nova forma de trocar palavras -->
+    <section class="hero" style="margin-top: 40px; display: block;">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">
+                        <span style="color: #666; font-size: 14px; display: block; margin-bottom: 10px; letter-spacing: 2px; font-weight: 600;">🚀 TESTE</span>
+                        Créditos para impulsar tu 
+                        <div class="animated-word-container">
+                            <div class="test3-animated-words">
+                                <div class="word-item">
+                                    <span>n</span><span>e</span><span>g</span><span>ó</span><span>c</span><span>i</span><span>o</span>
+                                </div>
+                                <div class="word-item">
+                                    <span>t</span><span>i</span><span>e</span><span>n</span><span>d</span><span>a</span>
+                                </div>
+                            </div>
+                        </div>
+                    </h1>
+                    <p class="hero-subtitle">Simula tu crédito y obtén el dinero al instante.</p>
+                    <a href="#productos" class="hero-cta">Simular crédito</a>
+                </div>
+                <div class="hero-image">
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Hero Section TESTE 1 -->
     <section class="hero" style="margin-top: 40px; display: none;">
         <div class="container">
@@ -1617,7 +1666,7 @@
                 <div class="hero-text">
                     <h1 class="hero-title">
                         <span style="color: #666; font-size: 14px; display: block; margin-bottom: 10px; letter-spacing: 2px; font-weight: 600;">🧪 TESTE 1</span>
-                        Creditos para impulsar tu 
+                        Créditos para impulsar tu 
                         <div class="animated-word-container">
                             <div class="test1-animated-words">
                                 <div class="word-item">negócio</div>
@@ -1637,32 +1686,6 @@
         </div>
     </section>
 
-    <!-- Hero Section TESTE 2 -->
-    <section class="hero" style="margin-top: 40px; display: none;">
-        <div class="container">
-            <div class="hero-content">
-                <div class="hero-text">
-                    <h1 class="hero-title">
-                        <span style="color: #666; font-size: 14px; display: block; margin-bottom: 10px; letter-spacing: 2px; font-weight: 600;">🔬 TESTE 2</span>
-                        Creditos para impulsar tu 
-                        <div class="animated-word-container">
-                            <div class="test2-animated-words">
-                                <div class="word-item">negócio</div>
-                                <div class="word-item">tienda</div>
-                                <div class="word-item">lojinha</div>
-                                <div class="word-item">mercado</div>
-                                <div class="word-item">negócio</div>
-                            </div>
-                        </div>
-                    </h1>
-                    <p class="hero-subtitle">Simula tu crédito y obtén el dinero al instante.</p>
-                    <a href="#produtos" class="hero-cta">Simular crédito</a>
-                </div>
-                <div class="hero-image">
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- Products Section -->
     <section class="products animated-section" id="productos">
